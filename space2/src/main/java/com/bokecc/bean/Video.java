@@ -8,7 +8,7 @@ import java.util.List;
  * 功能：视频包装类，用来对视频数据进行封装 
  * 版本：1.0 
  * 日期：2010-12-21 
- * 作者：chu 
+ * 作者：chu  
  **/
 public class Video {
 
