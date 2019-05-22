@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.innermem.dao.SpInnerMemberDao">
+    
+	<sql id="spInnerMemberColumns">
+		a.id AS "id",
+		a.space_id AS "spaceId",
+		a.specialty_id AS "specialtyId",
+		a.specialty_name AS "specialtyName",
+		a.class_name AS "className",
+		a.class_id AS "classId",
+		a.user_name AS "userName",
+		a.phone_no AS "phoneNo",
+		a.enter_year AS "enterYear",
+		a.valid_period AS "validPeriod",
+		a.sex AS "sex",
+		a.birthday AS "birthday",
+		a.publish_state AS "publishState",
+		a.state AS "state",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="spInnerMemberJoins">
+	</sql>
+    
+	<select id="get" resultType="SpInnerMember">
+		SELECT 
+			<include refid="spInnerMemberColumns"/>
+		FROM sp_inner_member a
+		<include refid="spInnerMemberJoins"/>
+		WHERE a.id = #{id} AND a.del_flag = '0'
+	</select>
+	
+	<select id="getByParams" resultType="SpInnerMember" parameterType="map">
+		SELECT 
+			<include refid="spInnerMemberColumns"/>
+		FROM sp_inner_member a
+		<where>
+		    <if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id = #{spaceId}
+			</if>
+			<if test="phoneNo != null and phoneNo != ''">
+				AND a.phone_no = #{phoneNo}
+			</if>
+			<if test="userName != null and userName != ''">
+				AND a.user_name = #{userName}
+			</if>
+			<if test="publishState != null and publishState != ''">
+				AND a.publish_state = #{publishState}
+			</if>
+		</where>
+	</select>
+	
+	<select id="findList" parameterType="map" resultType="SpInnerMember">
+		SELECT 
+			<include refid="spInnerMemberColumns"/>
+		FROM sp_inner_member a
+		<include refid="spInnerMemberJoins"/>
+		<where>
+		    <if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_By = #{createBy}
+			</if>
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id = #{spaceId}
+			</if>
+			<if test="phoneNo != null and phoneNo != ''">
+				AND a.phone_no LIKE concat('%',#{phoneNo},'%') 
+			</if>
+			<if test="specialtyId != null and specialtyId != ''">
+				AND a.specialty_id = #{specialtyId}
+			</if>
+			<if test="specialtyName != null and specialtyName != ''">
+				AND a.specialty_name LIKE concat('%',#{specialtyName},'%')
+			</if>
+			<if test="userName != null and userName != ''">
+				AND a.user_name LIKE concat('%',#{userName},'%')
+			</if>
+			<if test="state != null and state != ''">
+				AND a.state = #{state}
+			</if>
+			<if test="publishState != null and publishState != ''">
+				AND a.publish_state = #{publishState}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpInnerMember">
+		SELECT 
+			<include refid="spInnerMemberColumns"/>
+		FROM sp_inner_member a
+		<include refid="spInnerMemberJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_inner_member(
+			id,
+			space_id,
+			specialty_id,
+			specialty_name,
+			class_name,
+			class_id,
+			user_name,
+			phone_no,
+			enter_year,
+			valid_period,
+			sex,
+			birthday,
+			publish_state,
+			state,
+			remarks,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			del_flag
+		) VALUES (
+			#{id},
+			#{spaceId},
+			#{specialtyId},
+			#{specialtyName},
+			#{className},
+			#{classId},
+			#{userName},
+			#{phoneNo},
+			#{enterYear},
+			#{validPeriod},
+			#{sex},
+			#{birthday},
+			#{publishState},
+			#{state},
+			#{remarks},
+			#{createDate},
+			#{createBy},
+			#{updateDate},
+			#{updateBy},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_inner_member SET 	
+			space_id = #{spaceId},
+			specialty_id = #{specialtyId},
+			specialty_name = #{specialtyName},
+			class_name = #{className},
+			class_id = #{classId},
+			user_name = #{userName},
+			phone_no = #{phoneNo},
+			enter_year = #{enterYear},
+			valid_period = #{validPeriod},
+			sex = #{sex},
+			birthday = #{birthday},
+			publish_state = #{publishState},
+			state = #{state},
+			remarks = #{remarks},
+			update_date = #{updateDate},
+			update_by = #{updateBy}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_inner_member SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="deleteInnerMember">
+		DELETE from sp_inner_member 
+		WHERE id = #{id}
+	</update>
+	
+	<!-- 平台审核会员预留信息发布状态 -->
+	<update id="checkPublishState" parameterType="map">
+	  update sp_inner_member set publish_state = #{publishState} where id=#{id}
+	</update>
+	
+	<!-- 更新预留会员的状态 -->
+	<update id="updateState" parameterType="map">
+	  update sp_inner_member 
+	  set state = #{state},
+	      update_date = #{updateDate}
+	  where id=#{id}
+	</update>
+	
+	<!-- 用户手机号唯一性验证 -->
+	<select id="checkPhone" parameterType="map" resultType="int">
+	   select count(*) from sp_inner_member where del_flag = '0' and space_id = #{spaceId} and phone_no = #{phoneNo}
+	</select>
+	
+	<!-- 预留名额是否已满校验 -->
+	<select id="checkNumber" parameterType="map" resultType="int">
+	  select reserved_quantity from sp_space where del_flag = '0' and id = #{spaceId}
+	</select>
+</mapper>

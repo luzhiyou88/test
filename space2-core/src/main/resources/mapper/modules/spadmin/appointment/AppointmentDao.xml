@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.appointment.dao.AppointmentDao">
+ 
+  <!-- 根据课程ID查询课程来源 -->
+  <select id="selectLessonType" parameterType="String" resultType="com.education.classroom.core.modules.spadmin.lesson.entity.SpLesson">
+     select lesson_source as lessonSource,lesson_number lessonNumber from sp_lesson where del_flag = '0' and id = #{lessonId}
+  </select>
+  
+  <!-- 根据课程ID查询已经预约上课人数 -->
+  <select id="selectAppointmentNum" parameterType="String" resultType="int">
+      select count(*) from sp_user_lesson where del_flag = '0' and lesson_id = #{lessonId}
+  </select>
+  
+  <!-- 插入数据到用户预约表sp_user_lesson -->
+  <insert id="insertUserLesson">
+     INSERT INTO sp_user_lesson(
+       id,
+       user_id,
+       lesson_id,
+       state,
+       remarks,
+       create_date,
+       del_flag
+     )VALUES(
+      #{id},
+      #{userId},
+      #{lessonId},
+      #{state},
+      #{remarks},
+      #{createDate},
+      #{delFlag}
+     )
+  </insert>
+  
+  <!-- 查询课程类型 -->
+  <select id="selectPayType" parameterType="map" resultType="String">
+      select state from sp_user_lesson  where del_flag = '0' and user_id = #{userId} and lesson_id = #{lessonId}
+  </select>
+  
+  <!-- 用户预约课程唯一性验证 -->
+  <select id="selectSingon" parameterType="map" resultType="int">
+     select count(*) from sp_user_lesson where del_flag = '0' and user_id = #{userId} and lesson_id = #{lessonId}
+  </select>
+  
+  
+  <!-- 取消预约 -->
+  <update id="updateAppointment" parameterType="map">
+    update sp_user_lesson set del_flag = '1' where user_id = #{userId} and lesson_id = #{lessonId}
+  </update>
+</mapper>

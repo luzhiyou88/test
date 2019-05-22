@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.phonecode.dao.SpCodeDao">
+    
+	<sql id="spCodeColumns">
+		a.id AS "id",
+		a.phone_no AS "phoneNo",
+		a.code AS "code",
+		a.update_date AS "updateDate"
+	</sql>
+	
+	<sql id="spCodeJoins">
+	</sql>
+    
+	<select id="get" resultType="SpCode">
+		SELECT 
+			<include refid="spCodeColumns"/>
+		FROM sp_code a
+		<include refid="spCodeJoins"/>
+		WHERE a.phone_no = #{phoneNo}
+	</select>
+	
+	<select id="findByPhoneNo" resultType="SpCode" parameterType="map">
+		SELECT 
+			<include refid="spCodeColumns"/>
+		FROM sp_code a
+		<include refid="spCodeJoins"/>
+		WHERE a.phone_no = #{phoneNo}
+	</select>
+	
+	<select id="findList" resultType="SpCode">
+		SELECT 
+			<include refid="spCodeColumns"/>
+		FROM sp_code a
+		<include refid="spCodeJoins"/>
+		<where>
+			
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpCode">
+		SELECT 
+			<include refid="spCodeColumns"/>
+		FROM sp_code a
+		<include refid="spCodeJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test=" orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_code(
+			id,
+			phone_no,
+			code,
+			update_date
+		) VALUES (
+			#{id},
+			#{phoneNo},
+			#{code},
+			#{updateDate}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_code SET 	
+			code = #{code},
+			update_date = #{updateDate}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM sp_code
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

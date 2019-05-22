@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.blackboard.dao.SpBlackboardDao">
+    
+	<sql id="spBlackboardColumns">
+		a.id AS "id",
+		a.user_id AS "userId",
+		a.lesson_id AS "lessonId",
+		a.img_path AS "imgPath",
+		a.create_date AS "createDate"
+	</sql>
+	
+	<select id="get" resultType="SpBlackboard">
+		SELECT 
+			<include refid="spBlackboardColumns"/>
+		FROM sp_blackboard a
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SpBlackboard">
+		SELECT 
+			<include refid="spBlackboardColumns"/>
+		FROM sp_blackboard a
+		<where>
+			
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findListByMap" resultType="SpBlackboard">
+		SELECT 
+			<include refid="spBlackboardColumns"/>
+		FROM sp_blackboard a
+		<where>
+			<if test="userId != null and userId != ''">
+				and a.user_id = #{userId}
+			</if>
+			<if test="lessonId != null and lessonId != ''">
+				and a.lesson_id = #{lessonId}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpBlackboard">
+		SELECT 
+			<include refid="spBlackboardColumns"/>
+		FROM sp_blackboard a
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_blackboard(
+			id,
+			user_id,
+			lesson_id,
+			img_path,
+			create_date
+		) VALUES (
+			#{id},
+			#{userId},
+			#{lessonId},
+			#{imgPath},
+			#{createDate}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_blackboard SET 	
+			user_id = #{userId},
+			lesson_id = #{lessonId},
+			img_path = #{imgPath}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM sp_blackboard
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

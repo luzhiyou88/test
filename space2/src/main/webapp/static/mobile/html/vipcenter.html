@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#3366ff" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta name="Keywords" content="第二教室" />
+    <meta name="Description" content="第二教室" />
+    <meta name="author" content="classroom2" />
+    <meta http-equiv="Expires" CONTENT="-1" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache" />
+    <meta http-equiv="Pragma" CONTENT="no-cache" />
+	<title>会员中心</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="../js/jquery-2.1.1.min.js"></script>
+	<script src="../js/pageAdapt.js"></script>
+</head>
+<body class="posr-bg">
+	<header class="bule-head pos-top">
+		<span>会员中心</span>
+		<em class="left-ico return-ico"></em>
+	</header>
+	<article class="pt45">
+		<aside class="vip-mes">
+			<img src="../img/user-photo2.jpg" class="vip-photo">
+			<p class="fs16 fl mt5">小白</p>
+			<p class="text-blue fl mt10">开通会员 享受会员特权</p>
+		</aside>
+		<section class="remind-box usercenter-box mb30">
+			<span class="remind-item clearfix">
+				<span class="text-blue">会员套餐</span>
+			</span>
+			<span class="remind-item clearfix">
+				<em class="mr50">12个月</em><em>￥248.00</em>
+				<button type="button" class="open-btn">开通</button>
+			</span>
+		</section>
+		<section class="remind-box usercenter-box">
+			<span class="remind-item clearfix">
+				<span class="text-blue">支付方式</span>
+			</span>
+			<span class="remind-item clearfix">
+				<em class="pay-ico zhifubao"></em>
+				<span>支付宝支付</span>
+				<span class="pay-check">
+					<input type="radio" name="pay" id="pay-zfb" checked="cehcked">
+					<label class="check-ico" for="pay-zfb"></label>
+				</span>
+			</span>
+			<span class="remind-item clearfix">
+				<em class="pay-ico weixin"></em>
+				<span>微信支付</span>
+				<span class="pay-check">
+					<input type="radio" name="pay" id="pay-wx">
+					<label class="check-ico" for="pay-wx"></label>
+				</span>
+			</span>
+		</section>
+		<div class="vip-btn-box">
+			<button type="button" class="open-big-btn">立即开通</button>
+		</div>
+	</article>
+	<script type="text/javascript">
+		$(".return-ico").click(function(){
+			history.go(-1);
+		})
+	</script>
+</body>
+</html>

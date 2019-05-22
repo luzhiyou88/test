@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#3366ff" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta name="Keywords" content="第二教室" />
+    <meta name="Description" content="第二教室" />
+    <meta name="author" content="classroom2" />
+    <meta http-equiv="Expires" CONTENT="-1" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache" />
+    <meta http-equiv="Pragma" CONTENT="no-cache" />
+	<title>预约详情</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="../js/jquery-2.1.1.min.js"></script>
+	<script src="../js/pageAdapt.js"></script>
+</head>
+<body class="posr-bg">
+	<header class="bule-head pos-top">
+		<span>测验</span>
+		<em class="left-ico return-ico"></em>
+	</header>
+	<article class="testing-box">
+		<div class="tac clock">剩余答题时间：14:36</div>
+		<p class="mt10"><em class="text-blue">1</em><em class="fs">/8</em> <em>按照制定和实施法律的主体不同，可以把法律分为哪些法（）。</em></p>
+		<p class="mt10"><input type="checkbox" id="check-a" class="check-ipt"><label for="check-a" class="check-ico">A</label> 根本法和普通法</p>
+		<p class="mt5"><input type="checkbox" id="check-b" class="check-ipt"><label for="check-b" class="check-ico">B</label> 一般法和特别法</p>
+		<p class="mt5"><input type="checkbox" id="check-c" class="check-ipt"><label for="check-b" class="check-ico">C</label> 国内法和国际法</p>
+		<p class="mt5"><input type="checkbox" id="check-d" class="check-ipt"><label for="check-d" class="check-ico">D</label> 实体法和程序法</p>
+		<div class="test-tab">
+			<a class="gray-tab br-tl" href="javascript:;">解析</a>
+			<a class="blue-tab br-rb" href="javascript:;">笔记</a>
+		</div>
+		<div class="analysis-box">
+			<p>根本法，即宪法，是指在一个国家中，规定国家的最根本的经济、政治和社会制度，公民的基本权利和义务以及国家机构组织和活动的基本原则。</p>
+			<a href="javascript:;" class="ana-ico ico-add"></a>
+			<a href="javascript:;" class="ana-ico ico-edit"></a>
+			<a href="javascript:;" class="ana-ico ico-del"></a>
+		</div>
+	</article>
+	<div class="vip-btn-box">
+			<button type="button" class="open-big-btn">下一题</button>
+		</div>
+	<script>
+	$(".return-ico").click(function(){
+		window.history.back(-1);
+	})
+	</script>
+</body>
+</html>

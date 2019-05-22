@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.center.dao.CenterDao">
+    
+	<!-- 根据id查询用户所有信息 -->
+	<select id="getUserById" resultType="java.util.Map">
+		SELECT
+		 u.id as userId
+		 ,u.name as userName
+		 ,u.login_name as loginName
+		 ,u.thumb_img as thumbImg
+		 ,u.mobile as mobile
+		 ,u.email as email
+		 ,u.user_type as userType
+		 ,u.user_state as userState
+		 ,u.space_id as spaceId
+		 ,u.enter_year as enterYear
+		 ,u.specialty_id as specialtyId
+		 ,u.class_id as classId
+		 ,u.remarks
+		 ,u.update_date as updateDate
+		 ,u.del_flag as delFlag
+		 
+		 ,s.name as "specialtyName"
+		 ,c.name as "className"
+		 
+		 ,ui.sex
+		 ,ui.qq
+		 ,ui.birthday
+		
+		FROM sp_user u
+		left join sp_user_info ui on u.id=ui.user_id
+		LEFT JOIN sp_specialty s ON s.id = u.specialty_id 
+		LEFT JOIN sp_class c ON c.id = u.class_id 
+		WHERE u.id = #{userId}
+	</select>
+	
+	<!-- 更换手机号 -->
+	<!-- 更换密码 -->
+	<!-- 修改用户信息 -->
+	<update id="updateUserById">
+		UPDATE sp_user SET 
+			<if test="userName != null and userName != ''">
+			name = #{userName}, 
+			</if>
+			<if test="loginName != null and loginName != ''">
+			login_name = #{loginName}, 
+			</if>
+			<if test="userPwd != null and userPwd != ''">
+			user_pwd = #{userPwd}, 
+			</if>
+			<if test="mobile != null and mobile != ''">
+			mobile = #{mobile}, 
+			</if>
+			email = #{email}, 
+			<if test="enterYear != null and enterYear != ''">
+			enter_year = #{enterYear}, 
+			</if>
+			<if test="specialty != null and specialty.id != null and specialty.id != ''">
+			specialty_id = #{specialty.id}, 
+			</if>
+			<if test="clazz != null and clazz.id != null and clazz.id != ''">
+			class_id = #{clazz.id}, 
+			</if>
+			remarks = #{remarks},
+			<if test="spaceId != null and spaceId != ''">
+			space_id = #{spaceId},
+			</if>
+			update_date = now()
+		WHERE id = #{userId}
+	</update>
+	<update id="updateUserInfoById">
+		UPDATE sp_user_info SET 
+			sex = #{sex}, 
+			qq = #{qq}, 
+			birthday = #{birthday}, 
+			user_id = #{userId}
+		WHERE user_id = #{userId}
+	</update>
+	<select id="hasUserInfoById" resultType="int">
+		select count(0) 
+		 from sp_user_info
+		where user_id = #{userId}
+	</select>
+	<select id="getUserInfoById" resultType="Map">
+		select id,user_id as userId,qq,sex,birthday 
+		 from sp_user_info
+		where user_id = #{userId}
+	</select>
+	<insert id="insertUserInfoById">
+		insert into sp_user_info(
+			id,user_id,sex,qq,birthday
+		) value (
+			#{id},#{userId},#{sex},#{qq},#{birthday}
+		)
+	</insert>
+	
+	<!-- 上传头像 -->
+	<update id="updatePhoto">
+		update sp_user set thumb_img=#{thumbImg} where id=#{userId}
+	</update>
+	
+	<!-- 更换绑定手机，查询新手机号码是否存在 -->
+	<select id="hasMobile" resultType="long">
+		select count(0) from sp_user
+		 where mobile=#{mobile}
+	</select>
+	
+	<!-- 手机验证码临时存储表 -->
+	<select id="getMobileCode" resultType="String">
+		select code from sp_code
+		 where phone_no=#{mobile}
+	</select>
+	<insert id="insertMobileCode">
+		insert into sp_code(
+			id,phone_no,code,update_date
+		) values (
+			#{id},#{mobile},#{code},now()
+		)
+	</insert>
+	<update id="updateMobileCode">
+		update sp_code set 
+			code=#{code},update_date=now()
+		 where phone_no=#{mobile}
+	</update>
+	
+	<!-- 查看是否是会员，如果是返回会员到期剩余天数 -->
+	<select id="getMember" resultType="Map">
+		select
+			m.id
+			,m.user_id as userId
+			,m.space_id as spaceId
+			,m.start_time as startTime
+			,m.end_time as endTime
+			,m.state
+			,m.create_date as createDate
+			,m.desc
+			,TIMESTAMPDIFF(DAY, NOW(), m.end_time) AS leaveDay
+		from sp_member m
+		where m.user_id=#{userId}
+		 and m.del_flag=0 
+		 and m.state=0
+	</select>
+	
+	<!-- 查看我加入的小组的个数，查询我发表的小组话题的个数 -->
+	<select id="getGroupNum" resultType="String">
+		select count(0) from sp_user_group ug
+		where ug.user_id=#{userId}
+		 and ug.state=3
+		 and ug.del_flag=0
+	</select>
+	<select id="getTopicNum" resultType="String">
+		select count(0) from sp_group_topic gt
+		where gt.user_id=#{userId}
+	</select>
+	
+	
+	<sql id="courseAll">
+			l.id as curriculumId
+			,l.name as curriculumName
+			,l.course_id as courseId
+			,l.lesson_date as lessonDate
+			,l.space_id as spaceId
+			,l.section_id as sectionId
+			,l.lesson_starttime as curriculumStartTime
+			,l.lesson_endtime as curriculumEndTime
+			,l.lesson_number as lessonNumber
+			,l.teacher_id as teacherId
+			,l.thumb_img as thumbImg
+			,l.lesson_adress as classroomName
+			<!-- ,CONVERT(l.lesson_type,SIGNED) as lessonType -->
+			,l.lesson_type as lessonType
+			,l.lesson_state as curriculumState
+			,l.lesson_source as lessonSource
+			,l.broadcast_id as broadcastId
+			,l.broadcast_name as broadcastName
+			,l.broadcast_desc as broadcastDesc
+			,l.broadcast_pass as broadcastPass
+			,l.sign_time as signTime
+			,l.publish_state as publishState
+			,l.lesson_desc as lessonDesc
+			,l.update_by as updateBy
+			,l.update_date as updateDate
+			,ul.state as state
+			,date_format(ul.create_date,'%Y-%m-%d %T') as ulCreateDate
+			,s.name as sectionName
+			,s.start_time as sectionStart
+			,s.end_time as sectionEnd
+			,s.remarks as sectionDesc
+			,u.name as teacherName
+			,u.thumb_img as teacherPhoto
+			,u.remarks as teacherDesc
+			,(SELECT COUNT(0) FROM sp_user_lesson tmp WHERE tmp.lesson_id=l.id) AS joinNumber
+			,c.course_name as courseName
+			,c.course_price as coursePrice
+			,c.course_type as curriculumType
+			,(SELECT COUNT(0) FROM sp_member m WHERE m.user_id=#{userId} AND m.del_flag=0 AND m.state=0) as memberState
+			,if(ul.state=1,'1','0') as appointmentState
+			,if(ul.state=2,'1','0') as payState
+			,(SELECT COUNT(0) FROM sp_answer_score s,sp_examination e WHERE s.examination_id=e.id AND s.user_id=#{userId} AND e.lesson_id=l.id) AS hasExam
+	</sql>
+	<sql id="courseJoins">
+		LEFT JOIN sp_course c ON c.id=l.course_id
+	</sql>
+	<!-- 查询课程列表：已完成，未开课 -->
+	<select id="getCourseList" resultType="Map">
+		SELECT
+			<include refid="courseAll"/>
+		 FROM sp_lesson l
+		inner JOIN sp_user_lesson ul ON ul.lesson_id=l.id and ul.del_flag=0
+		LEFT JOIN sp_section s ON s.id=l.section_id
+		LEFT JOIN sp_user u ON u.id=l.teacher_id
+		<include refid="courseJoins"/>
+		<where>
+			ul.user_id=#{userId} and l.del_flag=0
+			<if test="lessonState != null and lessonState != ''">
+				and l.lesson_state=#{lessonState}
+			</if>
+			<if test="lessonDate != null and lessonDate != ''">
+				and l.lesson_date=#{lessonDate}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY l.update_date DESC
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="pageSize != null and pageSize != '' and startIndex != null and startIndex != ''">
+				LIMIT ${startIndex},${pageSize}
+			</when>
+			<when test="pageSize != null and pageSize != '' and ( startIndex == null or startIndex == '')">
+				LIMIT ${pageSize}
+			</when>
+			<otherwise></otherwise>
+		</choose>
+	</select>
+	<!-- 查询课程详情 -->
+	<select id="getCourseById" resultType="Map">
+		SELECT
+			<include refid="courseAll"/>
+		 FROM sp_lesson l
+		<include refid="courseJoins"/>
+		LEFT JOIN sp_user_lesson ul ON ul.lesson_id=l.id
+		LEFT JOIN sp_section s ON s.id=l.section_id
+		LEFT JOIN sp_user u ON u.id=l.teacher_id
+		<where>
+			<if test="lessonId != null and lessonId != ''">
+				and l.id=#{lessonId}
+			</if>
+			<if test="userId != null and userId != ''">
+				and ul.user_id=#{userId} 
+			</if>
+		</where>
+	</select>
+	
+	<!-- 我的话题 -->
+	<select id="getTopicList" resultType="Map">
+		select 
+		 t.id as topicId
+		 ,t.user_id as userId
+		 ,t.group_id as groupId
+		 ,t.title
+		 ,t.content
+		 ,t.issue_time as issueTime
+		 ,t.img_list as imgList
+		 ,u.name as userName
+		 ,u.thumb_img as thumbImg
+		 ,g.name as groupName
+		 ,(select count(0) from sp_comment where source_type='0' and source_id = t.id) as commentNum
+		from sp_group_topic t
+		 left join sp_user u on u.id=t.user_id
+		 left join sp_group g on g.id=t.group_id
+		where t.user_id=#{userId}
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY t.issue_time DESC
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="pageSize != null and pageSize != '' and startIndex != null and startIndex != ''">
+				LIMIT ${startIndex},${pageSize}
+			</when>
+			<when test="pageSize != null and pageSize != '' and ( startIndex == null or startIndex == '')">
+				LIMIT ${pageSize}
+			</when>
+			<otherwise></otherwise>
+		</choose>
+	</select>
+	<!-- 删除话题 -->
+	<delete id="delTopic">
+		delete from sp_group_topic where id=#{topicId}
+	</delete>
+	
+	<select id="getBuyMemberLogList" resultType="Map">
+		select 
+		 ml.id as buyId
+		 ,ml.user_id as userId
+		 ,ml.month as buyMonth
+		 ,ml.member_price as buyPrice
+		 ,ml.buy_time as buyTime
+		 ,ml.postage_id as postageId
+		 ,ml.create_date as createDate
+		 ,mp.name as postageName
+		 ,mp.month as postageMonth
+		 ,mp.postage_price as postagePrice
+		 ,mp.remarks as postageDesc
+		from sp_member_log ml
+		 left join sp_member_postage mp on mp.id=ml.postage_id
+		where ml.user_id=#{userId}
+	</select>
+	<select id="getOrderLog" resultType="Map">
+		select o.id as buyId
+			,o.user_id as userId
+			,o.order_no as orderNo
+			,o.space_id as spaceId
+			,o.order_type as orderType
+			,o.auxiliary_id as auxiliaryId
+			,o.pay_type as payType
+			,o.order_state as orderState
+			,o.order_price as orderPrice
+			,o.remarks
+			,date_format(o.create_date,'%Y-%m-%d %T') as createDate
+			,p.id as postageId
+			,p.name as postageName
+			,p.month as buyMonth
+			,p.postage_price as buyPrice
+			,DATE_ADD(o.create_date,INTERVAL p.month MONTH) as limitDay
+		from sp_order o 
+		left join sp_member_postage p on p.id=o.auxiliary_id
+		where o.del_flag=0 and o.order_state=2
+		and o.user_id=#{userId}
+		and o.space_id=#{spaceId}
+		order by createDate desc
+	</select>
+	
+		<!-- select 
+		 o.id as buyId
+		 ,o.user_id as userId
+		 ,o.order_no as orderNo
+		 ,o.space_id as spaceId
+		 ,o.order_type as orderType
+		 ,o.auxiliary_id as auxiliaryId
+		 ,o.pay_type as payType
+		 ,o.order_state as orderState
+		 ,o.order_price as orderPrice
+		 ,o.remarks
+		 ,date_format(o.create_date,'%Y-%m-%d %T') as createDate
+		 ,p.id as postageId
+		 ,p.name as postageName
+		 ,p.month as buyMonth
+		 ,p.postage_price as buyPrice
+		 ,DATE_ADD(o.create_date,INTERVAL p.month MONTH) as LimitDay
+		from sp_order o 
+		left join sp_member_postage p on p.id=o.auxiliary_id
+		left join sp_course c on c.id=o.auxiliary_id
+		where o.user_id=#{userId} -->
+	<select id="getCourseOneById" resultType="Map">
+		SELECT
+			c.id as courseId
+			,c.course_name as courseName
+			,c.course_number as courseNumber
+			,c.space_id as spaceId
+			,c.category_id as categoryId
+			,c.course_type as courseType
+			,c.course_price as coursePrice
+			,c.course_source as courseSource
+			,c.remarks
+		 FROM sp_course c
+		 where c.id=#{courseId}
+	</select>
+	
+	
+	<!-- 根据课程查询出试卷 -->
+	<select id="getExamByCourseId" resultType="Map">
+		SELECT 
+		 e.id as examId
+		 ,e.lesson_id as lessonId
+		 ,e.examination_name as examName
+		 ,e.examination_total_score as examScore
+		 ,e.examination_number as examNumber
+		 ,e.originators as examTeacher
+		 ,e.timing as examDuration
+		 ,e.state as examState
+		 ,e.remarks as examRemarks
+		 ,e.update_date as updateDate
+		 ,(SELECT lesson_source FROM sp_lesson WHERE id=e.lesson_id) AS examSource
+		FROM sp_examination e
+		WHERE del_flag=0
+		<if test="examId != null and examId != ''">
+			and e.id=#{examId} 
+		</if>
+		<if test="lessonId != null and lessonId != ''">
+			and e.lesson_id=#{lessonId} 
+		</if>
+		<if test="examState != null and examState != ''">
+			and e.state=#{examState} 
+		</if>
+	</select>
+	<!-- 根据试卷查出所有试题 -->
+	<sql id="problemsAll">
+		 p.id as problemId
+		 ,p.examination_id as examId
+		 ,p.problem_type as problemType
+		 ,p.number
+		 ,p.stem
+		 ,p.stem_path as stemPath
+		 ,p.text_type as textType
+		 ,p.option_a as optionA
+		 ,p.option_a_path as optionAPath
+		 ,p.option_b as optionB
+		 ,p.option_b_path as optionBPath
+		 ,p.option_c as optionC
+		 ,p.option_c_path as optionCPath
+		 ,p.option_d as optionD
+		 ,p.option_d_path as optionDPath
+		 ,p.answer
+		 ,p.analysis
+		 ,p.ismaterial
+		 ,p.material_id as materialId
+		 ,p.problem_score as problemScore
+		 ,p.remarks
+		 ,p.update_date as updateDate
+	</sql>
+	<select id="getProblemListByExamId" resultType="Map">
+		SELECT 
+		<include refid="problemsAll"/>
+		 ,a.id AS "answerId"
+		 ,a.user_id AS "useId"
+		 ,a.problem_type AS "problemType"
+		 ,a.answer_content AS "answerContent"
+		 ,a.answer_type AS "answerType"
+		 ,a.note AS "note"
+		 ,a.answer_score AS "answerScore"
+		 ,a.answer_path AS "answerPath"
+		 ,m.name as "materialName"
+		 ,m.cotent as "materialContent"
+		FROM sp_problems p
+		LEFT JOIN sp_answer a ON a.examination_id=p.examination_id and a.problem_id=p.id and a.user_id=#{userId}
+		left join sp_materials m on m.id=p.material_id and p.ismaterial=1
+		WHERE p.del_flag=0
+		<if test="problemId != null and problemId != ''">
+			and p.id=#{problemId} 
+		</if>
+		<if test="examId != null and examId != ''">
+			and p.examination_id=#{examId} 
+		</if>
+		<if test="problemType != null and problemType != ''">
+			and p.problem_type=#{problemType} 
+		</if>
+		<if test="problemTypeNot != null and problemTypeNot != ''">
+			and p.problem_type!=#{problemTypeNot} 
+		</if>
+		<if test="textType != null and textType != ''">
+			and p.text_type=#{textType} 
+		</if>
+		order by p.number
+	</select>
+	<select id="getProblemById" resultType="Map">
+		SELECT 
+		<include refid="problemsAll"/>
+		FROM sp_problems p
+		where p.id=#{problemId}
+	</select>
+	<!-- 保存每道题的答案 -->
+	<select id="hasAnswer" resultType="int">
+		select count(0) from sp_answer 
+		where user_id=#{userId} 
+		 and examination_id=#{examId} 
+		 and problem_id=#{problemId}
+	</select>
+	<insert id="insertAnswer">
+		INSERT INTO sp_answer(
+			id,
+			user_id,
+			examination_id,
+			problem_type,
+			problem_id,
+			answer_content,
+			answer_type,
+			note,
+			answer_score,
+			answer_path
+		) VALUES (
+			#{id},
+			#{userId},
+			#{examId},
+			#{problemType},
+			#{problemId},
+			#{answerContent},
+			#{answerType},
+			#{note},
+			#{answerScore},
+			#{answerPath}
+		)
+	</insert>
+	<update id="updateAnswer">
+		UPDATE sp_answer SET 	
+			problem_type = #{problemType},
+			<if test="answerContent != null and answerContent != ''">
+				answer_content = #{answerContent},
+			</if>
+			<if test="answerType != null and answerType != ''">
+				answer_type = #{answerType},
+			</if>
+			<if test="note != null and note != ''">
+				note = #{note},
+			</if>
+			<if test="answerScore != null and answerScore != ''">
+				answer_score = #{answerScore},
+			</if>
+			<if test="answerPath != null and answerPath != ''">
+				answer_path = #{answerPath},
+			</if>
+			id=id
+		WHERE user_id = #{userId} and examination_id = #{examId} and problem_id = #{problemId}
+	</update>
+	<!-- 答题完成，保存整个试卷最终得分 -->
+	<insert id="saveAnswerScore">
+		INSERT INTO sp_answer_score(
+			id,
+			user_id,
+			examination_id,
+			answer_type,
+			total_score
+			,create_date
+		) VALUES (
+			#{id},
+			#{userId},
+			#{examId},
+			#{answerType},
+			#{totalScore}
+			,now()
+		)
+	</insert>
+	<update id="updtAnswerScore">
+		UPDATE sp_answer_score SET 	
+			<if test="totalScore != null and totalScore != ''">
+				total_score = #{totalScore},
+			</if>
+			create_date=now()
+		WHERE user_id = #{userId} and examination_id = #{examId}
+	</update>
+	<select id="hasAnswerScore" resultType="int">
+		select count(0) from sp_answer_score 
+		where user_id=#{userId} 
+		 and examination_id=#{examId} 
+	</select>
+</mapper>
+

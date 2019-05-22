@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.handouts.dao.SpHandoutsDao">
+    
+	<sql id="spHandoutsColumns">
+		a.id AS "id",
+		a.title AS "title",
+		a.lesson_id AS "lessonId",
+		a.space_id AS "spaceId",
+		a.domain AS "domain",
+		a.base_url AS "baseUrl",
+		a.json_body AS "jsonBody",
+		a.thumb_img AS "thumbImg",
+		a.remarks AS "remarks",
+		a.create_by AS "createBy",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy",
+		a.update_date AS "updateDate",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="spHandoutsJoins">
+	</sql>
+    
+	<select id="get" resultType="SpHandouts">
+		SELECT 
+			<include refid="spHandoutsColumns"/>
+		FROM sp_handouts a
+		<include refid="spHandoutsJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="getByLessonId" resultType="SpHandouts">
+		SELECT 
+			<include refid="spHandoutsColumns"/>
+		FROM sp_handouts a
+		<include refid="spHandoutsJoins"/>
+		WHERE a.lesson_id = #{lessonId}
+			and a.del_flag = '0'
+	</select>
+	
+	<select id="findListByMap" resultType="SpHandouts" parameterType="map">
+		SELECT 
+			<include refid="spHandoutsColumns"/>
+		FROM sp_handouts a
+		<include refid="spHandoutsJoins"/>
+		<where>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="title != null and title != ''">
+				AND a.title LIKE concat('%',#{title},'%')
+			</if>
+			<if test="lessonId != null and lessonId != ''">
+				AND a.lesson_id = #{lessonId}
+			</if>
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id = #{spaceId}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpHandouts">
+		SELECT 
+			<include refid="spHandoutsColumns"/>
+		FROM sp_handouts a
+		<include refid="spHandoutsJoins"/>
+		<where>
+		    <if test="delFlag != null and delFlag != ''">
+				a.del_flag = #{delFlag}
+			</if>
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_handouts(
+			id,
+			title,
+			lesson_id,
+			space_id,
+			domain,
+			base_url,
+			json_body,
+			thumb_img,
+			remarks,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			del_flag
+		) VALUES (
+			#{id},
+			#{title},
+			#{lessonId},
+			#{spaceId},
+			#{domain},
+			#{baseUrl},
+			#{jsonBody},
+			#{thumbImg},
+			#{remarks},
+			#{createBy},
+			#{createDate},
+			#{updateBy},
+			#{updateDate},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_handouts SET 	
+			title = #{title},
+			lesson_id = #{lessonId},
+			space_id = #{spaceId},
+			domain = #{domain},
+			base_url = #{baseUrl},
+			json_body = #{jsonBody},
+			thumb_img = #{thumbImg},
+			remarks = #{remarks},
+			update_by = #{updateBy},
+			update_date = #{updateDate}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_handouts SET 
+			del_flag = #{delFlag}
+		WHERE id = #{id}
+	</update>
+	
+	<!-- 根据课程ID查询讲义标题 -->
+	<select id="selectTitleByLessonId" parameterType="String" resultType="String">
+	   select title from sp_handouts where del_flag = '0' and lesson_id = #{lessonId}
+	</select>
+	
+	<!-- 删除课程关联的讲义 -->
+	<update id="deleteHandoutsByLessonId" >
+	  UPDATE sp_handouts SET 
+			del_flag = '1'
+		WHERE lesson_id = #{lessonId}
+	</update>
+	
+	
+	<!-- 通过课程ID获取讲义 -->
+	<select id="selectHandoutsByLessonId" parameterType="String" resultType="SpHandouts">
+	   select
+	   <include refid="spHandoutsColumns"/>
+		FROM sp_handouts a
+		where del_flag = '0' and lesson_id = #{lessonId}
+	</select>
+</mapper>

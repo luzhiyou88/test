@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.courseResource.dao.SpCourseResourceDao">
+    
+	<sql id="spCourseResourceColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.type AS "type",
+		a.course_id AS "courseId",
+		a.domain AS "domain",
+		a.base_url AS "baseUrl",
+		a.json_body AS "jsonBody",
+		a.thumb_img AS "thumbImg",
+		a.remarks AS "remarks",
+		a.create_by AS "createBy",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy",
+		a.update_date AS "updateDate",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="SpCourseResourceJoins">
+	</sql>
+    
+	<select id="get" resultType="SpCourseResource">
+		SELECT 
+			<include refid="spCourseResourceColumns"/>
+		FROM sp_course_resource a
+		<include refid="SpCourseResourceJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="getByCourseId" resultType="SpCourseResource">
+		SELECT 
+			<include refid="spCourseResourceColumns"/>
+		FROM sp_course_resource a
+		<include refid="SpCourseResourceJoins"/>
+		WHERE a.course_id = #{courseId}
+			and del_flag='0'
+	</select>
+	
+	<select id="findList" resultType="SpCourseResource">
+		SELECT 
+			<include refid="spCourseResourceColumns"/>
+		FROM sp_course_resource a
+		<include refid="SpCourseResourceJoins"/>
+		<where>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="type != null and type != ''">
+				AND a.type = #{type}
+			</if>
+			<if test="courseId != null and courseId != ''">
+				AND a.course_id = #{courseId}
+			</if>
+			<if test="domain != null and domain != ''">
+				AND a.domain = #{domain}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpCourseResource">
+		SELECT 
+			<include refid="spCourseResourceColumns"/>
+		FROM sp_course_resource a
+		<include refid="SpCourseResourceJoins"/>
+		<where>
+			a.del_flag = #{delFlag}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_course_resource(
+			id,
+			name,
+			type,
+			course_id,
+			domain,
+			base_url,
+			json_body,
+			thumb_img,
+			remarks,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			del_flag
+		) VALUES (
+			#{id},
+			#{name},
+			#{type},
+			#{courseId},
+			#{domain},
+			#{baseUrl},
+			#{jsonBody},
+			#{thumbImg},
+			#{remarks},
+			#{createBy},
+			#{createDate},
+			#{updateBy},
+			#{updateDate},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_course_resource SET 	
+		<if test="name != null and name != ''">
+			name = #{name},
+		</if>
+		<if test="type != null and type != ''">
+			type = #{type},
+		</if>
+		<if test="courseId != null and courseId != ''">
+			course_id = #{courseId},
+		</if>
+		<if test="domain != null and domain != ''">
+			domain = #{domain},
+		</if>
+		<if test="baseUrl != null and baseUrl != ''">
+			base_url = #{baseUrl},
+		</if>
+		<if test="thumbImg != null and thumbImg != ''">
+			thumb_img = #{thumbImg},
+		</if>
+		<if test="remarks != null and remarks != ''">
+			remarks = #{remarks},
+		</if>
+		<if test="jsonBody != null and jsonBody != ''">
+			json_body = #{jsonBody},
+		</if>
+		<if test="updateBy != null and updateBy != ''">
+			update_by = #{updateBy},
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+			update_date = #{updateDate}
+		</if>
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_course_resource SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	<!-- 物理删除 -->
+	<update id="physicalDelete">
+		DELETE FROM sp_course_resource 
+		WHERE id = #{id}
+	</update>
+</mapper>

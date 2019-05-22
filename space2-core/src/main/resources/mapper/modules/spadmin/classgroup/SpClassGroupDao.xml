@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.classgroup.dao.SpClassGroupDao">
+    
+	<sql id="spClassGroupColumns">
+		a.id AS "id",
+		a.class_id AS "classId",
+		a.group_id AS "groupId"
+	</sql>
+	
+	<sql id="spClassGroupJoins">
+	</sql>
+    
+	<select id="get" resultType="SpClassGroup">
+		SELECT 
+			<include refid="spClassGroupColumns"/>
+		FROM sp_class_group a
+		<include refid="spClassGroupJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="getByClassId" resultType="SpClassGroup" parameterType="string">
+		SELECT 
+			<include refid="spClassGroupColumns"/>
+		FROM sp_class_group a
+		WHERE a.class_id = #{classId}
+	</select>
+	
+	<select id="findList" resultType="SpClassGroup">
+		SELECT 
+			<include refid="spClassGroupColumns"/>
+		FROM sp_class_group a
+		<include refid="spClassGroupJoins"/>
+		<where>
+			
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpClassGroup">
+		SELECT 
+			<include refid="spClassGroupColumns"/>
+		FROM sp_class_group a
+		<include refid="spClassGroupJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_class_group(
+			id,
+			class_id,
+			group_id
+		) VALUES (
+			#{id},
+			#{classId},
+			#{groupId}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_class_group SET 	
+			class_id = #{classId},
+			group_id = #{groupId}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM sp_class_group
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

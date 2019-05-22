@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.sign.dao.SignDao">
+
+	<sql id="signColumns">
+		l.name AS "lessonName",
+		l.lesson_date AS "lessonDate",
+		l.sign_time AS "lessonSign" ,
+		l.lesson_starttime AS "lessonStartTime",
+		l.lesson_endtime AS "lessonEndTime",
+		s.sign_time AS "signTime",
+		s.state AS "singnState"
+	</sql>
+	<sql id="signJoins">
+	</sql>
+	<!-- <select id="get" resultType="SpFavor"> SELECT <include refid="spFavorColumns" 
+		/> FROM sp_favor a <include refid="spFavorJoins" /> <where> <if test="id 
+		!= null and id != ''"> AND a.id = #{id} </if> <if test="sourceId != null 
+		and sourceId != ''"> AND a.source_id = #{sourceId} </if> <if test="sourceType 
+		!= null and sourceType != ''"> AND a.source_type = #{sourceType} </if> <if 
+		test="userId != null and userId != ''"> AND a.user_id = #{userId} </if> </where> 
+		</select> -->
+	<select id="findPageList" resultType="UserSign">
+		SELECT
+		<include refid="signColumns" />
+		FROM sp_user_lesson ul LEFT JOIN sp_sign s ON (ul.lesson_id =
+		s.lesson_id AND ul.user_id =s.user_id) LEFT JOIN sp_lesson l ON l.id
+		=ul.lesson_id
+		<where>
+		ul.del_flag ='0' 
+		<!-- and 
+			l.lesson_state =2  -->
+			and ul. user_id=#{userId}
+			<if test="sDate != null and sDate != ''">
+				AND l.lesson_date = #{sDate}
+			</if>
+		</where>
+		ORDER BY l.lesson_date DESC
+	</select>
+	<!-- <select id="findList" resultType="SpFavor"> SELECT <include refid="spFavorColumns" 
+		/> FROM sp_favor a <include refid="spFavorJoins" /> <where> <if test="userId 
+		!= null and userId != ''"> AND a.user_id = #{userId} </if> <if test="sourceType 
+		!= null and sourceType != ''"> AND a.source_type = #{sourceType} </if> <if 
+		test="sourceId != null and sourceId != ''"> AND a.source_id = #{sourceId} 
+		</if> </where> ORDER BY createDate DESC </select> <select id="findAllList" 
+		resultType="SpFavor"> SELECT <include refid="spFavorColumns" /> FROM sp_favor 
+		a <include refid="spFavorJoins" /> <where> </where> ORDER BY createDate DESC 
+		</select> <insert id="insert"> INSERT INTO sp_favor( id, user_id, source_type, 
+		source_id, create_date ) VALUES ( #{id}, #{userId}, #{sourceType}, #{sourceId}, 
+		#{createDate} ) </insert> <update id="update"> UPDATE sp_favor SET user_id 
+		= #{userId}, source_type = #{sourceType}, source_id = #{sourceId} WHERE id 
+		= #{id} </update> <update id="delete"> DELETE FROM sp_favor WHERE id = #{id} 
+		</update> -->
+
+</mapper>

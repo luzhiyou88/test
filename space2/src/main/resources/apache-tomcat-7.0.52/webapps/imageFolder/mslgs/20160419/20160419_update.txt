@@ -1,0 +1,12 @@
+【2016-04-19 14:31:48】执行了更新语句为：【 update wxb_order t set  t.state='2', where t.order_id='em0sk0yz'】 状态为【1】
+【2016-04-19 14:36:21】执行了更新语句为：【 update wxb_order t set  t.state='2', where t.order_id='em0sk0yz'】 状态为【1】
+【2016-04-19 14:43:18】执行了更新语句为：【 update wxb_order t set  t.state='2', where t.order_id='em0sk0yz'】 状态为【1】
+【2016-04-19 15:17:33】执行了更新语句为：【 update wxb_order t set  t.state='2', where t.order_id='em0sk0yz'】 状态为【1】
+【2016-04-19 15:30:16】执行了更新语句为：【 update wxb_order t set  t.state='2', where t.order_id='em0sk0yz'】 状态为【1】
+【2016-04-19 15:41:13】执行了更新语句为：【 update wxb_order t set  t.state='2', where t.order_id='em0sk0yz'】 状态为【1】
+【2016-04-19 15:44:00】执行了更新语句为：【 update wxb_order t set  t.state='2', where t.order_id='em0sk0yz'】 状态为【1】
+【2016-04-19 16:00:33】执行了更新语句为：【 update wxb_order t set  t.state='2', where t.order_id='em0sk0yz'】 状态为【1】
+【2016-04-19 17:22:33】执行了更新语句为：【 update wxb_order t set  t.state='2', where t.order_id='em0sk0yz'】 状态为【1】
+【2016-04-19 17:29:20】执行了更新语句为：【 update wxb_order t set  t.state='2', t.order_id = em0sk0yz  where t.order_id='em0sk0yz'】 状态为【1】
+【2016-04-19 17:30:31】执行了更新语句为：【 update wxb_order t set  t.state='2', t.order_id = 'em0sk0yz'  where t.order_id='em0sk0yz'】 状态为【0】
+【2016-04-19 22:44:24】执行了更新语句为：【 update wxb_order t set  t.state='3'  where t.order_id = 'kwqvznfz' 】 状态为【0】

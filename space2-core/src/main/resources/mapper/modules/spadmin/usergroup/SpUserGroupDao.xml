@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.usergroup.dao.SpUserGroupDao">
+    
+	<sql id="spUserGroupColumns">
+		a.id AS "id",
+		a.user_id AS "userId",
+		a.group_id AS "groupId",
+		a.state AS "state",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<select id="get" resultType="SpUserGroup">
+		SELECT 
+			<include refid="spUserGroupColumns"/>
+		FROM sp_user_group a
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SpUserGroup">
+		SELECT 
+			<include refid="spUserGroupColumns"/>
+		FROM sp_user_group a
+		<where>
+		   <if test="delFlag != null and delFlag != ''">
+			 a.del_flag = #{delFlag}
+		   </if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpUserGroup">
+		SELECT 
+			<include refid="spUserGroupColumns"/>
+		FROM sp_user_group a
+		<where>
+			a.del_flag = #{delFlag}
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_user_group(
+			id,
+			user_id,
+			group_id,
+			state,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			del_flag
+		) VALUES (
+			#{id},
+			#{userId},
+			#{groupId},
+			#{state},
+			#{createDate},
+			#{createBy},
+			#{updateDate},
+			#{updateBy},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_user_group SET 	
+			user_id = #{userId},
+			group_id = #{groupId},
+			state = #{state},
+			update_date = #{updateDate},
+			update_by = #{updateBy}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_user_group SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+		<update id="delLeader">
+		delete from  sp_user_group 
+		WHERE group_id = #{groupId} and user_id = #{userId}
+	</update>
+</mapper>

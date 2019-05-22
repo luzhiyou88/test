@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#3366ff" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta name="Keywords" content="第二教室" />
+    <meta name="Description" content="第二教室" />
+    <meta name="author" content="classroom2" />
+    <meta http-equiv="Expires" CONTENT="-1" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache" />
+    <meta http-equiv="Pragma" CONTENT="no-cache" />
+	<title>课程表</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+</head>
+<body class="posr-bg">
+	<nav class="pos-bottom nav-box">
+		<a href="javascript:;" class="nav-item ">
+			<em class="nav-item-ico notic-ico"></em>
+			<span>消息</span>
+		</a>
+		<a href="javascript:;" class="nav-item">
+			<em class="nav-item-ico address-ico"></em>
+			<span>班级</span>
+		</a>
+		<a href="javascript:;" class="nav-item on">
+			<em class="nav-item-ico classes-ico"></em>
+			<span>课表</span>
+		</a>
+		<a href="javascript:;" class="nav-item">
+			<em class="nav-item-ico data-ico"></em>
+			<span>资料</span>
+		</a>
+		<a href="javascript:;" class="nav-item">
+			<em class="nav-item-ico user-ico"></em>
+			<span>我的</span>
+		</a>
+	</nav>
+	<header class="bule-head pos-top">
+		<span onclick="select(this)">第一周</span>
+		<em class="triangle-ico" onclick="select(this)"></em>
+		<ul class="select-pop">
+			<li class="on">第一周</li>
+			<li>第二周</li>
+			<li>第三周</li>
+		</ul>
+	</header>
+	<section class="pt45 pb50" style="height:100%;box-sizing:border-box;">
+		<table class="schooltable">
+			<thead>
+				<tr>
+					<th class="text-blue month">
+						<em class="bk month-num" onclick="selectm(this)">7月</em><em class="triangle-ico" onclick="selectm(this)"></em>
+						<ul class="select-month-pop">
+							<li><em class="bk">7</em><em class="bk">月</em></li>
+							<li><em class="bk">8</em><em class="bk">月</em></li>
+							<li><em class="bk">9</em><em class="bk">月</em></li>
+							<li><em class="bk">10</em><em class="bk">月</em></li>
+							<li><em class="bk">11</em><em class="bk">月</em></li>
+							<li><em class="bk">12</em><em class="bk">月</em></li>
+						</ul>
+					</th>
+					<th class="on"><span class="day">4</span><span class="weekday">周一</span></th>
+					<th><span class="day">5</span><span class="weekday">周二</span></th>
+					<th><span class="day">6</span><span class="weekday">周三</span></th>
+					<th><span class="day">7</span><span class="weekday">周四</span></th>
+					<th><span class="day">8</span><span class="weekday">周五</span></th>
+					<th><span class="day">9</span><span class="weekday">周六</span></th>
+					<th><span class="day">10</span><span class="weekday">周日</span></th>
+				</tr>
+			</thead>
+			<tbody class="j-schooltable-con hide">
+				<tr>
+					<td>
+						1
+					</td>
+					<td class="classes-deatils" colspan="7" rowspan="2">
+						<div class="classes-mes">
+							<p class="text-ellipsis">司法导学班</p>
+							<p class="text-ellipsis">第一讲民法</p>
+							<p class="text-ellipsis">二教0305教室</p>
+							<p class="text-ellipsis">时间：2016-7-4 08:30</p>
+							<p class="text-ellipsis">讲师：赵磊</p>
+						</div>
+						<div class="classes-ope">
+							<a href="playVideo.html" class="btn-blue-c">回放课程</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						2
+					</td>
+				</tr>
+				<tr>
+					<td>
+						3
+					</td>
+					<td class="classes-deatils clearfix" colspan="7" rowspan="2">
+						<div class="classes-mes">
+							<p class="text-ellipsis">刑法速成班</p>
+							<p class="text-ellipsis">第一讲民法</p>
+							<p class="text-ellipsis">二教0305教室</p>
+							<p class="text-ellipsis">时间：2016-7-4 10:30</p>
+							<p class="text-ellipsis">讲师：黄渤</p>
+						</div>
+						<div class="classes-ope">
+							<a href="playVideo.html" class="btn-blue-c">回放课程</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						4
+					</td>
+				</tr>
+				<tr>
+					<td>
+						5
+					</td>
+					<td class="classes-deatils" colspan="7" rowspan="2">
+						<div class="classes-mes">
+							<p class="text-ellipsis">司法导学班</p>
+							<p class="text-ellipsis">第一讲民法</p>
+							<p class="text-ellipsis">二教0305教室</p>
+							<p class="text-ellipsis">时间：2016-7-4 14:30</p>
+							<p class="text-ellipsis">讲师：黄渤</p>
+						</div>
+						<div class="classes-ope">
+							<a href="playVideo.html" class="btn-blue-c">回放课程</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						6
+					</td>
+				</tr>
+				<tr>
+					<td>
+						7
+					</td>
+					<td  colspan="7" rowspan="2"></td>
+				</tr>
+				<tr>
+					<td>
+						8
+					</td>
+				</tr>
+			</tbody>
+			<tbody class="j-schooltable-con hide">
+				<tr>
+					<td>
+						1
+					</td>
+					<td class="classes-deatils" colspan="7" rowspan="2">
+						<div class="classes-mes">
+							<p class="text-ellipsis">司法导学班</p>
+							<p class="text-ellipsis">第一讲民法</p>
+							<p class="text-ellipsis">二教0305教室</p>
+							<p class="text-ellipsis">时间：2016-7-4 08:30</p>
+							<p class="text-ellipsis">讲师：赵磊</p>
+						</div>
+						<div class="classes-ope">
+							<a href="playVideo.html" class="btn-blue-c">回放课程</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						2
+					</td>
+				</tr>
+				<tr>
+					<td>
+						3
+					</td>
+					<td class="classes-deatils clearfix" colspan="7" rowspan="2">
+						<div class="classes-mes">
+							<p class="text-ellipsis">刑法速成班</p>
+							<p class="text-ellipsis">第一讲民法</p>
+							<p class="text-ellipsis">二教0305教室</p>
+							<p class="text-ellipsis">时间：2016-7-4 10:30</p>
+							<p class="text-ellipsis">讲师：黄渤</p>
+						</div>
+						<div class="classes-ope">
+							<a class="btn-green-c" href="playVideo.html">进入课程</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						4
+					</td>
+				</tr>
+				<tr>
+					<td>
+						5
+					</td>
+					<td class="classes-deatils" colspan="7" rowspan="2">
+						<div class="classes-mes">
+							<p class="text-ellipsis">司法导学班</p>
+							<p class="text-ellipsis">第一讲民法</p>
+							<p class="text-ellipsis">二教0305教室</p>
+							<p class="text-ellipsis">时间：2016-7-4 14:30</p>
+							<p class="text-ellipsis">讲师：黄渤</p>
+						</div>
+						<div class="classes-ope">
+							<p>价格：免费</p>
+							<p>预约：100</p>
+							<p>剩余座位：12</p>
+							<a class="btn-green-c" href="order.html">预约</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						6
+					</td>
+				</tr>
+				<tr>
+					<td>
+						7
+					</td>
+					<td class="classes-deatils" colspan="7" rowspan="2">
+						<div class="classes-mes">
+							<p class="text-ellipsis">司法导学班</p>
+							<p class="text-ellipsis">第一讲民法</p>
+							<p class="text-ellipsis">二教0305教室</p>
+							<p class="text-ellipsis">时间：2016-7-4 14:30</p>
+							<p class="text-ellipsis">讲师：黄渤</p>
+						</div>
+						<div class="classes-ope">
+							<p>价格：30￥</p>
+							<p>预约：100</p>
+							<p>剩余座位：12</p>
+							<a class="btn-red-c">购买</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						8
+					</td>
+				</tr>
+			</tbody>
+			<tbody class="j-schooltable-con">
+				<tr>
+					<td>
+						1
+					</td>
+					<td class="classes-deatils" colspan="7" rowspan="2">
+						<div class="classes-mes">
+							<p class="text-ellipsis">司法导学班</p>
+							<p class="text-ellipsis">第一讲民法</p>
+							<p class="text-ellipsis">二教0305教室</p>
+							<p class="text-ellipsis">时间：2016-7-4 08:30</p>
+							<p class="text-ellipsis">讲师：赵磊</p>
+						</div>
+						<div class="classes-ope">
+							<a href="playVideo.html" class="btn-blue-c">回放课程</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						2
+					</td>
+				</tr>
+				<tr>
+					<td>
+						3
+					</td>
+					<td class="classes-deatils clearfix" colspan="7" rowspan="2">
+						<div class="classes-mes">
+							<p class="text-ellipsis">刑法速成班</p>
+							<p class="text-ellipsis">第一讲民法</p>
+							<p class="text-ellipsis">二教0305教室</p>
+							<p class="text-ellipsis">时间：2016-7-4 10:30</p>
+							<p class="text-ellipsis">讲师：黄渤</p>
+						</div>
+						<div class="classes-ope">
+							<a class="btn-green-c" href="playVideo.html">进入课程</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						4
+					</td>
+				</tr>
+				<tr>
+					<td>
+						5
+					</td>
+					<td class="classes-deatils" colspan="7" rowspan="2">
+						<div class="classes-mes">
+							<p class="text-ellipsis">司法导学班</p>
+							<p class="text-ellipsis">第一讲民法</p>
+							<p class="text-ellipsis">二教0305教室</p>
+							<p class="text-ellipsis">时间：2016-7-4 14:30</p>
+							<p class="text-ellipsis">讲师：黄渤</p>
+						</div>
+						<div class="classes-ope">
+							<a class="btn-green-c" href="order.html">预约</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						6
+					</td>
+				</tr>
+				<tr>
+					<td>
+						7
+					</td>
+					<td class="classes-deatils" colspan="7" rowspan="2">
+						<div class="classes-mes">
+							<p class="text-ellipsis">司法导学班</p>
+							<p class="text-ellipsis">第一讲民法</p>
+							<p class="text-ellipsis">二教0305教室</p>
+							<p class="text-ellipsis">时间：2016-7-4 14:30</p>
+							<p class="text-ellipsis">讲师：黄渤</p>
+						</div>
+						<div class="classes-ope">
+							<a class="btn-gray-c"  href="order.html">已预约</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						8
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+	<script type="text/javascript">
+		function select(){
+			$(".triangle-ico").parent().find(".select-pop").css("display","block");
+			$(".select-pop li").click(function(){
+				var _this = $(this);
+				var index = $(".select-pop li").index(this);
+				var oLi = $(".select-pop li").eq(index).text();
+				$(".triangle-ico").parent().find('span').text(oLi);
+				$(".triangle-ico").parent().find('.select-pop').css("display","none");
+			})
+		}
+		function selectm(){
+			$(".triangle-ico").parent().find(".select-month-pop").css("display","block");
+			$(".select-month-pop li").click(function(){
+				var _this = $(this);
+				var index = $(".select-month-pop li").index(this);
+				var oLi = $(".select-month-pop li").eq(index).text();
+				$(".triangle-ico").parent().find('em.month-num').text(oLi);
+				$(".triangle-ico").parent().find('.select-month-pop').css("display","none");
+			})
+		}
+	
+		$(".schooltable th").not(".month").click(function(){
+			var _th = $(this);
+			var index = $(".schooltable th").index(this);
+			$(this).addClass("on").siblings().removeClass("on");
+			$(".j-schooltable-con").eq(index-1).removeClass("hide").siblings(".j-schooltable-con").addClass("hide");
+		})
+	</script>
+</body>
+</html>

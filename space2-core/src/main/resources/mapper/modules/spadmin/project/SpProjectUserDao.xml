@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.project.dao.SpProjectUserDao">
+    
+	<sql id="spProjectUserColumns">
+		a.id AS "id",
+		a.user_name AS "userName",
+		a.project_id AS "projectId",
+		a.header_img AS "headerImg",
+		a.sex AS "sex",
+		a.age AS "age",
+		a.ability AS "ability",
+		a.antecedents AS "antecedents",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+		,p.name as "projectName"
+	</sql>
+	
+	<sql id="spProjectUserJoins">
+		left join sp_project p on p.id=a.project_id
+	</sql>
+    
+	<select id="get" resultType="SpProjectUser">
+		SELECT 
+			<include refid="spProjectUserColumns"/>
+		FROM sp_project_user a
+		<include refid="spProjectUserJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SpProjectUser">
+		SELECT 
+			<include refid="spProjectUserColumns"/>
+		FROM sp_project_user a
+		<include refid="spProjectUserJoins"/>
+		<where>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="userName != null and userName != ''">
+				AND a.user_name LIKE concat('%',#{userName},'%')
+			</if>
+			<if test="projectId != null and projectId != ''">
+				AND a.project_id = #{projectId}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpProjectUser">
+		SELECT 
+			<include refid="spProjectUserColumns"/>
+		FROM sp_project_user a
+		<include refid="spProjectUserJoins"/>
+		<where>
+			a.del_flag = '0'
+			<if test="projectIds != null and projectIds != ''">
+				AND a.project_id in 
+				<foreach collection="projectIds" index="index" item="projectId" open="(" separator=" or " close=")">
+				   	#{projectId}
+				  </foreach>
+			</if>
+		</where>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_project_user(
+			id,
+			user_name,
+			project_id,
+			header_img,
+			sex,
+			age,
+			ability,
+			antecedents,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			del_flag
+		) VALUES (
+			#{id},
+			#{userName},
+			#{projectId},
+			#{headerImg},
+			#{sex},
+			#{age},
+			#{ability},
+			#{antecedents},
+			#{createDate},
+			#{createBy},
+			#{updateDate},
+			#{updateBy},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_project_user SET 	
+			user_name = #{userName},
+			project_id = #{projectId},
+			header_img = #{headerImg},
+			sex = #{sex},
+			age = #{age},
+			ability = #{ability},
+			antecedents = #{antecedents},
+			update_date = #{updateDate},
+			update_by = #{updateBy}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_project_user SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="deleteByProjectIds" parameterType="java.util.List">
+		UPDATE sp_project_user SET 
+			del_flag = '1'
+		WHERE project_id in 
+		  <foreach collection="projectIds" index="index" item="projectId" open="(" separator="," close=")">
+		   	#{projectId}
+		  </foreach>
+	</update>
+	
+</mapper>

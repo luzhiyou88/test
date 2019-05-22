@@ -1,0 +1,106 @@
+/**
+ * Copyright &copy; 2016-2018 luzhiyou All rights reserved.
+ */
+package com.education.classroom.core.modules.spadmin.exam.entity;
+
+import org.hibernate.validator.constraints.Length;
+
+import com.education.classroom.core.persistence.DataEntity;
+
+/**
+ * 试卷管理Entity
+ * @author 尚军伟
+ * @version 2016/08/17
+ */
+public class SpExamination extends DataEntity<SpExamination> {
+	
+	private static final long serialVersionUID = -3180346311637620050L;
+	private String lessonId;		// 课程ID
+	private String examinationName;		// 试卷名称
+	private String examinationTotalScore;		// 试卷总分数
+	private String examinationNumber;		// 题目总数
+	private String originators;		// 出题人
+	private String timing;		// 试卷用时
+	private String state;		// 试卷状态 0未开始 1开始 2 结束
+	private String lessonName;  //关联课程名称
+	
+	public SpExamination() {
+		super();
+	}
+
+	public SpExamination(String id){
+		super(id);
+	}
+
+	@Length(min=1, max=32, message="课程ID长度必须介于 1 和 32 之间")
+	public String getLessonId() {
+		return lessonId;
+	}
+
+	public void setLessonId(String lessonId) {
+		this.lessonId = lessonId;
+	}
+	
+	@Length(min=1, max=128, message="试卷名称长度必须介于 1 和 128 之间")
+	public String getExaminationName() {
+		return examinationName;
+	}
+
+	public void setExaminationName(String examinationName) {
+		this.examinationName = examinationName;
+	}
+	
+	@Length(min=1, max=11, message="试卷总分数长度必须介于 1 和 11 之间")
+	public String getExaminationTotalScore() {
+		return examinationTotalScore;
+	}
+
+	public void setExaminationTotalScore(String examinationTotalScore) {
+		this.examinationTotalScore = examinationTotalScore;
+	}
+	
+	@Length(min=1, max=11, message="题目总数长度必须介于 1 和 11 之间")
+	public String getExaminationNumber() {
+		return examinationNumber;
+	}
+
+	public void setExaminationNumber(String examinationNumber) {
+		this.examinationNumber = examinationNumber;
+	}
+	
+	@Length(min=0, max=200, message="出题人长度必须介于 0 和 200 之间")
+	public String getOriginators() {
+		return originators;
+	}
+
+	public void setOriginators(String originators) {
+		this.originators = originators;
+	}
+	
+	@Length(min=1, max=11, message="试卷用时长度必须介于 1 和 11 之间")
+	public String getTiming() {
+		return timing;
+	}
+
+	public void setTiming(String timing) {
+		this.timing = timing;
+	}
+	
+	@Length(min=1, max=1, message="试卷状态 0未开始 1开始 2 结束长度必须介于 1 和 1 之间")
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getLessonName() {
+		return lessonName;
+	}
+
+	public void setLessonName(String lessonName) {
+		this.lessonName = lessonName;
+	}
+	
+}

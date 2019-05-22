@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.sign.dao.SpSignDao">
+    
+	<sql id="spSignColumns">
+		a.id AS "id",
+		a.user_id AS "userId",
+		a.lesson_id AS "lessonId",
+		a.sign_time AS "signTime",
+		a.state AS "state"
+	</sql>
+	
+	<sql id="spSignJoins">
+	</sql>
+    
+	<select id="get" resultType="SpSign">
+		SELECT 
+			<include refid="spSignColumns"/>
+		FROM sp_sign a
+		<include refid="spSignJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	<select id="getSign" resultType="SpSign">
+		SELECT 
+			<include refid="spSignColumns"/>
+		FROM sp_sign a
+		<include refid="spSignJoins"/>
+		WHERE a.lesson_id = #{lessonId} AND  a.user_id =#{userId}
+		ORDER BY  signTime  LIMIT 1
+	</select>
+	<select id="findList" resultType="SpSign">
+		SELECT 
+			<include refid="spSignColumns"/>
+		FROM sp_sign a
+		<include refid="spSignJoins"/>
+		<where>
+			
+			<if test="userId != null and userId != ''">
+				AND a.user_id = #{userId}
+			</if>
+			<if test="lessonId != null and lessonId != ''">
+				AND a.lesson_id = #{lessonId}
+			</if>
+		</where>
+
+				ORDER BY a.sign_time DESC
+		
+	</select>
+	
+	<select id="findAllList" resultType="SpSign">
+		SELECT 
+			<include refid="spSignColumns"/>
+		FROM sp_sign a
+		<include refid="spSignJoins"/>
+		<where>
+			
+		</where>		
+					ORDER BY a.sign_time DESC
+
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_sign(
+			id,
+			user_id,
+			lesson_id,
+			sign_time,
+			state
+		) VALUES (
+			#{id},
+			#{userId},
+			#{lessonId},
+			#{signTime},
+			#{state}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_sign SET 	
+			user_id = #{userId},
+			lesson_id = #{lessonId},
+			sign_time = #{signTime},
+			state = #{state}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM sp_sign
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

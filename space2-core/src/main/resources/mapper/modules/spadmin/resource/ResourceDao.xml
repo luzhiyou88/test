@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- <mapper namespace="com.education.classroom.modules.spadmin.resource.dao.ResourceDao"> -->
+<mapper namespace="com.education.classroom.core.modules.spadmin.resource.dao.ResourceDao">
+
+	<select id="getCategorySelect" resultType="Map">
+		<!-- SELECT id AS categoryId,name AS categoryName FROM sp_category 
+		 WHERE id NOT IN (SELECT DISTINCT p.id FROM sp_category p,sp_category s WHERE p.id=s.parent_id) -->
+		<!-- SELECT id AS categoryId,name AS categoryName FROM sp_category WHERE (parent_id IS NULL OR parent_id='') -->
+		SELECT id,name,ifnull(parent_id,'') as parent FROM sp_category where del_flag=0
+	</select>
+    
+	<sql id="spResourceColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.type AS "type",
+		a.category_id AS "categoryId",
+		a.space_id AS "spaceId",
+		a.publish_state AS "publishState",
+		a.domain AS "domain",
+		a.base_url AS "baseUrl",
+		a.thumb_img AS "thumbImg",
+		a.remarks AS "remarks",
+		a.create_by AS "createBy",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy",
+		a.update_date AS "updateDate",
+		a.del_flag AS "delFlag"
+		,a.source_type as sourceType
+		,IFNULL(v.score_avg,0) as scoreAvg
+		,IFNULL(v.click_num,0) as clickNum
+		,IFNULL(v.praise,0) as praiseNum
+		,IFNULL(v.download_num,0) as downloadNum
+		,(SELECT COUNT(id) FROM sp_favor c WHERE user_id=#{userId} AND source_id=a.id) AS isCollect
+		<!-- ,(SELECT COUNT(id) FROM sp_user_behavior b WHERE type=2 AND user_id=#{userId} AND source_id=a.id) AS isDownload -->
+		,IFNULL(v.reading_num,0) AS readNum
+		,(SELECT COUNT(id) FROM sp_score WHERE source_id=a.id) AS scoreNum
+	</sql>
+	<sql id="spResourceJoins">
+		LEFT JOIN sp_resource_vistor v ON v.source_id = a.id
+	</sql>
+    
+    <!-- 获取资源列表 -->
+	<select id="findList" resultType="SpResource">
+		SELECT 
+			<include refid="spResourceColumns"/>
+			,(SELECT COUNT(id) FROM sp_favor c WHERE source_id=a.id) AS collectNum
+			<!-- ,(SELECT COUNT(id) FROM sp_user_behavior b WHERE type=5 and source_id=a.id) AS readNum -->
+			,s.level as scoreLevel
+			,s.content as scoreContent
+			,s.create_time as scoreTime
+			,c.name AS categoryName
+		FROM sp_resource a
+		<include refid="spResourceJoins"/>
+		left join sp_score s on s.source_id=a.id and s.user_id=#{userId}
+		LEFT JOIN sp_category c ON c.id = a.category_id
+		<where>
+			 a.del_flag = 0
+			 AND (a.publish_state = 0 or a.publish_state = 3)
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="type != null and type != ''">
+				AND a.type = #{type}
+			</if>
+			<if test="categoryId != null and categoryId != ''">
+				<!-- AND a.category_id = #{categoryId} -->
+				and FIND_IN_SET(a.category_id,#{categoryId})
+			</if>
+			<if test="domain != null and domain != ''">
+				AND a.domain = #{domain}
+			</if>
+			<if test="beginUpdateDate != null and endUpdateDate != null and beginUpdateDate != '' and endUpdateDate != ''">
+				AND a.update_date BETWEEN #{beginUpdateDate} AND #{endUpdateDate}
+			</if>
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id != #{spaceId}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<!-- 获取资料详情 -->
+	<select id="getResourceById" resultType="SpResource">
+		SELECT 
+			<include refid="spResourceColumns"/>
+			,(SELECT COUNT(id) FROM sp_favor c WHERE source_id=a.id) AS collectNum
+			<!-- ,(SELECT COUNT(id) FROM sp_user_behavior b WHERE type=5 and source_id=a.id) AS readNum -->
+			,s.level as scoreLevel
+			,s.content as scoreContent
+			,s.create_time as scoreTime
+			,c.name AS categoryName
+		FROM sp_resource a
+		<include refid="spResourceJoins"/>
+		left join sp_score s on s.source_id=a.id and s.user_id=#{userId}
+		LEFT JOIN sp_category c ON c.id = a.category_id
+		WHERE a.id = #{resourceId} 
+	</select>
+	
+	<!-- 获取某个资料的评价列表 -->
+	<select id="getScoreList" resultType="Map">
+		select
+		 s.id as scoreId
+		 ,s.user_id as userId
+		 ,s.source_type as sourceType
+		 ,s.source_id as sourceId
+		 ,s.level as scoreLevel
+		 ,s.content as scoreContent
+		 ,date_format(s.create_time,'%Y-%m-%d %T') as scoreTime
+		 ,u.name as userName
+		 ,u.thumb_img as thumbImg
+		from sp_score s
+		left join sp_user u on u.id=s.user_id
+		<where>
+			s.source_id=#{resourceId}
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY s.create_time DESC
+			</otherwise>
+		</choose>
+		<choose>
+			<when test="pageSize != null and pageSize != '' and startIndex != null and startIndex != ''">
+				LIMIT ${startIndex},${pageSize}
+			</when>
+			<when test="pageSize != null and pageSize != '' and ( startIndex == null or startIndex == '')">
+				LIMIT ${pageSize}
+			</when>
+			<otherwise></otherwise>
+		</choose>
+	</select>
+	
+	<!-- 获取我的收藏和下载列表 -->
+	<select id="getMyResourceList" resultType="SpResource">
+		SELECT 
+			a.id AS "id",
+			a.name AS "name",
+			a.type AS "type",
+			a.category_id AS "categoryId",
+			a.space_id AS "spaceId",
+			a.publish_state AS "publishState",
+			a.domain AS "domain",
+			a.base_url AS "baseUrl",
+			a.thumb_img AS "thumbImg",
+			a.remarks AS "remarks",
+			a.create_by AS "createBy",
+			a.create_date AS "createDate",
+			a.update_by AS "updateBy",
+			a.update_date AS "updateDate",
+			a.del_flag AS "delFlag",
+			1-ISNULL(b.user_id) AS isDownload,
+			1-ISNULL(c.user_id) AS isCollect
+		FROM sp_resource a
+		LEFT JOIN sp_user_behavior b ON b.source_id = a.id and b.user_id=#{userId}
+		LEFT JOIN sp_favor c ON c.source_id=a.id and c.user_id=#{userId}
+		<where>
+			 a.del_flag = 0
+			<if test="operType != null and operType == 1">
+				and b.type=2 and b.user_id=#{userId}
+			</if> 
+			<if test="operType != null and operType == 2">
+				and c.user_id=#{userId}
+			</if> 
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="type != null and type != ''">
+				AND a.type = #{type}
+			</if>
+			<if test="categoryId != null and categoryId != ''">
+				AND a.category_id = #{categoryId}
+			</if>
+			<if test="domain != null and domain != ''">
+				AND a.domain = #{domain}
+			</if>
+			<if test="beginUpdateDate != null and endUpdateDate != null and beginUpdateDate != '' and endUpdateDate != ''">
+				AND a.update_date BETWEEN #{beginUpdateDate} AND #{endUpdateDate}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<!-- 下载量（添加下载记录，并修改下载量） -->
+	<select id="hasDownload" resultType="int">
+		select count(0) 
+		 from sp_user_behavior
+		where user_id = #{userId} and source_id=#{resourceId}
+	</select>
+	<insert id="saveDownload">
+		insert into sp_user_behavior(
+			id,user_id,source_type,source_id,type,param,create_date
+		) value (
+			#{id},#{userId},#{resourceType},#{resourceId},#{type},#{param},#{createDate}
+		)
+	</insert>
+	<select id="hasDownloadNum" resultType="int">
+		select count(0) 
+		 from sp_resource_vistor
+		where source_id=#{resourceId}
+	</select>
+	<insert id="insertDownloadNum">
+		insert into sp_resource_vistor(
+			id,source_type,source_id,download_num,create_date
+		) value (
+			#{id},#{resourceType},#{resourceId},1,#{createDate}
+		)
+	</insert>
+	<update id="updateDownloadNum">
+		update sp_resource_vistor set download_num=download_num+1 where source_id=#{resourceId}
+	</update>
+	
+	<!-- 阅读量 （只需修改阅读量）-->
+	<select id="hasReadNum" resultType="int">
+		select count(0) 
+		 from sp_resource_vistor
+		where source_id=#{resourceId}
+	</select>
+	<insert id="insertReadNum">
+		insert into sp_resource_vistor(
+			id,source_type,source_id,reading_num,create_date
+		) value (
+			#{id},#{resourceType},#{resourceId},1,now()
+		)
+	</insert>
+	<update id="updateReadNum">
+		update sp_resource_vistor set reading_num=reading_num+1 where source_id=#{resourceId}
+	</update>
+	
+	<!-- 点击量 （只需修改点击量）-->
+	<select id="hasClickNum" resultType="int">
+		select count(0) 
+		 from sp_resource_vistor
+		where source_id=#{resourceId}
+	</select>
+	<insert id="insertClickNum">
+		insert into sp_resource_vistor(
+			id,source_type,source_id,click_num,create_date
+		) value (
+			#{id},#{resourceType},#{resourceId},1,now()
+		)
+	</insert>
+	<update id="updateClickNum">
+		update sp_resource_vistor set click_num=click_num+1 where source_id=#{resourceId}
+	</update>
+	
+	<select id="getResourceListInIds" resultType="SpResource">
+		SELECT 
+			<include refid="spResourceColumns"/>
+			,(SELECT COUNT(id) FROM sp_favor c WHERE source_id=a.id) AS collectNum
+			,s.level as scoreLevel
+			,s.content as scoreContent
+			,s.create_time as scoreTime
+			,c.name AS categoryName
+		FROM sp_resource a
+		<include refid="spResourceJoins"/>
+		left join sp_score s on s.source_id=a.id and s.user_id=#{userId}
+		LEFT JOIN sp_category c ON c.id = a.category_id
+		<where>
+			 a.del_flag = 0
+			AND a.id in
+			<foreach collection="idList" item="item" open="(" close=")" separator="," >
+	        	#{item}
+	        </foreach>
+		</where>
+	</select>
+</mapper>
+
+

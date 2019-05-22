@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.education.classroom.core.modules.spadmin.grouptopic.dao.SpGroupTopicDao">
+
+	<sql id="spGroupTopicColumns">
+		a.id AS "id",
+		a.id AS "topicId",
+		a.user_id AS "userId",
+		a.group_id AS "groupId",
+		a.title AS "title",
+		a.content AS "content",
+		a.issue_time AS "issueTime",
+		a.img_list AS "imgList",
+		a.type AS "type",
+		u2.name AS "userName",
+		u2.thumb_img AS "thumbImg"
+	</sql>
+
+	<sql id="spGroupTopicJoins">
+		LEFT JOIN sp_user u2 ON u2.id = a.user_id
+	</sql>
+
+	<select id="get" resultType="SpGroupTopic">
+		SELECT
+		<include refid="spGroupTopicColumns" />
+		FROM sp_group_topic a
+		<include refid="spGroupTopicJoins" />
+		WHERE a.id = #{id}
+	</select>
+
+	<select id="findList" parameterType="map" resultType="SpGroupTopic">
+		SELECT
+		<include refid="spGroupTopicColumns" />
+		FROM sp_group_topic a
+		<include refid="spGroupTopicJoins" />
+		<where>
+
+			<if test="title != null and title != ''">
+				AND a.title LIKE concat('%',#{title},'%')
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+
+	<!-- <select id="findAllList" resultType="SpGroupTopic"> SELECT <include 
+		refid="spGroupTopicColumns"/> FROM sp_group_topic a <include refid="spGroupTopicJoins"/> 
+		<where> </where> <choose> <when test="page !=null and page.orderBy != null 
+		and page.orderBy != ''"> ORDER BY ${page.orderBy} </when> <otherwise> </otherwise> 
+		</choose> </select> -->
+
+	<insert id="insert">
+		INSERT INTO sp_group_topic(
+		id,
+		user_id,
+		group_id,
+		title,
+		content,
+		issue_time,
+		img_list,
+		type
+		
+		) VALUES (
+		#{id},
+		#{userId},
+		#{groupId},
+		#{title},
+		#{content},
+		#{issueTime},
+		#{imgList},
+		#{type}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE sp_group_topic SET
+		user_id = #{userId},
+		group_id = #{groupId},
+		title = #{title},
+		content = #{content},
+		issue_time = #{issueTime},
+		img_list = #{imgList},
+		type = #{type}
+		WHERE id = #{id}
+	</update>
+
+	<update id="updateGroupTopicRecommend">
+		UPDATE sp_group_topic SET
+		type = '1'
+		WHERE id = #{id}
+	</update>
+
+	<update id="cancelGroupTopicRecommend">
+		UPDATE sp_group_topic SET
+		type = '0'
+		WHERE id = #{id}
+	</update>
+
+	<update id="delete">
+		DELETE FROM sp_group_topic
+		WHERE id = #{id}
+	</update>
+
+	<!-- 根据小组ID查询小组类别 -->
+	<select id="SelectGroupType" parameterType="String" resultType="String">
+		select group_type from sp_group where del_flag = '0' and id =
+		#{groupId}
+	</select>
+
+	<!-- 根据话题ID查询小组类别 -->
+	<select id="SelectGroupTypeByTopicId" parameterType="String"
+		resultType="String">
+		select group_type from sp_group where del_flag = '0' and id = (
+		select group_id from sp_group_topic where id = #{groupTopicId}
+		)
+	</select>
+
+	<!-- 根据type类型 查找话题列表 -->
+	<select id="selectGroupTopicByType" parameterType="map"
+		resultType="SpGroupTopic">
+		select
+		<include refid="spGroupTopicColumns" />
+		FROM sp_group_topic a
+		<include refid="spGroupTopicJoins" />
+		where a.type = #{type} and a.group_id = #{groupId} order by
+		a.issue_time desc
+	</select>
+
+	<!-- 查询组关联的话题列表 -->
+	<select id="selectAllGroupTopic" parameterType="String"
+		resultType="SpGroupTopic">
+		select
+		<include refid="spGroupTopicColumns" />
+		FROM sp_group_topic a
+		<include refid="spGroupTopicJoins" />
+		where a.group_id = #{groupId} order by a.issue_time desc
+	</select>
+	
+	<select id="selectAllGroupTopicPage" parameterType="map"
+		resultType="SpGroupTopic">
+		select
+		<include refid="spGroupTopicColumns" />
+		FROM sp_group_topic a
+		<include refid="spGroupTopicJoins" />
+		where a.group_id = #{groupId} order by a.issue_time desc
+	</select>
+
+	<!-- 根据话题ID查询话题评论数 -->
+	<select id="selectCountNumById" parameterType="String"
+		resultType="int">
+		select count(1) from sp_comment where source_type = '0' and source_id =
+		#{groupTopicId}
+	</select>
+
+</mapper>

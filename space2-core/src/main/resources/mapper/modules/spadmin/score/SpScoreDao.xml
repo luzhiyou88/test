@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.education.classroom.core.modules.spadmin.score.dao.SpScoreDao">
+
+	<sql id="spScoreColumns">
+		a.id AS "id",
+		a.user_id AS "userId",
+		a.source_type AS
+		"sourceType",
+		a.source_id AS "sourceId",
+		a.level AS "level",
+		a.content AS
+		"content",
+		a.create_time AS "createTime"
+	</sql>
+	<sql id="spScoreColumns2">
+		a.id AS "id",
+		a.user_id AS "userId",
+		a.source_type AS
+		"sourceType",
+		a.source_id AS "sourceId",
+		a.level AS "level",
+		a.content AS
+		"content",
+		a.create_time AS "createTime",
+		u.name   AS "userName",
+		u.thumb_img AS "thumbImg"
+	</sql>
+	
+	<sql id="spScoreJoins">
+	</sql>
+
+  <select id="findAVG" resultType="java.lang.Double">
+		SELECT AVG(a.level) as ERT
+		FROM sp_score a 
+		where
+			 a.source_id = #{sourceId}
+		
+	</select>
+
+	<select id="get" resultType="SpScore">
+		SELECT
+		<include refid="spScoreColumns" />
+		FROM sp_score a
+		<include refid="spScoreJoins" />
+		<where>
+		<if test="id != null and id != ''">
+		 AND	a.id = #{id}
+		</if>
+		<if test="userId != null and userId != ''">
+			AND a.user_id = #{userId}
+		</if>
+		<if test="sourceType != null and sourceType != ''">
+			AND a.source_type = #{sourceType}
+		</if>
+		<if test="sourceId != null and sourceId != ''">
+			AND a.source_id = #{sourceId}
+		</if>
+		</where>
+	</select>
+	<select id="findPageList" resultType="UserSpScore">
+		SELECT
+		<include refid="spScoreColumns2" />
+		FROM sp_score a LEFT JOIN sp_user u ON a.user_id = u.id
+		<include refid="spScoreJoins" />
+		<where>
+			 a.source_type = #{sourceType}
+			AND a.source_id = #{sourceId}
+		</where>
+		ORDER BY a.create_time DESC
+
+	</select>
+	<select id="findList" resultType="SpScore">
+		SELECT
+		<include refid="spScoreColumns" />
+		FROM sp_score a
+		<include refid="spScoreJoins" />
+		<where>
+
+			<if test="userId != null and userId != ''">
+				AND a.user_id = #{userId}
+			</if>
+			<if test="sourceType != null and sourceType != ''">
+				AND a.source_type = #{sourceType}
+			</if>
+			<if test="sourceId != null and sourceId != ''">
+				AND a.source_id = #{sourceId}
+			</if>
+		</where>
+		ORDER BY a.create_time DESC
+
+	</select>
+
+	<select id="findAllList" resultType="SpScore">
+		SELECT
+		<include refid="spScoreColumns" />
+		FROM sp_score a
+		<include refid="spScoreJoins" />
+		<where>
+
+		</where>
+		ORDER BY a.create_time DESC
+
+	</select>
+
+	<insert id="insert">
+		INSERT INTO sp_score(
+		id,
+		user_id,
+		source_type,
+		source_id,
+		level,
+		content,
+		create_time
+		) VALUES (
+		#{id},
+		#{userId},
+		#{sourceType},
+		#{sourceId},
+		#{level},
+		#{content},
+		#{createDate}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE sp_score SET
+		level = #{level},
+		content =
+		#{content}
+		WHERE id = #{id}
+	</update>
+
+	<update id="delete">
+		DELETE FROM sp_score
+		WHERE id = #{id}
+	</update>
+
+</mapper>

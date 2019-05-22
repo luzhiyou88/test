@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.education.classroom.core.modules.spadmin.group.dao.GroupDao">
+
+	<sql id="groupColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.space_id AS "spaceId",
+		a.group_type AS "groupType",
+		a.leader_id AS "leaderId",
+		a.thumb_img AS
+		"thumbImg",
+		a.publish_state AS "publishState",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date
+		AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag",
+		(SELECT COUNT(1) from sp_user_group fg where fg.group_id=a.id AND
+		fg.state ='3') AS "groupNum",
+		(SELECT fg.state from sp_user_group fg
+		where fg.group_id=a.id AND
+		fg.user_id=#{userId} AND
+		del_flag ='0')
+		AS
+		"joinFlag",
+		u.name AS "leaderName"
+	</sql>
+	<sql id="spUserColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.login_name AS "loginName",
+		a.user_pwd AS "userPwd",
+		a.thumb_img AS "thumbImg",
+		a.mobile AS
+		"mobile",
+		a.email AS "email",
+		a.user_type AS "userType",
+		a.user_state AS
+		"userState",
+		a.space_id AS "spaceId",
+		a.enter_year AS "enterYear",
+		a.specialty_id AS "specialtyId",
+		a.class_id AS "classId",
+		a.remarks AS
+		"remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS
+		"delFlag"
+	</sql>
+	<sql id="spUserGroupColumns">
+		a.id AS "id",
+		a.user_id AS "userId",
+		a.group_id AS "groupId",
+		a.state AS "state",
+		a.create_date AS "createDate",
+		a.create_by AS
+		"createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag",
+		u.name AS "userName",
+		u.thumb_img AS "thumbImg"
+	</sql>
+	<sql id="spGroupTopicColumns">
+		a.id AS "id",
+		a.id AS "topicId",
+		a.user_id AS "userId",
+		a.group_id AS "groupId",
+		a.title AS "title",
+		a.content AS "content",
+		a.issue_time AS "issueTime",
+		a.img_list AS "imgList",
+		a.type AS "type",
+		(SELECT COUNT(1) from
+		sp_comment fg where fg.source_id=a.id AND
+		fg.source_type ='0') AS
+		"commentNum",
+		u.name AS "userName",
+		rg.name AS
+		"groupName",
+		u.thumb_img AS "thumbImg"
+	</sql>
+
+	<sql id="spGroupJoins">
+	</sql>
+	<select id="findPageList" resultType="UserSpGroup">
+		SELECT
+		<include refid="groupColumns" />
+		FROM sp_group a LEFT JOIN sp_user u ON a.leader_id =u.id
+		<include refid="spGroupJoins" />
+		<where>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+		</where>
+		<choose>
+			<when test=" orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	<select id="findCenterList" resultType="UserSpGroup">
+		SELECT
+		<include refid="groupColumns" />
+		FROM sp_group a LEFT JOIN sp_user u ON a.leader_id =u.id
+		<include refid="spGroupJoins" />
+		<where>
+			publish_state = '3'
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id != #{spaceId}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+		</where>
+		<choose>
+			<when test=" orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	<select id="get" resultType="UserSpGroup">
+		SELECT
+		<include refid="groupColumns" />
+		FROM sp_group a LEFT JOIN sp_user u ON a.leader_id =u.id
+		<include refid="spGroupJoins" />
+		WHERE a.id = #{id}
+	</select>
+
+	<select id="findList" resultType="UserSpGroup">
+		SELECT
+		<include refid="groupColumns" />
+		<if test="isUser != null and isUser != ''">
+			FROM sp_user_group g LEFT JOIN sp_group a ON g.group_id
+			=a.id LEFT JOIN sp_user u ON a.leader_id =u.id
+		</if>
+		<if test="isUser == null or isUser == ''">
+			FROM sp_group a LEFT JOIN sp_user u ON a.leader_id =u.id
+		</if>
+		<include refid="spGroupJoins" />
+		<where>
+			((publish_state='0' and group_type!= '2') or publish_state='3')
+			AND a.del_flag ='0'
+			<if test="isUser != null and isUser != ''">
+				AND g.state ='3'
+				AND g.user_id=#{userId}
+			</if>
+			<if test="groupName != null and groupName != ''">
+				AND a.name LIKE concat('%',#{groupName},'%')
+			</if>
+
+		</where>
+
+		ORDER BY a.name 
+
+	</select>
+  <select id="pageForList" resultType="UserSpGroup">
+		SELECT
+		<include refid="groupColumns" />
+		<if test="isUser != null and isUser != ''">
+			FROM sp_user_group g LEFT JOIN sp_group a ON g.group_id
+			=a.id LEFT JOIN sp_user u ON a.leader_id =u.id
+		</if>
+		<if test="isUser == null or isUser == ''">
+			FROM sp_group a LEFT JOIN sp_user u ON a.leader_id =u.id
+		</if>
+		<include refid="spGroupJoins" />
+		<where>
+			((publish_state='0' and group_type!= '2') or publish_state='3')
+			AND a.del_flag ='0'
+			<if test="isUser != null and isUser != ''">
+				AND g.state ='3'
+				AND g.user_id=#{userId}
+			</if>
+			<if test="groupName != null and groupName != ''">
+				AND a.name LIKE concat('%',#{groupName},'%')
+			</if>
+		<if test="isUser == null or isUser == ''">
+		     AND a.id not in (select group_id from sp_user_group sug where sug.user_id=#{userId} AND sug.state ='3')
+		</if>
+		</where>
+
+		ORDER BY a.name 
+
+	</select>
+	<select id="findAllList" resultType="UserSpGroup">
+		SELECT
+		<include refid="groupColumns" />
+		FROM sp_group a LEFT JOIN sp_user u ON a.leader_id =u.id
+		<include refid="spGroupJoins" />
+		<where>
+			a.del_flag ='0'
+		</where>
+		ORDER BY a.update_date DESC
+	</select>
+
+	<insert id="joinGroup">
+		INSERT INTO sp_user_group(
+		id,
+		user_id,
+		group_id,
+		create_date,
+		update_date,
+		state
+		) VALUES (
+		#{id},
+		#{userId},
+		#{groupId},
+		NOW(),
+		NOW(),
+		#{state}
+		)
+	</insert>
+
+	<update id="updGrouper">
+		UPDATE sp_user_group SET
+		<if test="state != null and state != ''">
+			state = #{state},
+		</if>
+		<if test="DEL_FLAG != null and DEL_FLAG != ''">
+			del_flag=#{DEL_FLAG},
+		</if>
+		update_date = NOW()
+		WHERE
+		del_flag ='0'
+
+		<if test="userId != null and userId != ''">
+			and user_id = #{userId}
+		</if>
+		<if test="groupId != null and groupId != ''">
+			and group_id =#{groupId}
+		</if>
+		<if test="userGroupId != null and userGroupId != ''">
+			and id=#{userGroupId}
+		</if>
+
+	</update>
+
+	<update id="delete">
+		UPDATE sp_group SET
+		del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	<select id="getGrouperList" resultType="SpUser">
+		SELECT
+		<include refid="spUserColumns" />
+		FROM sp_user_group g LEFT JOIN sp_user a ON g.user_id =a.id
+		<where>
+			g.group_id =#{groupId}
+			and g.state ='3'<!-- 已加入的 -->
+			and g.del_flag ='0'
+<!-- 			and a.del_flag ='0'
+ -->		
+       </where>
+		ORDER BY g.create_date
+	</select>
+
+	<select id="findPreGrouperList" resultType="UserGroup">
+		SELECT
+		<include refid="spUserGroupColumns" />
+		FROM sp_user_group a LEFT JOIN sp_user u ON a.user_id =u.id
+		<where>
+			a.group_id =#{groupId}
+			AND state='1'
+			AND a.del_flag ='0'
+		</where>
+		ORDER BY a.create_date DESC
+	</select>
+	<select id="getUserGroup" resultType="UserGroup">
+		SELECT
+		<include refid="spUserGroupColumns" />
+		FROM sp_user_group a LEFT JOIN sp_user u ON a.user_id =u.id
+		<where>
+			a.id =#{userGroupId}
+		</where>
+	</select>
+	<select id="findGroupTopicList" resultType="GroupTopic">
+		SELECT
+		<include refid="spGroupTopicColumns" />
+		FROM sp_group_topic a LEFT JOIN sp_user_group g ON g.group_id=
+		a.group_id
+		LEFT JOIN sp_user u ON u.id = a.user_id
+		LEFT JOIN sp_group rg
+		ON rg.id=
+		a.group_id
+		<where>
+			g.user_id=#{userId}
+			and g.state ='3'
+			and g.del_flag ='0'	and rg.del_flag ='0'
+			<if test="title != null and title != ''">
+				AND a.title LIKE concat('%',#{title},'%')
+			</if>
+		</where>
+		ORDER BY a.issue_time DESC
+	</select>
+</mapper>

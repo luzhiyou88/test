@@ -1,0 +1,1 @@
+【2016-05-20 15:25:52】执行了插入语句为：【insert into wxb_user_money(user_id,order_money,visit_money,own_money,state,createtime,order_id,oc_state)values( '45586768', '0.001', '0.0', '0.001', '0', '2016-05-20 15:25:52', '160519171002710004', '1')】 状态为【0】

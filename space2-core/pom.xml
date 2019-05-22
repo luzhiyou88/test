@@ -1,0 +1,122 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.classroom</groupId>
+    <artifactId>cr2-parent</artifactId>
+    <relativePath>../cr2-parent/pom.xml</relativePath>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>space2-core</artifactId>
+  <name>space2-core</name>
+  <description>space2-core</description>
+  <packaging>jar</packaging>
+  
+  <properties>  
+		<space2-utils.version>0.0.1-SNAPSHOT</space2-utils.version>	
+		<jsqlparser.version>0.9.5</jsqlparser.version>	
+  </properties>
+  
+  <dependencies>
+		<dependency>
+			<groupId>com.classroom</groupId>
+			<artifactId>space2-utils</artifactId>
+			<version>${space2-utils.version}</version>
+		</dependency>
+		<!-- excel导入导出 start -->
+		<dependency>
+			<groupId>net.sf.jxls</groupId>
+			<artifactId>jxls-core</artifactId>
+			<version>1.0.5</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jxls</groupId>
+			<artifactId>jxls-reader</artifactId>
+			<version>1.0.5</version>
+		</dependency>
+		<!-- excel导入导出 end -->
+		<!-- <dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>2.5.3</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency> -->
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.netflix.curator</groupId>
+			<artifactId>curator-framework</artifactId>
+			<version>1.1.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.101tec</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>0.6</version>
+		</dependency>
+		
+		<dependency>
+			 <groupId>com.github.jsqlparser</groupId>
+			 <artifactId>jsqlparser</artifactId>
+			 <version>${jsqlparser.version}</version>
+		</dependency>
+		
+  </dependencies>
+  
+  <build>
+		<plugins>
+			<!-- source attach plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<includes>
+								<include>src/main/resources/mapper/**/*.xml</include>
+							</includes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- 打包测试用的jar包，classfier为tests -->
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+						<configuration>
+							<includes>
+								<include>com/education/classroom/core/test/**/*.class</include>
+							</includes>
+							<excludes>
+								<exclude>com/education/classroom/core/test/**/*Test.class</exclude>
+							</excludes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- enforcer, 规则统一定义在parent -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>

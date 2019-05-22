@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.specialty.dao.SpSpecialtyDao">
+    
+	<sql id="spSpecialtyColumns">
+		a.id AS "id",
+		a.space_id AS "spaceId",
+		a.name AS "name",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="spSpecialtyJoins">
+	</sql>
+	<select id="findPageList" resultType="SpSpecialty">
+		SELECT 
+		<include refid="spSpecialtyColumns"/>
+		FROM sp_specialty a
+		<include refid="spSpecialtyJoins"/>
+		<where>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	<select id="get" resultType="SpSpecialty">
+		SELECT 
+		<include refid="spSpecialtyColumns"/>
+		FROM sp_specialty a
+		<include refid="spSpecialtyJoins"/>
+		WHERE a.id = #{id}
+	</select>
+		<select id="checkSpecialtyName" resultType="int">
+		SELECT 
+		count(1) AS ERT
+		FROM sp_specialty a
+		<include refid="spSpecialtyJoins"/>
+		WHERE  a.name=#{name}
+		 AND a.id != #{id}
+		 AND a.del_flag='0'
+	</select>
+	<select id="findList" resultType="SpSpecialty" parameterType="java.util.Map">
+		SELECT 
+		<include refid="spSpecialtyColumns"/>
+		FROM sp_specialty a
+		<include refid="spSpecialtyJoins"/>
+		<where>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id = #{spaceId}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpSpecialty">
+		SELECT 
+		<include refid="spSpecialtyColumns"/>
+		FROM sp_specialty a
+		<include refid="spSpecialtyJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_specialty(
+			id,
+			space_id,
+			name,
+			remarks,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			del_flag
+		) VALUES (
+			#{id},
+			#{spaceId},
+			#{name},
+			#{remarks},
+			#{createDate},
+			#{createBy},
+			#{updateDate},
+			#{updateBy},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_specialty SET 	
+			name = #{name},
+			remarks = #{remarks},
+			update_date = #{updateDate},
+			update_by = #{updateBy}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_specialty SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

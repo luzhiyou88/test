@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+div.searchFormButton {
+	text-align: right;
+}
+
+/* 时间控件 */
+input.input-time {
+	width:90px;
+}
+
+/* 日期控件 */
+input.input-date {
+	width:100px;
+}
+
+#loading-wait-mark{
+    width:160px;
+    height:160px;
+}
+
+#loading-wait-mark div{
+    width:130px;
+    height:130px;
+    background-image:url(../img/loading_middle.gif);
+    background-repeat:no-repeat;
+    background-position:center;
+}

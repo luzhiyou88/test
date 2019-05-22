@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.material.dao.SpMaterialsDao">
+    
+	<sql id="spMaterialsColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.cotent AS "cotent",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="spMaterialsJoins">
+	</sql>
+    
+	<select id="get" resultType="SpMaterials">
+		SELECT 
+			<include refid="spMaterialsColumns"/>
+		FROM sp_materials a
+		<include refid="spMaterialsJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" parameterType="map" resultType="SpMaterials">
+		SELECT 
+			<include refid="spMaterialsColumns"/>
+		FROM sp_materials a
+		<include refid="spMaterialsJoins"/>
+		<where>
+			   <if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			   </if>
+			   <if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="cotent != null and cotent != ''">
+				AND a.cotent LIKE concat('%',#{cotent},'%')
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="selSpMaterials" resultType="SpMaterials">
+	    SELECT 
+			<include refid="spMaterialsColumns"/>
+		FROM sp_materials a
+		where del_flag = '0'
+	</select>
+	
+	<select id="findAllList" resultType="SpMaterials">
+	    SELECT 
+			<include refid="spMaterialsColumns"/>
+		FROM sp_materials a
+		<include refid="spMaterialsJoins"/>
+		<where>
+			a.del_flag = '0'
+			<if test="ids != null and ids != ''">
+				and a.id in
+				<foreach collection="ids" index="index" item="id" open="(" separator="," close=")">
+				   	#{id}
+			  	</foreach>
+			</if>
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	
+	<insert id="insert">
+		INSERT INTO sp_materials(
+			id,
+			name,
+			cotent,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			del_flag
+		) VALUES (
+			#{id},
+			#{name},
+			#{cotent},
+			#{createDate},
+			#{createBy},
+			#{updateDate},
+			#{updateBy},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_materials SET 	
+			name = #{name},
+			cotent = #{cotent},
+			update_date = #{updateDate},
+			update_by = #{updateBy},
+			del_flag = #{delFlag}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_materials SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	<!-- 验证材料名称唯一性 -->
+	<select id="checkName" resultType="int">
+	  select count(*) from sp_materials where del_flag = '0' and name = #{name} and id != #{id} 
+	</select>
+	
+	<!-- 查看试卷是否关联材料 -->
+	<select id="checkProblemMaterial" parameterType="String" resultType="int">
+	  select count(*) from sp_problems where del_flag = '0' and material_id = #{materialId}
+	</select>
+	
+</mapper>

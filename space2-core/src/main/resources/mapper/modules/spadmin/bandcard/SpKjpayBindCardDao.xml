@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.bandcard.dao.SpKjpayBindCardDao">
+    
+    
+    <sql id="spKjpayBindCardBasicColumns">
+		a.id AS "id",
+		a.space_id AS "spaceId",
+		a.user_id AS "userId",
+		a.bind_id AS "bindId",
+		a.bank_card_no AS "bankCardNo",
+		a.bank_code AS "bankCode",
+		a.mobile_phone AS "mobilePhone",
+		a.bind_valid AS "bindValid",
+		a.del_flag AS "delFlag"
+	</sql>
+    
+    
+	<sql id="spKjpayBindCardColumns">
+		a.id AS "id",
+		a.space_id AS "spaceId",
+		a.user_id AS "userId",
+		a.bind_id AS "bindId",
+		a.bank_card_no AS "bankCardNo",
+		a.bank_code AS "bankCode",
+		a.mobile_phone AS "mobilePhone",
+		a.bind_valid AS "bindValid",
+		a.del_flag AS "delFlag",
+		u3.name AS "user.name"
+	</sql>
+	
+	<sql id="spKjpayBindCardJoins">
+		LEFT JOIN sys_user u3 ON u3.id = a.user_id
+	</sql>
+    
+	<select id="get" resultType="SpKjpayBindCard">
+		SELECT 
+			<include refid="spKjpayBindCardColumns"/>
+		FROM sp_kjpay_bind_card a
+		<include refid="spKjpayBindCardJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SpKjpayBindCard">
+		SELECT 
+			<include refid="spKjpayBindCardColumns"/>
+		FROM sp_kjpay_bind_card a
+		<include refid="spKjpayBindCardJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id = #{spaceId}
+			</if>
+			<if test="user != null and userId != null and userId != ''">
+				AND a.user_id = #{userId}
+			</if>
+			<if test="bindId != null and bindId != ''">
+				AND a.bind_id = #{bindId}
+			</if>
+			<if test="bankCardNo != null and bankCardNo != ''">
+				AND a.bank_card_no = #{bankCardNo}
+			</if>
+			<if test="bankCode != null and bankCode != ''">
+				AND a.bank_code = #{bankCode}
+			</if>
+			<if test="mobilePhone != null and mobilePhone != ''">
+				AND a.mobile_phone = #{mobilePhone}
+			</if>
+			<if test="bindValid != null and bindValid != ''">
+				AND a.bind_valid = #{bindValid}
+			</if>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	
+	
+	
+	
+	<select id="findValidCardList" resultType="SpKjpayBindCard">
+		SELECT 
+			<include refid="spKjpayBindCardColumns"/>
+		FROM sp_kjpay_bind_card a
+		<where>
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id = #{spaceId}
+			</if>
+			<if test="user != null and userId != null and userId != ''">
+				AND a.user_id = #{userId}
+			</if>
+			<if test="bindId != null and bindId != ''">
+				AND a.bind_id = #{bindId}
+			</if>
+			<if test="bankCardNo != null and bankCardNo != ''">
+				AND a.bank_card_no = #{bankCardNo}
+			</if>
+			<if test="bankCode != null and bankCode != ''">
+				AND a.bank_code = #{bankCode}
+			</if>
+			<if test="mobilePhone != null and mobilePhone != ''">
+				AND a.mobile_phone = #{mobilePhone}
+			</if>
+			<if test="bindValid != null and bindValid != ''">
+				AND a.bind_valid >= #{bindValid}
+			</if>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+		</where>
+	</select>
+	
+	
+	
+	
+	
+	<select id="findListByBankCode" resultType="SpKjpayBindCard">
+		SELECT 
+			<include refid="spKjpayBindCardBasicColumns"/>
+		FROM sp_kjpay_bind_card a
+		
+		where
+				a.del_flag = '0'
+				AND a.bank_code = #{bankCode}
+	</select>
+	
+	
+	
+	
+	
+	<select id="findAllList" resultType="SpKjpayBindCard">
+		SELECT 
+			<include refid="spKjpayBindCardColumns"/>
+		FROM sp_kjpay_bind_card a
+		<include refid="spKjpayBindCardJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_kjpay_bind_card(
+			id,
+			space_id,
+			user_id,
+			bind_id,
+			bank_card_no,
+			bank_code,
+			mobile_phone,
+			bind_valid,
+			del_flag
+		) VALUES (
+			#{id},
+			#{spaceId},
+			#{userId},
+			#{bindId},
+			#{bankCardNo},
+			#{bankCode},
+			#{mobilePhone},
+			#{bindValid},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_kjpay_bind_card SET 	
+			space_id = #{spaceId},
+			user_id = #{userId},
+			bind_id = #{bindId},
+			bank_card_no = #{bankCardNo},
+			bank_code = #{bankCode},
+			mobile_phone = #{mobilePhone},
+			bind_valid = #{bindValid},
+			del_flag = #{delFlag}
+		WHERE id = #{id}
+	</update>
+	
+	
+	
+	<update id="uptDelFlgByBankCode">
+		UPDATE sp_kjpay_bind_card SET 	
+			del_flag = #{delFlag}
+		WHERE bank_code = #{bankCode}
+	</update>
+	
+	
+	<update id="uptBindValidByUserIdBindId">
+		UPDATE sp_kjpay_bind_card SET 	
+		  bind_valid = #{bindValid}
+		WHERE user_id = #{userId}
+		  AND bind_id = #{bindId}
+	</update>
+	
+	
+	<update id="deleteByUserIdBindId">
+		UPDATE sp_kjpay_bind_card SET 
+			del_flag = #{delFlag}
+		WHERE user_id = #{userId}
+		  AND bind_id = #{bindId}
+	</update>
+	
+	
+	<update id="delete">
+		UPDATE sp_kjpay_bind_card SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

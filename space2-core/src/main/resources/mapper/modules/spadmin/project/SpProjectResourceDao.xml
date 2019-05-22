@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.project.dao.SpProjectResourceDao">
+    
+	<sql id="spProjectResourceColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.project_id AS "projectId",
+		a.base_url AS "baseUrl",
+		a.json_body AS "jsonBody",
+		a.thumb_img AS "thumbImg",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+		,p.name as "projectName"
+	</sql>
+	
+	<sql id="spProjectResourceJoins">
+		left join sp_project p on p.id=a.project_id
+	</sql>
+    
+	<select id="get" resultType="SpProjectResource">
+		SELECT 
+			<include refid="spProjectResourceColumns"/>
+		FROM sp_project_resource a
+		<include refid="spProjectResourceJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SpProjectResource">
+		SELECT 
+			<include refid="spProjectResourceColumns"/>
+		FROM sp_project_resource a
+		<include refid="spProjectResourceJoins"/>
+		<where>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="projectId != null and projectId != ''">
+				AND a.project_id = #{projectId}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpProjectResource">
+		SELECT 
+			<include refid="spProjectResourceColumns"/>
+		FROM sp_project_resource a
+		<include refid="spProjectResourceJoins"/>
+		<where>
+			a.del_flag = '0'
+			<if test="projectIds != null and projectIds != ''">
+				AND a.project_id in 
+				<foreach collection="projectIds" index="index" item="projectId" open="(" separator=" or " close=")">
+				   	#{projectId}
+				  </foreach>
+			</if>
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_project_resource(
+			id,
+			name,
+			project_id,
+			base_url,
+			json_body,
+			thumb_img,
+			remarks,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			del_flag
+		) VALUES (
+			#{id},
+			#{name},
+			#{projectId},
+			#{baseUrl},
+			#{jsonBody},
+			#{thumbImg},
+			#{remarks},
+			#{createDate},
+			#{createBy},
+			#{updateDate},
+			#{updateBy},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_project_resource SET 	
+			name = #{name},
+			project_id = #{projectId},
+			base_url = #{baseUrl},
+			json_body = #{jsonBody},
+			thumb_img = #{thumbImg},
+			remarks = #{remarks},
+			update_date = #{updateDate},
+			update_by = #{updateBy}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_project_resource SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	<update id="deleteById">
+		UPDATE sp_project_resource SET 
+			del_flag = '1'
+		WHERE id = #{id}
+	</update>
+	<update id="updateResource">
+		UPDATE sp_project_resource SET 
+			del_flag = '0'
+			,project_id=#{projectId}
+		WHERE id = #{resourceId}
+	</update>
+	
+	<update id="deleteByProjectIds">
+		UPDATE sp_project_resource SET 
+			del_flag = '1'
+		WHERE project_id in 
+		<foreach collection="projectIds" index="index" item="projectId" open="(" separator="," close=")">
+		   	#{projectId}
+		</foreach>
+	</update>
+	
+</mapper>

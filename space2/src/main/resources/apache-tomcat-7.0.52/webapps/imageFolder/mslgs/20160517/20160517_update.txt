@@ -1,0 +1,4 @@
+【2016-05-17 20:25:42】执行了更新语句为：【 update wxb_order t set  t.state='2'  where t.order_id = '160517183920923000' 】 状态为【0】
+【2016-05-17 20:44:55】执行了更新语句为：【 update wxb_order t set  t.state='2'  where t.order_id = '160517204356931000' 】 状态为【0】
+【2016-05-17 20:45:33】执行了更新语句为：【 update wxb_order t set  t.sender_type='shunfeng', t.courier_id='933265998028', t.state='4'  where t.order_id = '160517204356931000' 】 状态为【0】
+【2016-05-17 20:45:43】执行了更新语句为：【 update wxb_order t set  t.state='7'  where t.order_id = '160517204356931000' 】 状态为【0】

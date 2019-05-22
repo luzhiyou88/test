@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.education.classroom.core.modules.spadmin.favor.dao.SpFavorDao">
+
+	<sql id="spFavorColumns">
+		a.id AS "id",
+		a.user_id AS "userId",
+		a.source_type AS
+		"sourceType",
+		a.source_id AS "sourceId",
+		a.create_date AS "createDate"
+	</sql>
+	<sql id="spFavorColumns2">
+		a.id AS "id",
+		a.name AS "name",
+		a.type AS "type",
+		a.category_id AS "categoryId",
+		a.space_id AS "spaceId",
+		a.publish_state AS "publishState",
+		a.domain AS "domain",
+		a.base_url AS "baseUrl",
+		a.thumb_img AS "thumbImg",
+		a.remarks AS "remarks",
+		a.create_by AS "createBy",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy",
+		a.update_date AS "updateDate",
+		a.del_flag AS "delFlag"
+		,v.source_type as sourceType
+		,IFNULL(v.score_avg,0) as scoreAvg
+		,IFNULL(v.click_num,0) as clickNum
+		,IFNULL(v.praise,0) as praiseNum
+		,IFNULL(v.download_num,0) as downloadNum
+		,(SELECT COUNT(id) FROM sp_favor c WHERE user_id=#{userId} AND source_id=a.id) AS isCollect
+		<!-- ,(SELECT COUNT(id) FROM sp_user_behavior b WHERE type=2 AND user_id=#{userId} AND source_id=a.id) AS isDownload -->
+		,IFNULL(v.reading_num,0) AS readNum
+	</sql>
+	<sql id="spFavorJoins">
+	</sql>
+
+	<select id="get" resultType="SpFavor">
+		SELECT
+		<include refid="spFavorColumns" />
+		FROM sp_favor a
+		<include refid="spFavorJoins" />
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="sourceId != null and sourceId != ''">
+				AND a.source_id = #{sourceId}
+			</if>
+			<if test="sourceType != null and sourceType != ''">
+				AND a.source_type = #{sourceType}
+			</if>
+				<if test="userId != null and userId != ''">
+				AND a.user_id = #{userId}
+			</if>
+		</where>
+	</select>
+	<select id="findPageList" resultType="SpResource">
+		SELECT
+		<include refid="spFavorColumns2" />
+		FROM sp_favor f LEFT JOIN sp_resource a ON f.source_id =a.id
+		LEFT JOIN sp_resource_vistor v ON v.source_id = a.id
+ 
+		<where>
+		f.user_id = #{userId}
+		<if test="sourceType != null and sourceType != ''">
+				AND a.source_type = #{sourceType}
+		</if>
+		</where>
+		ORDER BY createDate DESC
+	</select>
+	<select id="findList" resultType="SpFavor">
+		SELECT
+		<include refid="spFavorColumns" />
+		FROM sp_favor a
+		<include refid="spFavorJoins" />
+		<where>
+
+			<if test="userId != null and userId != ''">
+				AND a.user_id = #{userId}
+			</if>
+			<if test="sourceType != null and sourceType != ''">
+				AND a.source_type = #{sourceType}
+			</if>
+			<if test="sourceId != null and sourceId != ''">
+				AND a.source_id = #{sourceId}
+			</if>
+		</where>
+		ORDER BY createDate DESC
+
+
+	</select>
+
+	<select id="findAllList" resultType="SpFavor">
+		SELECT
+		<include refid="spFavorColumns" />
+		FROM sp_favor a
+		<include refid="spFavorJoins" />
+		<where>
+
+		</where>
+		ORDER BY createDate DESC
+
+
+	</select>
+
+	<insert id="insert">
+		INSERT INTO sp_favor(
+		id,
+		user_id,
+		source_type,
+		source_id,
+		create_date
+		) VALUES (
+		#{id},
+		#{userId},
+		#{sourceType},
+		#{sourceId},
+		#{createDate}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE sp_favor SET
+		user_id = #{userId},
+		source_type =
+		#{sourceType},
+		source_id = #{sourceId}
+		WHERE id = #{id}
+	</update>
+
+	<update id="delete">
+		DELETE FROM sp_favor
+		WHERE id = #{id}
+	</update>
+
+</mapper>

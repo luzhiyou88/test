@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.member.dao.SpMemberPostageDao">
+    
+	<sql id="spMemberPostageColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.month AS "month",
+		a.postage_price AS "postagePrice",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="spMemberPostageJoins">
+	</sql>
+    
+	<select id="get" resultType="SpMemberPostage">
+		SELECT 
+			<include refid="spMemberPostageColumns"/>
+		FROM sp_member_postage a
+		<include refid="spMemberPostageJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	
+	<select id="selectById" resultType="SpMemberPostage">
+		SELECT 
+			a.id AS "id",
+			a.name AS "name",
+			a.month AS "month",
+			a.postage_price AS "postagePrice",
+			a.remarks AS "remarks",
+			a.create_date AS "createDate",
+			a.create_by AS "createBy",
+			a.update_date AS "updateDate",
+			a.update_by AS "updateBy",
+			a.del_flag AS "delFlag"
+		FROM sp_member_postage a
+		WHERE a.id = #{id}
+		  and  del_flag = '0'
+	</select>
+	
+	
+	
+	<select id="findList" parameterType="map" resultType="SpMemberPostage">
+		SELECT 
+			<include refid="spMemberPostageColumns"/>
+		FROM sp_member_postage a
+		<include refid="spMemberPostageJoins"/>
+		<where>
+		    <if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="month != null and month != ''">
+				AND a.month = #{month}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpMemberPostage">
+		SELECT 
+			<include refid="spMemberPostageColumns"/>
+		FROM sp_member_postage a
+		<include refid="spMemberPostageJoins"/>
+		<where>
+			a.del_flag = #{delFlag}
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_member_postage(
+			id,
+			name,
+			month,
+			postage_price,
+			remarks,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			del_flag
+		) VALUES (
+			#{id},
+			#{name},
+			#{month},
+			#{postagePrice},
+			#{remarks},
+			#{createDate},
+			#{createBy},
+			#{updateDate},
+			#{updateBy},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_member_postage SET 	
+			name = #{name},
+			month = #{month},
+			postage_price = #{postagePrice},
+			remarks = #{remarks},
+			update_date = #{updateDate},
+			update_by = #{updateBy}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_member_postage SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	<!-- 验证资费名称唯一性 -->
+	<select id="selectByName" parameterType="String" resultType="int">
+	   select count(*) from sp_member_postage where del_flag='0' and name = #{name}
+	</select>
+	
+	<!-- 获取会员资费列表 -->
+	<select id="selectMemberPostageList" resultType="SpMemberPostage">
+	   select
+	   <include refid="spMemberPostageColumns"/>
+		FROM sp_member_postage a
+		where del_flag = '0'
+	</select>
+</mapper>

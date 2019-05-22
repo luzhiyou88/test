@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.lesson.dao.SpLessonDao">
+    
+	<sql id="spLessonColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.course_id AS "courseId",
+		a.lesson_date AS "lessonDate",
+		a.space_id AS "spaceId",
+		a.section_id AS "sectionId",
+		a.lesson_starttime AS "lessonStarttime",
+		a.lesson_endtime AS "lessonEndtime",
+		a.lesson_number AS "lessonNumber",
+		a.teacher_id AS "teacherId",
+		a.thumb_img AS "thumbImg",
+		a.lesson_adress AS "lessonAdress",
+		a.lesson_state AS "lessonState",
+		a.lesson_source AS "lessonSource",
+		a.broadcast_id AS "broadcastId",
+		a.broadcast_name AS "broadcastName",
+		a.broadcast_desc AS "broadcastDesc",
+		a.broadcast_pass AS "broadcastPass",
+		a.sign_time AS "signTime",
+		a.publish_state AS "publishState",
+		a.lesson_desc AS "lessonDesc",
+		a.create_by AS "createBy",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy",
+		a.update_date AS "updateDate",
+		a.del_flag AS "delFlag",
+		a.lesson_type AS "lessonType",
+		a.share_key AS "shareKey",
+		sp_user.name AS "teacherName",
+		sp_user.remarks AS "teacherDesc",
+		space.name AS "spaceName",
+		lesson_state_dict.label AS "lessonStateLabel",
+		publish_state_dict.label AS "publishStateLabel",
+		lesson_source_dict.label AS "lessonSourceLabel",
+		course.course_name AS "courseName",
+		course.course_number AS "courseNumber"
+	</sql>
+	
+	
+	<sql id="spLessonColumnsAndHandouts">
+		a.id AS "id",
+		a.name AS "name",
+		a.course_id AS "courseId",
+		a.lesson_date AS "lessonDate",
+		a.space_id AS "spaceId",
+		a.section_id AS "sectionId",
+		a.lesson_starttime AS "lessonStarttime",
+		a.lesson_endtime AS "lessonEndtime",
+		a.lesson_number AS "lessonNumber",
+		a.teacher_id AS "teacherId",
+		a.thumb_img AS "thumbImg",
+		a.lesson_adress AS "lessonAdress",
+		a.lesson_state AS "lessonState",
+		a.lesson_source AS "lessonSource",
+		a.broadcast_id AS "broadcastId",
+		a.broadcast_name AS "broadcastName",
+		a.broadcast_desc AS "broadcastDesc",
+		a.broadcast_pass AS "broadcastPass",
+		a.sign_time AS "signTime",
+		a.publish_state AS "publishState",
+		a.lesson_desc AS "lessonDesc",
+		a.create_by AS "createBy",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy",
+		a.update_date AS "updateDate",
+		a.del_flag AS "delFlag",
+		a.lesson_type AS "lessonType",
+		a.share_key AS "shareKey",
+		sp_user.name AS "teacherName",
+		sp_user.remarks AS "teacherDesc",
+		space.name AS "spaceName",
+		lesson_state_dict.label AS "lessonStateLabel",
+		publish_state_dict.label AS "publishStateLabel",
+		course.course_name AS "courseName",
+		course.course_number AS "courseNumber",
+		han.title  AS "title",
+		han.base_url AS "baseUrl"
+	</sql>
+	
+	
+	
+	
+	<sql id="lessonColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.course_id AS "courseId",
+		a.lesson_date AS "lessonDate",
+		a.space_id AS "spaceId",
+		a.section_id AS "sectionId",
+		a.lesson_starttime AS "lessonStarttime",
+		a.lesson_endtime AS "lessonEndtime",
+		a.lesson_number AS "lessonNumber",
+		a.teacher_id AS "teacherId",
+		a.thumb_img AS "thumbImg",
+		a.lesson_adress AS "lessonAdress",
+		a.lesson_state AS "lessonState",
+		a.broadcast_id AS "broadcastId",
+		a.broadcast_name AS "broadcastName",
+		a.broadcast_desc AS "broadcastDesc",
+		a.broadcast_pass AS "broadcastPass",
+		a.sign_time AS "signTime",
+		a.publish_state AS "publishState",
+		a.lesson_desc AS "lessonDesc",
+		a.create_by AS "createBy",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy",
+		a.update_date AS "updateDate",
+		a.del_flag AS "delFlag",
+		a.lesson_source AS "lessonSource",
+		a.lesson_type AS "lessonType",
+		a.share_key AS "shareKey",
+		a.base_url AS "baseUrl",
+		b.click_num AS "clickNum",
+		c.course_type AS "curriculumType",
+		c.course_price AS "coursePrice"
+	</sql>
+	<sql id="lessonColumns1">
+		a.id AS "id",
+		a.name AS "name",
+		a.course_id AS "courseId",
+		a.lesson_date AS "lessonDate",
+		a.space_id AS "spaceId",
+		a.section_id AS "sectionId",
+		a.lesson_starttime AS "lessonStarttime",
+		a.lesson_endtime AS "lessonEndtime",
+		a.lesson_number AS "lessonNumber",
+		a.teacher_id AS "teacherId",
+		a.thumb_img AS "thumbImg",
+		a.lesson_adress AS "lessonAdress",
+		a.lesson_state AS "lessonState",
+		a.broadcast_id AS "broadcastId",
+		a.broadcast_name AS "broadcastName",
+		a.broadcast_desc AS "broadcastDesc",
+		a.broadcast_pass AS "broadcastPass",
+		a.sign_time AS "signTime",
+		a.publish_state AS "publishState",
+		a.lesson_desc AS "lessonDesc",
+		a.create_by AS "createBy",
+		a.create_date AS "createDate",
+		a.update_by AS "updateBy",
+		a.update_date AS "updateDate",
+		a.del_flag AS "delFlag",
+		a.lesson_type AS "lessonType",
+		a.share_key AS "shareKey",
+		a.lesson_source AS "lessonSource"
+	</sql>
+	
+	<sql id="spLessonJoins">
+		<!-- 套课表 -->
+		left join sp_course course on a.course_id = course.id
+		<!-- 用户表 -->
+		left join sp_user sp_user on sp_user.id = a.teacher_id
+		<!-- 第二教室 -->
+		left join sp_space space on space.id = a.space_id
+		<!-- 开课状态 -->
+		left join sys_dict lesson_state_dict 
+		on lesson_state_dict.type='curriculum_state' 
+			and lesson_state_dict.del_flag='0' 
+			and a.lesson_state=lesson_state_dict.value
+		<!-- 发布状态 -->
+		left join sys_dict publish_state_dict 
+		on publish_state_dict.type='sp_publish_state' 
+			and publish_state_dict.del_flag='0' 
+			and a.publish_state=publish_state_dict.value
+		<!-- 课程来源-->
+		left join sys_dict lesson_source_dict 
+		on lesson_source_dict.type='sp_lesson_source' 
+			and lesson_source_dict.del_flag='0' 
+			and a.lesson_source=lesson_source_dict.value		
+	</sql>
+	
+	<sql id="spLessonJoinsAndHandouts">
+		<!-- 套课表 -->
+		left join sp_course course on a.course_id = course.id
+		<!-- 用户表 -->
+		left join sp_user sp_user on sp_user.id = a.teacher_id
+		<!-- 第二教室 -->
+		left join sp_space space on space.id = a.space_id
+		<!-- 课程讲义 -->
+		left join (select lesson_id,base_url,title from sp_handouts where del_flag = '0') han on han.lesson_id = a.id 
+		<!-- 开课状态 -->
+		left join sys_dict lesson_state_dict 
+		on lesson_state_dict.type='curriculum_state' 
+			and lesson_state_dict.del_flag='0' 
+			and a.lesson_state=lesson_state_dict.value
+		<!-- 发布状态 -->
+		left join sys_dict publish_state_dict 
+		on publish_state_dict.type='sp_publish_state' 
+			and publish_state_dict.del_flag='0' 
+			and a.publish_state=publish_state_dict.value
+	</sql>
+    
+	<select id="get" resultType="SpLesson">
+		SELECT 
+			<include refid="spLessonColumns"/>
+		FROM sp_lesson a
+		<include refid="spLessonJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SpLesson">
+		SELECT 
+			<include refid="spLessonColumns"/>
+		FROM sp_lesson a
+		<include refid="spLessonJoins"/>
+		<where>
+			a.del_flag = '0'
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="courseName != null and courseName != ''">
+				AND course.course_name LIKE concat('%',#{courseName},'%')
+			</if>
+			<if test="lessonDate != null and lessonDate != ''">
+				AND a.lesson_date = #{lessonDate}
+			</if>
+			<if test="lessonDateFrom != null and lessonDateFrom != ''">
+				AND a.lesson_date <![CDATA[>= ]]> #{lessonDateFrom}
+			</if>
+			<if test="lessonDateTo != null and lessonDateTo != ''">
+				AND a.lesson_date <![CDATA[<= ]]> #{lessonDateTo}
+			</if>
+			<if test="lessonStarttime != null and lessonStarttime != ''">
+				AND a.lesson_starttime = #{lessonStarttime}
+			</if>
+			<if test="lessonStarttimeFrom != null and lessonStarttimeFrom != ''">
+				AND a.lesson_starttime <![CDATA[>= ]]> #{lessonStarttimeFrom}
+			</if>
+			<if test="lessonEndtime != null and lessonEndtime != ''">
+				AND a.lesson_endtime = #{lessonEndtime}
+			</if>
+			<if test="lessonEndtimeTo != null and lessonEndtimeTo != ''">
+				AND a.lesson_endtime <![CDATA[<= ]]> #{lessonEndtimeTo}
+			</if>
+			<if test="teacherId != null and teacherId != ''">
+				AND a.teacher_id = #{teacherId}
+			</if>
+			<if test="teacherName != null and teacherName != ''">
+				AND sp_user.name like concat('%',#{teacherName},'%')
+			</if>
+			<if test="lessonState != null and lessonState != ''">
+				AND a.lesson_state = #{lessonState}
+			</if>
+			<if test="publishState != null and publishState != ''">
+				AND a.publish_state = #{publishState}
+			</if>
+			<if test="lessonType != null and lessonType != ''">
+				AND a.lesson_type = #{lessonType}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.course_id,a.lesson_date,a.lesson_starttime, a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="getPadLoginLesson" resultType="SpLesson">
+		SELECT 
+			<include refid="lessonColumns1"/>
+		FROM sp_lesson a
+		<if test="userType != null and userType != '' and userType == 1">
+			<!-- 学生需要查询已预约的课程或者路演 -->
+			LEFT JOIN sp_user_lesson b
+			ON b.del_flag = '0'
+		    AND b.user_id = #{userId}
+		    AND a.id = b.lesson_id
+		</if>
+		<where>
+			a.del_flag = '0'
+			<!-- 平台课程并且已发布 /平台课程并且发布状态：平台 / 本地课程 -->
+			AND (
+					 (a.lesson_source='2' and a.publish_state='3')
+				  or (a.lesson_source='2' and a.publish_state='4')
+				  or a.lesson_source='1'
+				)
+			AND 
+				(
+				<!-- 开课中的 -->
+				NOW() BETWEEN CONCAT(a.lesson_date,' ',a.lesson_starttime) AND CONCAT(a.lesson_date,' ',a.lesson_endtime)
+				OR 
+				<!-- 10分钟之内开课的 -->
+				CONCAT(a.lesson_date,' ',a.lesson_starttime) BETWEEN NOW() AND DATE_ADD(NOW(),INTERVAL 10 DAY_MINUTE)
+				)
+			<if test="lessonType != null and lessonType != ''">
+				and a.lesson_type = #{lessonType}
+			</if>
+			<if test="teacherId != null and teacherId != ''">
+				and a.teacher_id = #{teacherId}
+			</if>
+			<if test="userType != null and userType != '' and userType == 1">
+				<!-- 学生需要查询已预约的课程或者路演 -->
+				and (
+					(a.lesson_type='0' and b.id is not null)
+					or a.lesson_type='1'
+				)
+			</if>
+		</where>
+		<!-- 优先课程，然后路演 -->
+		ORDER BY a.lesson_type,a.lesson_date,a.lesson_starttime
+		LIMIT 1
+	</select>
+	
+	<select id="findListByCourseId" resultType="SpLesson">
+		SELECT 
+			<include refid="lessonColumns1"/>
+		FROM sp_lesson a
+		<where>
+			a.del_flag = '0'
+			AND a.course_id = #{courseId}
+			
+		</where>
+	</select>
+	
+	
+	
+	
+	<select id="findListAndHandouts" parameterType="map" resultType="SpLesson">
+		SELECT 
+			<include refid="spLessonColumnsAndHandouts"/>
+		FROM sp_lesson a
+		<include refid="spLessonJoinsAndHandouts"/>
+		<where>
+			a.del_flag = '0'
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="courseName != null and courseName != ''">
+				AND course.course_name LIKE concat('%',#{courseName},'%')
+			</if>
+			<if test="lessonDate != null and lessonDate != ''">
+				AND a.lesson_date = #{lessonDate}
+			</if>
+			<if test="lessonDateFrom != null and lessonDateFrom != ''">
+				AND a.lesson_date <![CDATA[>= ]]> #{lessonDateFrom}
+			</if>
+			<if test="lessonDateTo != null and lessonDateTo != ''">
+				AND a.lesson_date <![CDATA[<= ]]> #{lessonDateTo}
+			</if>
+			<if test="lessonStarttime != null and lessonStarttime != ''">
+				AND a.lesson_starttime = #{lessonStarttime}
+			</if>
+			<if test="lessonStarttimeFrom != null and lessonStarttimeFrom != ''">
+				AND a.lesson_starttime <![CDATA[>= ]]> #{lessonStarttimeFrom}
+			</if>
+			<if test="lessonEndtime != null and lessonEndtime != ''">
+				AND a.lesson_endtime = #{lessonEndtime}
+			</if>
+			<if test="lessonEndtimeTo != null and lessonEndtimeTo != ''">
+				AND a.lesson_endtime <![CDATA[<= ]]> #{lessonEndtimeTo}
+			</if>
+			<if test="teacherId != null and teacherId != ''">
+				AND a.teacher_id = #{teacherId}
+			</if>
+			<if test="teacherName != null and teacherName != ''">
+				AND sp_user.name like concat('%',#{teacherName},'%')
+			</if>
+			<if test="lessonState != null and lessonState != ''">
+				AND a.lesson_state = #{lessonState}
+			</if>
+			<if test="publishState != null and publishState != ''">
+				AND a.publish_state = #{publishState}
+			</if>
+			<if test="lessonType != null and lessonType != ''">
+				AND a.lesson_type = #{lessonType}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.course_id,a.lesson_date,a.lesson_starttime, a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpLesson">
+		SELECT 
+			<include refid="spLessonColumns"/>
+		FROM sp_lesson a
+		<include refid="spLessonJoins"/>
+		<where>
+			a.del_flag = '0'
+			<if test="name != null and name != ''">
+				AND a.name = #{name}
+			</if>
+			<if test="courseId != null and courseId != ''">
+				AND a.course_id = #{courseId}
+			</if>
+			<if test="lessonDate != null ">
+				AND a.lesson_date = #{lessonDate}
+			</if>
+			<if test="lessonDateFrom != null and lessonDateFrom != ''">
+				AND a.lesson_date <![CDATA[>= ]]> #{lessonDateFrom}
+			</if>
+			<if test="lessonDateTo != null and lessonDateTo != ''">
+				AND a.lesson_date <![CDATA[<= ]]> #{lessonDateTo}
+			</if>
+			<if test="lessonStarttime != null and lessonStarttime != ''">
+				AND a.lesson_starttime = #{lessonStarttime}
+			</if>
+			<if test="lessonStarttimeFrom != null and lessonStarttimeFrom != ''">
+				AND a.lesson_starttime <![CDATA[>= ]]> #{lessonStarttimeFrom}
+			</if>
+			<if test="lessonEndtime != null and lessonEndtime != ''">
+				AND a.lesson_endtime = #{lessonEndtime}
+			</if>
+			<if test="lessonEndtimeTo != null and lessonEndtimeTo != ''">
+				AND a.lesson_endtime <![CDATA[<= ]]> #{lessonEndtimeTo}
+			</if>
+			<if test="lessonType != null and lessonType != ''">
+				AND a.lesson_type = #{lessonType}
+			</if>
+			<if test="publishState != null and publishState != ''">
+				AND a.publish_state = #{publishState}
+			</if>
+			<if test="lessonSource != null and lessonSource != ''">
+				AND a.lesson_source = #{lessonSource}
+			</if>
+			<if test="checkTimeParam != null and checkTimeParam != ''">
+				and 
+				 <foreach collection="checkTimeParam" index="index" item="lesson" open="(" separator=" or " close=")">
+				   	(
+				   		a.lesson_date = #{lesson.lessonDate} 
+				   		and a.lesson_starttime <![CDATA[< ]]> #{lesson.lessonEndtime}
+				   		and a.lesson_endtime <![CDATA[> ]]> #{lesson.lessonStarttime}
+				   	)
+				  </foreach>
+			</if>
+			<if test="checkIds != null and checkIds != ''">
+				and a.id in 
+				 <foreach collection="checkIds" index="index" item="id" open="(" separator="," close=")">
+				   	#{id} 
+				  </foreach>
+			</if>
+			<if test="checkExcludedIds != null and checkExcludedIds != ''">
+				and a.id not in 
+				 <foreach collection="checkExcludedIds" index="index" item="id" open="(" separator="," close=")">
+				   	#{id} 
+				  </foreach>
+			</if>
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.course_id,a.lesson_date,a.lesson_starttime, a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_lesson(
+			id,
+			name,
+			course_id,
+			lesson_date,
+			space_id,
+			section_id,
+			lesson_starttime,
+			lesson_endtime,
+			lesson_number,
+			teacher_id,
+			thumb_img,
+			lesson_adress,
+			<if test="lessonType != null and lessonType != ''">
+			lesson_type,
+			</if>
+			<if test="lessonState != null and lessonState != ''"> 	
+			lesson_state,
+			</if>
+			lesson_source,
+			broadcast_id,
+			broadcast_name,
+			broadcast_desc,
+			broadcast_pass,
+			sign_time,
+			publish_state,
+			lesson_desc,
+			create_by,
+			create_date,
+			update_by,
+			update_date,
+			del_flag
+		) VALUES (
+			#{id},
+			#{name},
+			#{courseId},
+			#{lessonDate},
+			#{spaceId},
+			#{sectionId},
+			#{lessonStarttime},
+			#{lessonEndtime},
+			#{lessonNumber},
+			#{teacherId},
+			#{thumbImg},
+			#{lessonAdress},
+			<if test="lessonType != null and lessonType != ''">
+			#{lessonType},
+			</if>
+			<if test="lessonState != null and lessonState != ''">
+			#{lessonState},
+			</if>
+			#{lessonSource},
+			#{broadcastId},
+			#{broadcastName},
+			#{broadcastDesc},
+			#{broadcastPass},
+			#{signTime},
+			#{publishState},
+			#{lessonDesc},
+			#{createBy},
+			#{createDate},
+			#{updateBy},
+			#{updateDate},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_lesson SET
+		<if test="name != null and name != ''"> 	
+			name = #{name},
+		</if>
+		<if test="courseId != null and courseId != ''">
+			course_id = #{courseId},
+		</if>
+		<if test="lessonDate != null and lessonDate != ''">
+			lesson_date = #{lessonDate},
+		</if>
+		<if test="spaceId != null and spaceId != ''">
+			space_id = #{spaceId},
+		</if>
+		<if test="sectionId != null and sectionId != ''">
+			section_id = #{sectionId},
+		</if>
+		<if test="lessonStarttime != null and lessonStarttime != ''">
+			lesson_starttime = #{lessonStarttime},
+		</if>
+		<if test="lessonEndtime != null and lessonEndtime != ''">
+			lesson_endtime = #{lessonEndtime},
+		</if>
+		<if test="lessonNumber != null and lessonNumber != ''">
+			lesson_number = #{lessonNumber},
+		</if>
+		<if test="teacherId != null and teacherId != ''">
+			teacher_id = #{teacherId},
+		</if>
+		<if test="thumbImg != null and thumbImg != ''">
+			thumb_img = #{thumbImg},
+		</if>
+		<if test="lessonAdress != null and lessonAdress != ''">
+			lesson_adress = #{lessonAdress},
+		</if>
+		<if test="lessonType != null and lessonType != ''">
+			lesson_type = #{lessonType},
+			</if>
+		<if test="lessonState != null and lessonState != ''">
+			lesson_state = #{lessonState},
+		</if>
+		<if test="broadcastId != null and broadcastId != ''">
+			broadcast_id = #{broadcastId},
+		</if>
+		<if test="broadcastName != null and broadcastName != ''">
+			broadcast_name = #{broadcastName},
+		</if>
+		<if test="broadcastDesc != null and broadcastDesc != ''">
+			broadcast_desc = #{broadcastDesc},
+		</if>
+		<if test="broadcastPass != null and broadcastPass != ''">
+			broadcast_pass = #{broadcastPass},
+		</if>
+		<if test="signTime != null and signTime != ''">
+			sign_time = #{signTime},
+		</if>
+		<if test="publishState != null and publishState != ''">
+			publish_state = #{publishState},
+		</if>
+		<if test="lessonDesc != null and lessonDesc != ''">
+			lesson_desc = #{lessonDesc},
+		</if>
+		<if test="updateBy != null and updateBy != ''">
+			update_by = #{updateBy},
+		</if>
+		<if test="updateDate != null and updateDate != ''">
+			update_date = #{updateDate},
+		</if>
+		<if test="shareKey != null and shareKey  != ''">
+			share_key  = #{shareKey},
+		</if>
+		<if test="baseUrl != null and baseUrl  != ''">
+			base_url  = #{baseUrl},
+		</if>
+		<if test="delFlag != null and delFlag != ''">
+			del_flag = #{delFlag}
+		</if>
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_lesson SET 
+			del_flag = #{DEL_FLAG_DELETE},
+			update_by = #{updateBy},
+			update_date = #{updateDate}
+		WHERE id = #{id}
+	</update>
+	
+	<!-- 查看相关课程 -->
+	<select id="selectRelatedLesson" parameterType="String" resultType="com.education.classroom.core.modules.spadmin.lesson.entity.SpLesson">
+		select
+	   <include refid="lessonColumns"/>
+	   from
+		 (select * from sp_lesson  
+		 where del_flag = '0' and ((lesson_source ='1' and publish_state ='0') or (lesson_source ='2' and  publish_state in ('3','4'))) and course_id = (
+		 select course_id from sp_lesson where del_flag = '0' and id = #{lessonId}) and id != #{lessonId}) a 
+        left join (select source_id,click_num from  sp_resource_vistor where source_type = '0'  ) b
+		on b.source_id = a.id
+		left join (select id,course_type,course_price from sp_course where del_flag='0') c
+         on c.id=a.course_id
+	</select>
+	
+	<!-- 查看课程 信息-->
+	<select id="selectCourseLesson" parameterType="String" resultType="com.education.classroom.core.modules.spadmin.lesson.entity.SpLesson">
+		select
+	   <include refid="lessonColumns1"/>
+	   from
+		 sp_lesson  a 
+		 where del_flag = '0' and ((lesson_source ='1' and publish_state ='0') or (lesson_source ='2' and  publish_state in ('3','4'))) and course_id = #{courseId}
+		 </select>
+	
+	<!-- 根据课程ID查询课程信息 -->
+	<select id="getLesson" parameterType="String" resultType="com.education.classroom.core.modules.spadmin.lesson.entity.SpLesson">
+	   select 
+	   <include refid="lessonColumns1"/>
+	   FROM sp_lesson a
+		where a.del_flag = '0' and ((a.lesson_source ='1' and a.publish_state ='0') or (a.lesson_source ='2' and  a.publish_state in ('3','4'))) and a.id = #{lessonId}
+	</select>
+	
+	<!-- 物理删除课程 -->
+	<delete id="physicalDelete">
+		delete from sp_lesson where id = #{id}
+	</delete>
+	
+	<!-- 根据老师ID查询课程列表 -->
+	<select id="selectLessonByTeacherId" parameterType="String" resultType="com.education.classroom.core.modules.spadmin.lesson.entity.SpLesson">
+	    select 
+	   <include refid="lessonColumns1"/>
+	   FROM sp_lesson a
+	   where a.del_flag = '0' and teacher_id = #{teacherId}
+	</select>
+	
+	<!-- 查询课程列表 -->
+	<select id="selectLessonList" resultType="SpLesson">
+	  select 
+	  <include refid="lessonColumns1"/>
+	   FROM (select * from sp_lesson b
+	  where b.del_flag = '0' and b.lesson_type = '0' 
+	  and (b.lesson_source = '1' or b.lesson_source = '2') and b.publish_state = '0') a
+	  where  not exists (select lesson_id from sp_examination ex where ex.del_flag = '0' and ex.lesson_id = a.id )
+	</select>
+	
+	<!-- 查询课程是否有关联的试卷 -->
+	<select id="checkExam" parameterType="String" resultType="int">
+	   select count(*) from sp_examination where del_flag = '0' and lesson_id = #{lessonId}
+	</select>
+</mapper>

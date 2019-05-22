@@ -1,0 +1,3 @@
+【2016-04-22 17:03:46】执行了插入语句为：【insert into wxb_user_money(user_id,order_money,visit_money,own_money,state,createtime,order_id,oc_state)values( '35117029', '0', '0.0', '0', '0', '2016-04-22 17:03:46', 'u6tsu5c1', '0')】 状态为【0】
+【2016-04-22 17:05:55】执行了插入语句为：【insert into wxb_user_money(user_id,order_money,visit_money,own_money,state,createtime,order_id,oc_state)values( '35117029', '0', '0.0', '0', '0', '2016-04-22 17:05:54', 'u6tsu5c1', '0')】 状态为【0】
+【2016-04-22 17:07:17】执行了插入语句为：【insert into wxb_user_money(user_id,order_money,visit_money,own_money,state,createtime,order_id,oc_state)values( '35117029', '7', '0.0', '7', '0', '2016-04-22 17:07:17', 'u6tsu5c1', '0')】 状态为【0】

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.project.dao.SpProjectDao">
+	<resultMap id="PadResultMap" type="SpPadProject" >
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="lesson_id" property="lessonId" jdbcType="VARCHAR" />
+		<result column="speaker_id" property="speakerId" jdbcType="VARCHAR" />    
+		<result column="characteristic" property="characteristic" jdbcType="VARCHAR" />
+		<result column="backdrop" property="backdrop" jdbcType="VARCHAR" />
+		<result column="outlet_planing" property="outletPlaning" jdbcType="VARCHAR" />
+		<result column="profit_model" property="profitModel" jdbcType="VARCHAR" />
+		<result column="business_proposal_url" property="businessProposalUrl" jdbcType="VARCHAR" />
+		<result column="json_body" property="jsonBody" jdbcType="VARCHAR" />
+		<result column="space_id" property="spaceId" jdbcType="VARCHAR" />
+		<result column="remarks" property="remarks" jdbcType="VARCHAR" />
+		<result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+		<result column="create_by" property="createBy" jdbcType="VARCHAR" />
+		<result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+		<result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+		<result column="del_flag" property="delFlag" jdbcType="VARCHAR" />
+		<result column="speakerName" property="speakerName" jdbcType="VARCHAR" />
+		<result column="lessonName" property="lessonName" jdbcType="VARCHAR" />
+		<collection property="projectUserList" ofType="SpProjectUser">
+			<result column="projectUserList.id" property="id"  />
+			<result column="projectUserList.userName" property="userName"  />
+			<result column="projectUserList.projectId" property="projectId"  />
+			<result column="projectUserList.headerImg" property="headerImg"  />
+			<result column="projectUserList.sex" property="sex"  />
+			<result column="projectUserList.age" property="age"  />
+			<result column="projectUserList.ability" property="ability"  />
+			<result column="projectUserList.antecedents" property="antecedents"  />
+		</collection>
+		<collection property="projectResourceList" ofType="SpProjectResource">
+			<result column="projectResourceList.id" property="id"  />
+			<result column="projectResourceList.projectId" property="projectId"  />
+			<result column="projectResourceList.baseUrl" property="baseUrl"  />
+			<result column="projectResourceList.jsonBody" property="jsonBody"  />
+			<result column="projectResourceList.thumbImg" property="thumbImg"  />
+			<result column="projectResourceList.remarks" property="remarks"  />
+			<result column="projectResourceList.name" property="name"  />
+		</collection>
+	</resultMap>
+
+	<sql id="spProjectColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.lesson_id AS "lessonId",
+		a.speaker_id AS "speakerId",
+		a.characteristic AS "characteristic",
+		a.backdrop AS "backdrop",
+		a.outlet_planing AS "outletPlaning",
+		a.profit_model AS "profitModel",
+		a.business_proposal_url AS "businessProposalUrl",
+		a.json_body AS "jsonBody",
+		a.space_id AS "spaceId",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+		,u.name as "speakerName"
+		,l.name as "lessonName"
+	</sql>
+	
+	<sql id="spProjectPadColumns">
+		a.id
+		,a.name
+		,a.lesson_id
+		,a.speaker_id
+		,a.characteristic
+		,a.backdrop
+		,a.outlet_planing
+		,a.profit_model
+		,a.business_proposal_url
+		,a.json_body
+		,a.space_id
+		,a.remarks
+		,a.create_date
+		,a.create_by
+		,a.update_date
+		,a.update_by
+		,a.del_flag
+		,u.name as "speakerName"
+		,l.name as "lessonName"
+		,b.id AS "projectUserList.id"
+		,b.user_name AS "projectUserList.userName"
+		,b.project_id AS "projectUserList.projectId"
+		,b.header_img AS "projectUserList.headerImg"
+		,b.sex AS "projectUserList.sex"
+		,b.age AS "projectUserList.age"
+		,b.ability AS "projectUserList.ability"
+		,b.antecedents AS "projectUserList.antecedents"
+		,c.id AS "projectResourceList.id"
+		,c.name AS "projectResourceList.name"
+		,c.project_id AS "projectResourceList.projectId"
+		,c.base_url AS "projectResourceList.baseUrl"
+		,c.json_body AS "projectResourceList.jsonBody"
+		,c.thumb_img AS "projectResourceList.thumbImg"
+		,c.remarks AS "projectResourceList.remarks"
+	</sql>
+	
+	<sql id="spProjectJoins">
+		LEFT JOIN sp_user u ON u.id = a.speaker_id
+		LEFT JOIN sp_lesson l ON l.id = a.lesson_id
+	</sql>
+	<sql id="spProjectPadJoins">
+		LEFT JOIN sp_user u ON u.id = a.speaker_id
+		LEFT JOIN sp_lesson l ON l.id = a.lesson_id
+		LEFT JOIN sp_project_user b ON b.project_id = a.id and b.del_flag='0'
+		LEFT JOIN sp_project_resource c ON c.project_id = a.id and c.del_flag='0'
+	</sql>
+    
+	<select id="get" resultType="SpProject">
+		SELECT 
+			<include refid="spProjectColumns"/>
+		FROM sp_project a
+		<include refid="spProjectJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SpProject">
+		SELECT 
+			<include refid="spProjectColumns"/>
+		FROM sp_project a
+		<include refid="spProjectJoins"/>
+		<where>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="lessonId != null and lessonId != ''">
+				AND a.lesson_id = #{lessonId}
+			</if>
+			<if test="speakerId != null and speakerId != ''">
+				AND a.speaker_id = #{speakerId}
+			</if>
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id = #{spaceId}
+			</if>
+			<if test="beginUpdateDate != null and endUpdateDate != null and beginUpdateDate != '' and endUpdateDate != ''">
+				AND date_format(a.update_date,'%Y-%m-%d') BETWEEN #{beginUpdateDate} AND #{endUpdateDate}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpProject">
+		SELECT 
+			<include refid="spProjectColumns"/>
+		FROM sp_project a
+		<include refid="spProjectJoins"/>
+		<where>
+			a.del_flag = '0'
+			<if test="lessonId != null and lessonId != '' ">
+				AND a.lesson_id = #{lessonId}
+			</if>
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllListByPad" resultMap="PadResultMap" >
+		SELECT 
+			<include refid="spProjectPadColumns"/>
+		FROM sp_project a
+		<include refid="spProjectPadJoins"/>
+		<where>
+			a.del_flag = '0'
+			<if test="lessonId != null and lessonId != '' ">
+				AND a.lesson_id = #{lessonId}
+			</if>
+		</where>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_project(
+			id,
+			name,
+			lesson_id,
+			speaker_id,
+			characteristic,
+			backdrop,
+			outlet_planing,
+			profit_model,
+			business_proposal_url,
+			json_body,
+			space_id,
+			remarks,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			del_flag
+		) VALUES (
+			#{id},
+			#{name},
+			#{lessonId},
+			#{speakerId},
+			#{characteristic},
+			#{backdrop},
+			#{outletPlaning},
+			#{profitModel},
+			#{businessProposalUrl},
+			#{jsonBody},
+			#{spaceId},
+			#{remarks},
+			#{createDate},
+			#{createBy},
+			#{updateDate},
+			#{updateBy},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_project SET 	
+			name = #{name},
+			lesson_id = #{lessonId},
+			speaker_id = #{speakerId},
+			characteristic = #{characteristic},
+			backdrop = #{backdrop},
+			outlet_planing = #{outletPlaning},
+			profit_model = #{profitModel},
+			business_proposal_url = #{businessProposalUrl},
+			json_body = #{jsonBody},
+			space_id = #{spaceId},
+			remarks = #{remarks},
+			update_date = #{updateDate},
+			update_by = #{updateBy}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_project SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="deleteByLessonId">
+		UPDATE sp_project SET 
+			del_flag = '0'
+		WHERE lesson_id = #{lessonId}
+	</update>
+	
+	<select id="hasProject" resultType="int">
+		SELECT count(0)
+		FROM sp_project a
+		<where>
+			a.del_flag = '0'
+			<if test="name != null and name != '' ">
+				AND a.name = #{name}
+			</if>
+		</where>		
+	</select>
+	
+	
+	<!-- 获取路演简介等信息 -->
+	<select id="getRoadshowById" resultType="Map">
+		SELECT 
+		id as roadshowId
+		,name as roadshowName
+		,lesson_desc as roadshowDesc
+		FROM sp_lesson a
+		<where>
+			a.del_flag = '0'
+			and id=#{lessonId}
+		</where>		
+	</select>
+	<!-- 获取路演项目评分信息 -->
+	<select id="getProjectScoreById" resultType="Map">
+		SELECT project_id as projectId
+		,u.user_type as userType
+		,FORMAT(AVG(score),1) AS avgScore
+		,COUNT(score) AS scoreNum
+		,GROUP_CONCAT(score) AS scoreVal 
+		FROM sp_project_score ps 
+		LEFT JOIN sp_user u ON u.id=ps.user_id 
+		WHERE ps.project_id=#{projectId}
+		GROUP BY u.user_type
+	</select>
+	
+</mapper>

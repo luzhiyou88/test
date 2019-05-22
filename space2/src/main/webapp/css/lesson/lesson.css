@@ -1,0 +1,168 @@
+@CHARSET "UTF-8";
+
+[class $="template"],.template {
+    display:none;
+}
+
+.show-grid .column.new {
+    margin-top: 20px;
+    background-color: white;    
+    border: 1px solid #c71c22;
+}
+
+.show-grid .column.info {
+    margin-top: 20px;
+    background-color:#efefef;    
+    border: 1px solid #ccc;
+}
+.mb10{
+	margin-bottom:10px;
+}
+.shade-pop{
+	opacity:0;
+	position:absolute;
+	left:0;
+	top:0;
+	right:0;
+	font-size:0;
+	transition:all .3s ease;
+	background:rgba(0,0,0,.7);
+	border-bottom:1px solid #ccc;
+}
+.shade-pop .btn-pop{
+	display:inline-block;
+	width:49%;
+	height:50px;
+	line-height:50px;
+	color:#45a5cc;
+	font-size:14px;
+	text-align:center;
+}
+
+.shade-pop .btn-allpop{
+	display:inline-block;
+	width:99%;
+	height:50px;
+	line-height:50px;
+	color:#45a5cc;
+	font-size:14px;
+	text-align:center;
+}
+.shade-pop .btn-pop:first-child{
+	border-right:1px solid #ccc;
+}
+.show-grid .column.new:hover .shade-pop,.show-grid .column.info:hover .shade-pop{
+	opacity:1;
+}
+
+table.scheduleTable {
+	width:100%;
+	border: 1px solid rgb(220,220,220);
+}
+table.scheduleTable thead tr {
+    background-color: #dde8e8;
+       height: 40px;
+}
+.scheduleTable th{
+	font-weight:normal;
+}
+table.scheduleTable thead td.today {
+    background-color: #f5f05f;
+}
+table.scheduleTable tbody tr {
+       height: 90px;
+}
+table.scheduleTable td {
+	position:relative;
+	width:12.5%;
+	border: 1px solid rgb(220,220,220);
+	text-align: center;
+}
+
+table.scheduleTable td.radius{
+	border-radius: 20px;
+}
+table.scheduleTable td .tooltip{
+	display:none;
+	bottom:90px;
+}
+.btn-success,
+.btn-warning{
+	border-bottom:none;
+}
+table.scheduleTable td.radius:hover .tooltip-y{
+	display:inline-block;
+	opacity:1;
+	left:0;
+	transition:all .3s ease-in;
+}
+.tooltip-y .tooltip-inner{
+	width:auto;
+	max-width:1000px;
+	white-space:nowrap;
+	background-image:-ms-linear-gradient(bottom,#212121,#000);
+	background-image:-moz-linear-gradient(bottom,#212121,#000);
+	background-image:-webkit-linear-gradient(bottom,#212121,#000);
+	background-image:-o-linear-gradient(bottom,#212121,#000);
+	background-image:linear-gradient(to bottom,#212121,#000);
+	background-color:transparent;
+}
+.tooltip-y.top .tooltip-arrow{
+	left:60px;
+}
+
+
+.column{
+	cursor:pointer;
+}
+
+.turn-right{
+	width:14px;
+	height:26px;
+	display:inline-block;
+	background:url(../../img/right.png) 0 0 no-repeat;
+	margin-top:8px;
+}
+.turn-left{
+	width:14px;
+	height:26px;
+	display:inline-block;
+	background:url(../../img/left.png) 0 0 no-repeat;
+	margin-top:8px;
+	margin-right:15px;
+}
+
+.add-tab{
+	display:block;
+	width:30px;
+	height:30px;
+	margin:0 auto;
+	background:url(../../img/add-tab.png) center center no-repeat;
+}
+.btn-success .add-tab,
+.btn-warning .add-tab{
+	background:none;
+	width:auto;
+	height:auto;
+}
+.pop-del{
+	background:#eee;
+	text-align:center;
+	overflow:hidden;
+	border:1px solid #ccc;
+}
+.pop-del a{
+	display:block;
+	padding:10px;
+}
+.pop-del a:hover{
+	background:#7c7c7c;
+	color:#fff;
+}
+.pop-del a:first-child{
+	border-bottom:1px dashed #ccc;
+}
+
+.controls{
+	word-wrap:break-word;
+}

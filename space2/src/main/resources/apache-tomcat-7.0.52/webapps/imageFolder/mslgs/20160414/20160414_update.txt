@@ -1,0 +1,5 @@
+【2016-04-14 11:31:24】执行了更新语句为：【 update wxb_order t set  t.state='3'  where t.order_id = 'i90d5rf3' 】 状态为【0】
+【2016-04-14 11:32:08】执行了更新语句为：【 update wxb_order t set  t.state='3'  where t.order_id = 'm37nfbg1' 】 状态为【0】
+【2016-04-14 11:38:35】执行了更新语句为：【 update wxb_order t set  t.state='3'  where t.order_id = '1ri4da0s' 】 状态为【0】
+【2016-04-14 16:23:32】执行了更新语句为：【 update wxb_order t set  t.state='3'  where t.order_id = 'ngkbyt0s' 】 状态为【0】
+【2016-04-14 16:23:37】执行了更新语句为：【 update wxb_order t set  t.state='3'  where t.order_id = 'gsc5yu4x' 】 状态为【0】

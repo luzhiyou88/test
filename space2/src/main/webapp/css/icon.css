@@ -1,0 +1,28 @@
+.btn-file {
+    position: relative;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    text-align: right;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: none repeat scroll 0 0 transparent;
+    cursor: inherit;
+    display: block;
+}
+progress{
+    position: absolute;
+    right: -152px;
+    top: 5px;
+}
+#imgIcon{
+	width:150px;
+	height:130px;
+	margin-bottom:10px;
+}

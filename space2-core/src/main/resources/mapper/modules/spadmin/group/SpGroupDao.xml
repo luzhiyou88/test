@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.education.classroom.core.modules.spadmin.group.dao.SpGroupDao">
+
+	<sql id="spGroupColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.space_id AS "spaceId",
+		a.group_type AS "groupType",
+		a.leader_id AS "leaderId",
+		a.thumb_img AS
+		"thumbImg",
+		a.publish_state AS "publishState",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date
+		AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+	</sql>
+
+	<sql id="spGroupJoins">
+	</sql>
+	<select id="findPageList" resultType="SpGroup">
+		SELECT
+		<include refid="spGroupColumns" />
+		FROM sp_group a
+		<include refid="spGroupJoins" />
+		<where>
+			<if test="groupType != null and groupType != ''">
+				AND a.group_type = #{groupType}
+			</if>
+			<if test="publishState != null and publishState != ''">
+				AND a.publish_state = #{publishState}
+			</if>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="spaceId != null and spaceId  != ''">
+				and a.space_id = #{spaceId}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+		</where>
+		<choose>
+			<when test=" orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	<select id="findCenterList" resultType="SpGroup">
+		SELECT
+		<include refid="spGroupColumns" />
+		FROM sp_group a
+		<include refid="spGroupJoins" />
+		<where>
+			publish_state = '3'
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id != #{spaceId}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+		</where>
+		<choose>
+			<when test=" orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	<select id="get" resultType="SpGroup">
+		SELECT
+		<include refid="spGroupColumns" />
+		FROM sp_group a
+		<include refid="spGroupJoins" />
+		WHERE a.id = #{id}
+	</select>
+	<select id="checkGroup" resultType="java.lang.String">
+		SELECT
+		publish_state
+		FROM
+		sp_group a
+		WHERE a.id = #{groupId}
+	</select>
+	<select id="findList" resultType="SpGroup">
+		SELECT
+		<include refid="spGroupColumns" />
+		FROM sp_group a
+		<include refid="spGroupJoins" />
+		<where>
+			(publish_state='0' or publish_state='3')
+			AND a.del_flag
+			=#{DEL_FLAG_NORMAL}
+		</where>
+		<choose>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="findAllList" resultType="SpGroup">
+		SELECT
+		<include refid="spGroupColumns" />
+		FROM sp_group a
+		<include refid="spGroupJoins" />
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+
+	<insert id="insert">
+		INSERT INTO sp_group(
+		id,
+		name,
+		space_id,
+		group_type,
+		leader_id,
+		thumb_img,
+		remarks,
+		create_date,
+		create_by,
+		update_date,
+		<if test="publishState != null and publishState != ''">
+			publish_state,
+		</if>
+		update_by,
+		del_flag
+		) VALUES (
+		#{id},
+		#{name},
+		#{spaceId},
+		#{groupType},
+		#{leaderId},
+		#{thumbImg},
+		#{remarks},
+		#{createDate},
+		#{createBy},
+		#{updateDate},
+		<if test="publishState != null and publishState != ''">
+			#{publishState},
+		</if>
+		#{updateBy},
+		#{delFlag}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE sp_group SET
+		name = #{name},
+		group_type = #{groupType},
+		leader_id
+		= #{leaderId},
+		thumb_img = #{thumbImg},
+		del_flag = #{delFlag},
+		<if test="publishState != null and publishState != ''">
+			publish_state = #{publishState},
+		</if>
+		remarks = #{remarks},
+		update_date = #{updateDate},
+		update_by =
+		#{updateBy}
+		WHERE id = #{id}
+	</update>
+
+	<update id="delete">
+		UPDATE sp_group SET
+		del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+
+
+	<select id="checkGroupName" resultType="int">
+		SELECT
+		count(1) AS ERT
+		FROM sp_group a
+		<include refid="spGroupJoins" />
+		WHERE a.name=#{name}
+		AND a.id != #{id}
+		AND a.del_flag='0'
+	</select>
+
+
+</mapper>

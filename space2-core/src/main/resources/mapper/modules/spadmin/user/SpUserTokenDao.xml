@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.user.dao.SpUserTokenDao">
+    
+	<sql id="spUserTokenColumns">
+		a.id AS "id",
+		a.user_id AS "userId",
+		a.user_token AS "userToken",
+		a.update_date AS "updateDate"
+	</sql>
+	
+	<sql id="spUserTokenJoins">
+		
+	</sql>
+    
+	<select id="get" resultType="SpUserToken">
+		SELECT 
+			<include refid="spUserTokenColumns"/>
+		FROM sp_user_token a
+		<include refid="spUserTokenJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SpUserToken">
+		SELECT 
+			<include refid="spUserTokenColumns"/>
+		FROM sp_user_token a
+		<include refid="spUserTokenJoins"/>
+		<where>
+			
+		</where>
+		<choose>
+			<when test="page.orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpUserToken">
+		SELECT 
+			<include refid="spUserTokenColumns"/>
+		FROM sp_user_token a
+		<include refid="spUserTokenJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findByUserId" resultType="SpUserToken">
+		SELECT 
+			<include refid="spUserTokenColumns"/>
+		FROM sp_user_token a
+		<include refid="spUserTokenJoins"/>
+		WHERE a.user_id = #{userId}
+	</select>
+	
+	<select id="findTokens" resultType="SpUserToken">
+		SELECT 
+			<include refid="spUserTokenColumns"/>
+		FROM sp_user_token a
+		<include refid="spUserTokenJoins"/>
+		WHERE a.user_id = #{userId}
+	</select>
+		
+	<insert id="insert">
+		INSERT INTO sp_user_token(
+			id,
+			user_id,
+			user_token,
+			update_date
+		) VALUES (
+			#{id},
+			#{userId},
+			#{userToken},
+			#{updateDate}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_user_token SET 	
+			user_id = #{userId},
+			user_token = #{userToken},
+			update_date = #{updateDate}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM sp_user_token
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

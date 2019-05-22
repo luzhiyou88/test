@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.problems.dao.SpProblemsDao">
+    
+	<sql id="spProblemsColumns">
+		a.id AS "id",
+		a.examination_id AS "examinationId",
+		a.problem_type AS "problemType",
+		a.stem AS "stem",
+		a.number AS "number",
+		a.text_type AS "textType",
+		a.option_a AS "optionA",
+		a.option_a_path AS "optionAPath",
+		a.option_b AS "optionB",
+		a.option_b_path AS "optionBPath",
+		a.option_c AS "optionC",
+		a.option_c_path AS "optionCPath",
+		a.option_d AS "optionD",
+		a.option_d_path AS "optionDPath",
+		a.answer AS "answer",
+		a.analysis AS "analysis",
+		a.ismaterial AS "ismaterial",
+		a.material_id AS "materialId",
+		a.problem_score AS "problemScore",
+		a.stem_path AS "stemPath",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+	</sql>
+	<sql id="spPadProblemsColumns">
+		a.id AS "id",
+		a.examination_id AS "examinationId",
+		a.problem_type AS "problemType",
+		a.stem AS "stem",
+		a.number AS "number",
+		a.text_type AS "textType",
+		a.option_a AS "optionA",
+		a.option_a_path AS "optionAPath",
+		a.option_b AS "optionB",
+		a.option_b_path AS "optionBPath",
+		a.option_c AS "optionC",
+		a.option_c_path AS "optionCPath",
+		a.option_d AS "optionD",
+		a.option_d_path AS "optionDPath",
+		a.answer AS "answer",
+		a.analysis AS "analysis",
+		a.ismaterial AS "ismaterial",
+		a.material_id AS "materialId",
+		a.problem_score AS "problemScore",
+		a.stem_path AS "stemPath",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag",
+		b.id AS "material.id",
+		b.name AS "material.name",
+		b.cotent AS "material.cotent",
+		b.create_date AS "material.createDate",
+		b.create_by AS "material.createBy",
+		b.update_date AS "material.updateDate",
+		b.update_by AS "material.updateBy",
+		b.del_flag AS "material.delFlag"
+	</sql>
+	
+	<sql id="spProblemsJoins">
+	</sql>
+	
+	<sql id="spPadProblemsJoins">
+		left join sp_materials b on a.material_id = b.id and b.del_flag='0'
+	</sql>
+    
+	<select id="get" resultType="SpProblems">
+		SELECT 
+			<include refid="spProblemsColumns"/>
+		FROM sp_problems a
+		<include refid="spProblemsJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" parameterType="map" resultType="SpProblems">
+		SELECT 
+			<include refid="spProblemsColumns"/>
+		FROM sp_problems a
+		<include refid="spProblemsJoins"/>
+		<where>
+			a.del_flag = #{delFlag}
+			<if test="stem != null and stem != ''">
+			   and a.stem like concat ('%', #{stem},'%')
+			</if>
+			<if test="examinationId != null and examinationId != ''">
+			   and a.examination_id = #{examinationId}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<!-- 根据试卷ID查询关联的试题列表 -->
+	<select id="selectProblemList" parameterType="String" resultType="com.education.classroom.core.modules.spadmin.problems.entity.SpProblems">
+	    SELECT 
+			<include refid="spProblemsColumns"/>
+		FROM sp_problems a
+		<include refid="spProblemsJoins"/>
+		where a.del_flag = '0' and a.examination_id = #{examId}
+	</select>
+	
+	<!-- 根据材料ID查询关联的试题列表 -->
+	<select id="selectProblemListByMaterials" parameterType="String" resultType="com.education.classroom.core.modules.spadmin.problems.entity.SpProblems">
+	    SELECT 
+			<include refid="spProblemsColumns"/>
+		FROM sp_problems a
+		<include refid="spProblemsJoins"/>
+		where a.del_flag = '0' and a.material_id = #{materialId}
+	</select>
+	
+	<select id="findListByMap" resultType="SpProblems" parameterType="map">
+		SELECT 
+			<include refid="spProblemsColumns"/>
+		FROM sp_problems a
+		<where>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="examinationId != null and examinationId != ''">
+				AND a.examination_id = #{examinationId}
+			</if>
+			<if test="problemType != null and problemType != ''">
+				AND a.problem_type = #{problemType}
+			</if>
+			<if test="problemTypeList != null">
+                 AND a.problem_type in 
+		        <foreach collection="problemTypeList" item="item" open="(" separator="," close=")">
+					#{item}
+				</foreach>
+            </if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.number ASC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpProblems">
+		SELECT 
+			<include refid="spProblemsColumns"/>
+		FROM sp_problems a
+		<include refid="spProblemsJoins"/>
+		<where>
+			a.del_flag = '0'
+			<if test="examinationId != null and examinationId != ''">
+				and examination_id = #{examinationId}
+			</if>
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllListByPad" resultType="SpProblems">
+		SELECT 
+			<include refid="spPadProblemsColumns"/>
+		FROM sp_problems a
+		<include refid="spPadProblemsJoins"/>
+		<where>
+			a.del_flag = '0'
+			<if test="examinationId != null and examinationId != ''">
+				and a.examination_id = #{examinationId}
+			</if>
+		</where>		
+		ORDER BY a.number
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_problems(
+			id,
+			examination_id,
+			problem_type,
+			stem,
+			number,
+			text_type,
+			option_a,
+			option_b,
+			option_c,
+			option_d,
+			answer,
+			analysis,
+			ismaterial,
+			material_id,
+			problem_score,
+			remarks,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			del_flag
+		) VALUES (
+			#{id},
+			#{examinationId},
+			#{problemType},
+			#{stem},
+			#{number},
+			#{textType},
+			#{optionA},
+			#{optionB},
+			#{optionC},
+			#{optionD},
+			#{answer},
+			#{analysis},
+			#{ismaterial},
+			#{materialId},
+			#{problemScore},
+			#{remarks},
+			#{createDate},
+			#{createBy},
+			#{updateDate},
+			#{updateBy},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_problems SET 	
+			examination_id = #{examinationId},
+			problem_type = #{problemType},
+			stem = #{stem},
+			number = #{number},
+			text_type = #{textType},
+			option_a = #{optionA},
+			option_b = #{optionB},
+			option_c = #{optionC},
+			option_d = #{optionD},
+			answer = #{answer},
+			analysis = #{analysis},
+			ismaterial = #{ismaterial},
+			material_id = #{materialId},
+			problem_score = #{problemScore},
+			remarks = #{remarks},
+			update_date = #{updateDate},
+			update_by = #{updateBy},
+			del_flag = #{delFlag}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_problems SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="deleteByExaminationId">
+		UPDATE sp_problems SET 
+			del_flag = '1'
+		WHERE examination_id = #{examinationId}
+	</update>
+	
+	<!-- 根据试卷ID查询试卷名称 -->
+	<select id="fingExaminationNameById" parameterType="String" resultType="String">
+	   select examination_name from sp_examination where del_flag = '0' and id = #{examinationId}
+	</select>
+	
+	
+	<!-- 根据试卷ID查询关联的试题总分数 -->
+	<select id="selectSumScore" parameterType="String" resultType="String">
+	  select COALESCE(sum(problem_score),0)from sp_problems where del_flag = '0' and examination_id = #{examinationId} and id != #{id}
+	</select>
+	
+	<!-- 根据试卷ID查询关联的试题编号 -->
+	<select id="selectProblemNumber" parameterType="String" resultType="String">
+	   select number from sp_problems where del_flag = '0' and examination_id = #{examinationId} and id != #{id} order by number
+	</select>
+	
+	<!-- 根据试卷ID查询关联的试题总数目 -->
+	<select id="selectTotalNumber" parameterType='String' resultType="int">
+	   select count(*) num from sp_problems where del_flag = '0' and examination_id = #{examinationId} and id != #{id}
+	</select>
+	
+	<!-- 验证试题题干唯一性 -->
+	<select id="selectStem" parameterType='map' resultType="int">
+	  select count(*) from sp_problems where del_flag = '0' and examination_id = #{examinationId} and stem = #{stem} and id != #{id}
+	</select>
+</mapper>

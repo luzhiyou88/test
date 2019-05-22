@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.education.classroom.core.modules.spadmin.fortesting.dao.ForTestingDao">
+	<sql id="forTestingColumns">
+		s.id AS "answerScoreId",
+		a.examination_name AS "examinationName",
+		a.examination_number AS "examinationNumber",
+		l.lesson_source AS
+		"lessonSource",
+		l.lesson_starttime AS
+		"lessonStarttime",
+		l.lesson_endtime AS "lessonEndtime",
+		s.total_score AS
+		"totalScore",
+		s.examination_id AS "examinationId",
+		s.accuracy AS "accuracy",
+		s.ranking AS "ranking",
+		s.user_id AS "userId",
+		(select
+		avg(sas.total_score) from sp_answer_score sas where sas.examination_id
+		=s.examination_id ) AS "AVGScore"
+	</sql>
+	<select id="findForTestingList" resultType="ForTesting">
+		SELECT
+		<include refid="forTestingColumns" />
+		FROM sp_answer_score s LEFT JOIN sp_user u ON s.user_id =u.id
+		LEFT JOIN
+		sp_examination a ON s.examination_id
+		=a.id LEFT JOIN sp_lesson l ON
+		l.id=a.lesson_id
+		<where>
+			s.user_id=#{userId}
+			AND l.lesson_state='2'
+			<if test="testDate != null and testDate != ''">
+				AND l.lesson_date=#{testDate}
+			</if>
+		</where>
+		ORDER BY s.create_date DESC
+	</select>
+	<select id="getAnswer" resultType="Integer">
+
+		SELECT
+		COUNT(1) AS ERT
+		FROM
+		sp_answer a
+		WHERE
+		a.user_id=#{userId}
+		and a.problem_id =#{problemId}
+	</select>
+	<insert id="saveAnswer">
+		INSERT INTO sp_answer(
+		id,
+		user_id,
+		examination_id,
+		problem_type,
+		problem_id,
+		note
+		)VALUES(
+		#{id},
+		#{userId},
+		#{examinationId},
+		#{problemType},
+		#{problemId},
+		#{note}
+		)
+
+	</insert>
+	<update id="updateAnswer">
+		UPDATE sp_answer SET
+		note =#{note}
+		WHERE
+		user_id=#{userId}
+		and problem_id =#{problemId}
+	</update>
+</mapper>

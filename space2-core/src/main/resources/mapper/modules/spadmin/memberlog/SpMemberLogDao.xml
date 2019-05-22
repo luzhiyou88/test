@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.memberlog.dao.SpMemberLogDao">
+    
+	<sql id="spMemberLogColumns">
+		a.id AS "id",
+		a.user_id AS "user.id",
+		a.member_price AS "memberPrice",
+		a.buy_time AS "buyTime",
+		a.month AS "month",
+		a.postage_id AS "postageId",
+		a.create_date AS "createDate",
+		u2.name AS "user.name"
+	</sql>
+	
+	<sql id="spMemberLogJoins">
+		LEFT JOIN sys_user u2 ON u2.id = a.user_id
+	</sql>
+    
+	<select id="get" resultType="SpMemberLog">
+		SELECT 
+			<include refid="spMemberLogColumns"/>
+		FROM sp_member_log a
+		<include refid="spMemberLogJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SpMemberLog">
+		SELECT 
+			<include refid="spMemberLogColumns"/>
+		FROM sp_member_log a
+		<include refid="spMemberLogJoins"/>
+		<where>
+			
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="user != null and user.id != null and user.id != ''">
+				AND a.user_id = #{user.id}
+			</if>
+			<if test="memberPrice != null and memberPrice != ''">
+				AND a.member_price = #{memberPrice}
+			</if>
+			<if test="buyTime != null and buyTime != ''">
+				AND a.buy_time = #{buyTime}
+			</if>
+			<if test="month != null and month != ''">
+				AND a.month = #{month}
+			</if>
+			<if test="postageId != null and postageId != ''">
+				AND a.postage_id = #{postageId}
+			</if>
+			<if test="createDate != null and createDate != ''">
+				AND a.create_date = #{createDate}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	
+	
+	
+	<select id="findPageList" parameterType="map" resultType="SpMemberLog">
+		SELECT 
+			<include refid="spMemberLogColumns"/>
+		FROM sp_member_log a
+		<include refid="spMemberLogJoins"/>
+		<where>
+			<if test="id != null and id != ''">
+				AND a.id = #{id}
+			</if>
+			<if test="user != null and user.id != null and user.id != ''">
+				AND a.user_id = #{user.id}
+			</if>
+			<if test="memberPrice != null and memberPrice != ''">
+				AND a.member_price = #{memberPrice}
+			</if>
+			<if test="buyTime != null and buyTime != ''">
+				AND a.buy_time = #{buyTime}
+			</if>
+			<if test="month != null and month != ''">
+				AND a.month = #{month}
+			</if>
+			<if test="postageId != null and postageId != ''">
+				AND a.postage_id = #{postageId}
+			</if>
+			<if test="createDate != null and createDate != ''">
+				AND a.create_date = #{createDate}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	
+	
+	
+	<select id="findAllList" resultType="SpMemberLog">
+		SELECT 
+			<include refid="spMemberLogColumns"/>
+		FROM sp_member_log a
+		<include refid="spMemberLogJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_member_log(
+			id,
+			user_id,
+			member_price,
+			buy_time,
+			month,
+			postage_id,
+			create_date
+		) VALUES (
+			#{id},
+			#{userId},
+			#{memberPrice},
+			#{buyTime},
+			#{month},
+			#{postageId},
+			#{createDate}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_member_log SET 	
+			user_id = #{user.id},
+			member_price = #{memberPrice},
+			buy_time = #{buyTime},
+			month = #{month},
+			postage_id = #{postageId}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM sp_member_log
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

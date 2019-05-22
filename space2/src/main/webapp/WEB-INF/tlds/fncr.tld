@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+  version="2.0">
+    
+	<description>JSTL 1.1 functions library</description>
+	<display-name>JSTL functions sys</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>fncr</short-name>
+	<uri>http://java.sun.com/jsp/jstl/functionss</uri>
+
+	
+	<!-- 查询所有材料名称 -->
+	<function>
+		<description>检索材料的键值对</description>
+		<name>getSpMaterialsMap</name>
+		<function-class>com.education.classroom.modules.spadmin.material.service.SpMaterialsService</function-class>
+		<function-signature>java.util.Map getSpMaterialsMap(boolean)</function-signature>
+		<example>${getSpMaterialsMap(true)}</example>  
+	</function>
+	
+	<!-- 查询所有试卷名称 -->
+	<function>
+		<description>检索试卷的键值对</description>
+		<name>getSpExaminationMap</name>
+		<function-class>com.education.classroom.modules.spadmin.exam.service.SpExaminationService</function-class>
+		<function-signature>java.util.Map getSpExaminationMap(boolean)</function-signature>
+		<example>${getSpExaminationMap(true)}</example>  
+	</function>
+	
+	<!-- 查询所有课程名称 -->
+	<function>
+		<description>检索课程的键值对</description>
+		<name>getSpLessonMap</name>
+		<function-class>com.education.classroom.modules.spadmin.exam.service.SpExaminationService</function-class>
+		<function-signature>java.util.Map getSpLessonMap(boolean)</function-signature>
+		<example>${getSpLessonMap(true)}</example>  
+	</function>
+</taglib>

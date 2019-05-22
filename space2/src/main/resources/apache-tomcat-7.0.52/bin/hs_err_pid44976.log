@@ -1,0 +1,304 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x6dc4770d, pid=44976, tid=30056
+#
+# JRE version: 6.0_45-b06
+# Java VM: Java HotSpot(TM) Server VM (20.45-b01 mixed mode windows-x86 )
+# Problematic frame:
+# V  [jvm.dll+0x9770d]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x4a31f800):  JavaThread "localhost-startStop-1" daemon [_thread_in_vm, id=30056, stack(0x4b330000,0x4b380000)]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x00050032
+
+Registers:
+EAX=0x00050016, EBX=0x00000031, ECX=0x054f2558, EDX=0x020b2824
+ESP=0x4b37f464, EBP=0x4b37f484, ESI=0x054f2558, EDI=0x050ec5d0
+EIP=0x6dc4770d, EFLAGS=0x00010216
+
+Top of Stack: (sp=0x4b37f464)
+0x4b37f464:   4a1c5aa0 00000031 6dbd7995 020b249c
+0x4b37f474:   020b2498 00000031 00000008 0000000c
+0x4b37f484:   4b37f63c 6dc8e7dc 020b24c0 00000031
+0x4b37f494:   4a31f800 4a31f800 ffffffff 05503ee8
+0x4b37f4a4:   4b37f6f4 020c2f61 020c2688 00000000
+0x4b37f4b4:   4b37f71c 4b37f6f4 4a31f800 020eda08
+0x4b37f4c4:   00000000 4b37f5f0 4b37f4d8 4b37f5f0
+0x4b37f4d4:   6dc2b5b0 4a31f800 0000017e 0000000c 
+
+Instructions: (pc=0x6dc4770d)
+0x6dc476ed:   01 00 00 e8 4b fb ff ff 5f 5e 5d c2 04 00 cc cc
+0x6dc476fd:   cc cc cc 55 8b ec 83 ec 18 53 56 8b f1 8b 46 08
+0x6dc4770d:   8b 48 1c 57 8b 7d 10 51 57 8d 4d 10 e8 b2 e7 f6
+0x6dc4771d:   ff 8b 55 10 8b 02 8b 48 08 8b 56 0c 52 89 4d f8 
+
+
+Register to memory mapping:
+
+EAX=0x00050016 is an unknown value
+EBX=0x00000031 is an unknown value
+ECX=0x054f2558 is an oop
+{method} 
+ - klass: {other class}
+EDX=0x020b2824 is an unknown value
+ESP=0x4b37f464 is pointing into the stack for thread: 0x4a31f800
+EBP=0x4b37f484 is pointing into the stack for thread: 0x4a31f800
+ESI=0x054f2558 is an oop
+{method} 
+ - klass: {other class}
+EDI=0x050ec5d0 is an oop
+{instance class} 
+ - klass: {other class}
+
+
+Stack: [0x4b330000,0x4b380000],  sp=0x4b37f464,  free space=317k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x9770d]
+V  [jvm.dll+0xde7dc]
+V  [jvm.dll+0x5466b]
+j  com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V+75
+j  com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V+9
+j  com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Lorg/xml/sax/InputSource;)V+43
+j  com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Lorg/xml/sax/InputSource;)V+43
+j  org.apache.tomcat.util.digester.Digester.parse(Lorg/xml/sax/InputSource;)Ljava/lang/Object;+9
+j  org.apache.catalina.startup.ContextConfig.parseWebXml(Lorg/xml/sax/InputSource;Lorg/apache/catalina/deploy/WebXml;Z)V+100
+j  org.apache.catalina.startup.ContextConfig.webConfig()V+33
+j  org.apache.catalina.startup.ContextConfig.configureStart()V+101
+j  org.apache.catalina.startup.ContextConfig.lifecycleEvent(Lorg/apache/catalina/LifecycleEvent;)V+57
+j  org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(Ljava/lang/String;Ljava/lang/Object;)V+37
+j  org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(Ljava/lang/String;Ljava/lang/Object;)V+6
+j  org.apache.catalina.core.StandardContext.startInternal()V+584
+j  org.apache.catalina.util.LifecycleBase.start()V+210
+j  org.apache.catalina.core.ContainerBase.addChildInternal(Lorg/apache/catalina/Container;)V+170
+j  org.apache.catalina.core.ContainerBase.addChild(Lorg/apache/catalina/Container;)V+26
+j  org.apache.catalina.core.StandardHost.addChild(Lorg/apache/catalina/Container;)V+40
+j  org.apache.catalina.startup.HostConfig.deployDirectory(Lorg/apache/catalina/util/ContextName;Ljava/io/File;)V+565
+j  org.apache.catalina.startup.HostConfig$DeployDirectory.run()V+12
+j  java.util.concurrent.Executors$RunnableAdapter.call()Ljava/lang/Object;+4
+j  java.util.concurrent.FutureTask$Sync.innerRun()V+30
+j  java.util.concurrent.FutureTask.run()V+4
+j  java.util.concurrent.ThreadPoolExecutor$Worker.runTask(Ljava/lang/Runnable;)V+66
+j  java.util.concurrent.ThreadPoolExecutor$Worker.run()V+33
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+V  [jvm.dll+0x10ef3d]
+V  [jvm.dll+0x1a6951]
+V  [jvm.dll+0x10f0f1]
+V  [jvm.dll+0x10f14b]
+V  [jvm.dll+0xc10c9]
+V  [jvm.dll+0x12e8a4]
+V  [jvm.dll+0x15719c]
+C  [msvcr71.dll+0x9565]  endthreadex+0xa0
+C  [KERNEL32.DLL+0x17c04]  BaseThreadInitThunk+0x24
+C  [ntdll.dll+0x5ad1f]  RtlInitializeExceptionChain+0x8f
+C  [ntdll.dll+0x5acea]  RtlInitializeExceptionChain+0x5a
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V+75
+j  com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Lcom/sun/org/apache/xerces/internal/xni/parser/XMLInputSource;)V+9
+j  com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Lorg/xml/sax/InputSource;)V+43
+j  com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Lorg/xml/sax/InputSource;)V+43
+j  org.apache.tomcat.util.digester.Digester.parse(Lorg/xml/sax/InputSource;)Ljava/lang/Object;+9
+j  org.apache.catalina.startup.ContextConfig.parseWebXml(Lorg/xml/sax/InputSource;Lorg/apache/catalina/deploy/WebXml;Z)V+100
+j  org.apache.catalina.startup.ContextConfig.webConfig()V+33
+j  org.apache.catalina.startup.ContextConfig.configureStart()V+101
+j  org.apache.catalina.startup.ContextConfig.lifecycleEvent(Lorg/apache/catalina/LifecycleEvent;)V+57
+j  org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(Ljava/lang/String;Ljava/lang/Object;)V+37
+j  org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(Ljava/lang/String;Ljava/lang/Object;)V+6
+j  org.apache.catalina.core.StandardContext.startInternal()V+584
+j  org.apache.catalina.util.LifecycleBase.start()V+210
+j  org.apache.catalina.core.ContainerBase.addChildInternal(Lorg/apache/catalina/Container;)V+170
+j  org.apache.catalina.core.ContainerBase.addChild(Lorg/apache/catalina/Container;)V+26
+j  org.apache.catalina.core.StandardHost.addChild(Lorg/apache/catalina/Container;)V+40
+j  org.apache.catalina.startup.HostConfig.deployDirectory(Lorg/apache/catalina/util/ContextName;Ljava/io/File;)V+565
+j  org.apache.catalina.startup.HostConfig$DeployDirectory.run()V+12
+j  java.util.concurrent.Executors$RunnableAdapter.call()Ljava/lang/Object;+4
+j  java.util.concurrent.FutureTask$Sync.innerRun()V+30
+j  java.util.concurrent.FutureTask.run()V+4
+j  java.util.concurrent.ThreadPoolExecutor$Worker.runTask(Ljava/lang/Runnable;)V+66
+j  java.util.concurrent.ThreadPoolExecutor$Worker.run()V+33
+j  java.lang.Thread.run()V+11
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x4c212800 JavaThread "Thread-6" daemon [_thread_blocked, id=33640, stack(0x50130000,0x50180000)]
+  0x4c211800 JavaThread "Druid-ConnectionPool-Destroy-17574522" daemon [_thread_blocked, id=23696, stack(0x500a0000,0x500f0000)]
+  0x4c212000 JavaThread "Druid-ConnectionPool-Create-17574522" daemon [_thread_blocked, id=40996, stack(0x50010000,0x50060000)]
+  0x4c211400 JavaThread "Abandoned connection cleanup thread" daemon [_thread_blocked, id=33132, stack(0x4fef0000,0x4ff40000)]
+  0x4c210000 JavaThread "com%002ethinkgem%002ejeesite%002emodules%002esys%002esecurity%002e%0053ystem%0041uthorizing%0052ealm%002eauthorization%0043ache.data" [_thread_blocked, id=19432, stack(0x4ffc0000,0x50010000)]
+  0x4c20fc00 JavaThread "act%0043ache.data" [_thread_blocked, id=34480, stack(0x4fe60000,0x4feb0000)]
+  0x4c212c00 JavaThread "user%0043ache.data" [_thread_blocked, id=42500, stack(0x4fdd0000,0x4fe20000)]
+  0x4c213400 JavaThread "sys%0043ache.data" [_thread_blocked, id=44056, stack(0x4fd40000,0x4fd90000)]
+  0x4c210c00 JavaThread "active%0053essions%0043ache.data" [_thread_blocked, id=12460, stack(0x4fcb0000,0x4fd00000)]
+  0x4c20bc00 JavaThread "defaultCache" daemon [_thread_blocked, id=31408, stack(0x4c420000,0x4c470000)]
+  0x4c20ec00 JavaThread "Timer-2" daemon [_thread_blocked, id=6488, stack(0x50970000,0x509c0000)]
+  0x4c20e800 JavaThread "startAsQuertz_QuartzSchedulerThread" [_thread_blocked, id=28224, stack(0x508e0000,0x50930000)]
+  0x4c20dc00 JavaThread "startAsQuertz_Worker-10" [_thread_blocked, id=33772, stack(0x50850000,0x508a0000)]
+  0x4c20d400 JavaThread "startAsQuertz_Worker-9" [_thread_blocked, id=29368, stack(0x507c0000,0x50810000)]
+  0x4c20e000 JavaThread "startAsQuertz_Worker-8" [_thread_blocked, id=45328, stack(0x50730000,0x50780000)]
+  0x4c20c000 JavaThread "startAsQuertz_Worker-7" [_thread_blocked, id=39112, stack(0x506a0000,0x506f0000)]
+  0x4c20d000 JavaThread "startAsQuertz_Worker-6" [_thread_blocked, id=40116, stack(0x50610000,0x50660000)]
+  0x4c20c800 JavaThread "startAsQuertz_Worker-5" [_thread_blocked, id=19524, stack(0x50580000,0x505d0000)]
+  0x49847800 JavaThread "startAsQuertz_Worker-4" [_thread_blocked, id=41184, stack(0x504f0000,0x50540000)]
+  0x49845c00 JavaThread "startAsQuertz_Worker-3" [_thread_blocked, id=40216, stack(0x50460000,0x504b0000)]
+  0x49847c00 JavaThread "startAsQuertz_Worker-2" [_thread_blocked, id=51708, stack(0x503d0000,0x50420000)]
+  0x49845000 JavaThread "startAsQuertz_Worker-1" [_thread_blocked, id=50844, stack(0x50340000,0x50390000)]
+  0x49847000 JavaThread "Timer-1" daemon [_thread_blocked, id=27160, stack(0x4ec50000,0x4eca0000)]
+  0x49844c00 JavaThread "org.springframework.scheduling.quartz.SchedulerFactoryBean#0_QuartzSchedulerThread" [_thread_blocked, id=39476, stack(0x4ebc0000,0x4ec10000)]
+  0x49845800 JavaThread "org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-10" [_thread_blocked, id=19772, stack(0x4eb30000,0x4eb80000)]
+  0x49846400 JavaThread "org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-9" [_thread_blocked, id=38720, stack(0x4eaa0000,0x4eaf0000)]
+  0x49848400 JavaThread "org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-8" [_thread_blocked, id=22724, stack(0x4ea10000,0x4ea60000)]
+  0x49846800 JavaThread "org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-7" [_thread_blocked, id=37760, stack(0x4e980000,0x4e9d0000)]
+  0x4ed19800 JavaThread "org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-6" [_thread_blocked, id=7444, stack(0x4d900000,0x4d950000)]
+  0x4ca60000 JavaThread "org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-5" [_thread_blocked, id=16960, stack(0x4d870000,0x4d8c0000)]
+  0x4f14e800 JavaThread "org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-4" [_thread_blocked, id=23424, stack(0x4d820000,0x4d870000)]
+  0x4f14e400 JavaThread "org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-3" [_thread_blocked, id=38936, stack(0x4c780000,0x4c7d0000)]
+  0x4e836800 JavaThread "org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-2" [_thread_blocked, id=51504, stack(0x4c6f0000,0x4c740000)]
+  0x4d302400 JavaThread "org.springframework.scheduling.quartz.SchedulerFactoryBean#0_Worker-1" [_thread_blocked, id=41664, stack(0x4c660000,0x4c6b0000)]
+  0x4b798800 JavaThread "oracle.jdbc.driver.BlockSource.ThreadedCachingBlockSource.BlockReleaser" daemon [_thread_blocked, id=37648, stack(0x4c540000,0x4c590000)]
+  0x4bea8400 JavaThread "Timer-0" daemon [_thread_blocked, id=30756, stack(0x4c390000,0x4c3e0000)]
+=>0x4a31f800 JavaThread "localhost-startStop-1" daemon [_thread_in_vm, id=30056, stack(0x4b330000,0x4b380000)]
+  0x49ff2c00 JavaThread "Catalina-startStop-1" daemon [_thread_blocked, id=42984, stack(0x4b2a0000,0x4b2f0000)]
+  0x4a32b400 JavaThread "GC Daemon" daemon [_thread_blocked, id=42144, stack(0x4aea0000,0x4aef0000)]
+  0x497d4800 JavaThread "Low Memory Detector" daemon [_thread_blocked, id=41464, stack(0x49e30000,0x49e80000)]
+  0x497d3c00 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=40076, stack(0x49da0000,0x49df0000)]
+  0x497d0800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=36444, stack(0x49d10000,0x49d60000)]
+  0x497c8400 JavaThread "JDWP Command Reader" daemon [_thread_in_native, id=37344, stack(0x49c80000,0x49cd0000)]
+  0x497c7c00 JavaThread "JDWP Event Helper Thread" daemon [_thread_blocked, id=24304, stack(0x49bf0000,0x49c40000)]
+  0x020aa400 JavaThread "JDWP Transport Listener: dt_socket" daemon [_thread_blocked, id=32960, stack(0x49b60000,0x49bb0000)]
+  0x020a5800 JavaThread "Attach Listener" daemon [_thread_blocked, id=27736, stack(0x49a80000,0x49ad0000)]
+  0x020a0c00 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=32864, stack(0x499f0000,0x49a40000)]
+  0x02096000 JavaThread "Finalizer" daemon [_thread_blocked, id=8716, stack(0x49760000,0x497b0000)]
+  0x02091c00 JavaThread "Reference Handler" daemon [_thread_blocked, id=26632, stack(0x496d0000,0x49720000)]
+  0x0023a400 JavaThread "main" [_thread_blocked, id=25212, stack(0x00380000,0x003d0000)]
+
+Other Threads:
+  0x0208e000 VMThread [stack: 0x49640000,0x49690000] [id=30028]
+  0x020b9800 WatcherThread [stack: 0x49ec0000,0x49f10000] [id=16176]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 276544K, used 1344K [0x33b70000, 0x459c0000, 0x490c0000)
+  eden space 262208K, 0% used [0x33b70000,0x33cc01e0,0x43b80000)
+  from space 14336K, 0% used [0x44bc0000,0x44bc0000,0x459c0000)
+  to   space 15488K, 0% used [0x43b80000,0x43b80000,0x44aa0000)
+ PSOldGen        total 699072K, used 106947K [0x090c0000, 0x33b70000, 0x33b70000)
+  object space 699072K, 15% used [0x090c0000,0x0f930c30,0x33b70000)
+ PSPermGen       total 65536K, used 65535K [0x050c0000, 0x090c0000, 0x090c0000)
+  object space 65536K, 99% used [0x050c0000,0x090bff48,0x090c0000)
+
+Code Cache  [0x020c0000, 0x02a50000, 0x050c0000)
+ total_blobs=2300 nmethods=2096 adapters=164 free_code_cache=40456512 largest_free_block=33600
+
+Dynamic libraries:
+0x00400000 - 0x00425000 	D:\workbench\sdk\jdk1.6.0_45_x86\bin\javaw.exe
+0x77590000 - 0x776fe000 	C:\windows\SYSTEM32\ntdll.dll
+0x76940000 - 0x76a80000 	C:\windows\SYSTEM32\KERNEL32.DLL
+0x76f70000 - 0x77047000 	C:\windows\SYSTEM32\KERNELBASE.dll
+0x664d0000 - 0x66570000 	C:\windows\system32\apphelp.dll
+0x782f0000 - 0x78556000 	C:\windows\AppPatch\AcGenral.DLL
+0x76c30000 - 0x76cf3000 	C:\windows\SYSTEM32\msvcrt.dll
+0x771c0000 - 0x77201000 	C:\windows\SYSTEM32\sechost.dll
+0x749d0000 - 0x749ee000 	C:\windows\SYSTEM32\SspiCli.dll
+0x768f0000 - 0x76935000 	C:\windows\SYSTEM32\SHLWAPI.dll
+0x72850000 - 0x7293d000 	C:\windows\SYSTEM32\UxTheme.dll
+0x76ac0000 - 0x76c13000 	C:\windows\SYSTEM32\USER32.dll
+0x761e0000 - 0x762ef000 	C:\windows\SYSTEM32\GDI32.dll
+0x76d00000 - 0x76d23000 	C:\windows\SYSTEM32\WINMM.dll
+0x741c0000 - 0x741d3000 	C:\windows\SYSTEM32\samcli.dll
+0x77390000 - 0x774b9000 	C:\windows\SYSTEM32\ole32.dll
+0x74d50000 - 0x74de5000 	C:\windows\SYSTEM32\OLEAUT32.dll
+0x59340000 - 0x59357000 	C:\windows\SYSTEM32\MSACM32.dll
+0x74950000 - 0x74958000 	C:\windows\SYSTEM32\VERSION.dll
+0x74df0000 - 0x7609d000 	C:\windows\SYSTEM32\SHELL32.dll
+0x747b0000 - 0x747cb000 	C:\windows\SYSTEM32\USERENV.dll
+0x72830000 - 0x7284a000 	C:\windows\SYSTEM32\dwmapi.dll
+0x73650000 - 0x7379a000 	C:\windows\SYSTEM32\urlmon.dll
+0x76480000 - 0x764fc000 	C:\windows\SYSTEM32\ADVAPI32.dll
+0x748e0000 - 0x74945000 	C:\windows\SYSTEM32\WINSPOOL.DRV
+0x6e5a0000 - 0x6e5b6000 	C:\windows\SYSTEM32\MPR.dll
+0x76d30000 - 0x76dea000 	C:\windows\SYSTEM32\RPCRT4.dll
+0x749c0000 - 0x749ca000 	C:\windows\SYSTEM32\CRYPTBASE.dll
+0x77210000 - 0x7738d000 	C:\windows\SYSTEM32\combase.dll
+0x77050000 - 0x77073000 	C:\windows\SYSTEM32\WINMMBASE.dll
+0x747a0000 - 0x747af000 	C:\windows\SYSTEM32\profapi.dll
+0x72e60000 - 0x73092000 	C:\windows\SYSTEM32\iertutil.dll
+0x72c70000 - 0x72e54000 	C:\windows\SYSTEM32\WININET.dll
+0x74960000 - 0x749b4000 	C:\windows\SYSTEM32\bcryptPrimitives.dll
+0x76a80000 - 0x76abc000 	C:\windows\SYSTEM32\cfgmgr32.dll
+0x76f30000 - 0x76f51000 	C:\windows\SYSTEM32\DEVOBJ.dll
+0x745b0000 - 0x7463b000 	C:\windows\SYSTEM32\SHCORE.DLL
+0x76430000 - 0x76457000 	C:\windows\system32\IMM32.DLL
+0x76e10000 - 0x76f22000 	C:\windows\SYSTEM32\MSCTF.dll
+0x7c340000 - 0x7c396000 	D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin\msvcr71.dll
+0x6dbb0000 - 0x6e00a000 	D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin\server\jvm.dll
+0x6d890000 - 0x6d89c000 	D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin\verify.dll
+0x6d3e0000 - 0x6d3ff000 	D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin\java.dll
+0x6d430000 - 0x6d459000 	D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin\jdwp.dll
+0x6d750000 - 0x6d756000 	D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin\npt.dll
+0x6d8d0000 - 0x6d8df000 	D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin\zip.dll
+0x6d2b0000 - 0x6d2b7000 	D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin\dt_socket.dll
+0x76670000 - 0x766c0000 	C:\windows\SYSTEM32\WS2_32.dll
+0x76c20000 - 0x76c27000 	C:\windows\SYSTEM32\NSI.dll
+0x70680000 - 0x70691000 	C:\windows\system32\napinsp.dll
+0x70660000 - 0x70676000 	C:\windows\system32\pnrpnsp.dll
+0x705b0000 - 0x705c4000 	C:\windows\system32\NLAapi.dll
+0x72500000 - 0x7254b000 	C:\windows\System32\mswsock.dll
+0x74140000 - 0x741be000 	C:\windows\SYSTEM32\DNSAPI.dll
+0x705a0000 - 0x705aa000 	C:\windows\System32\winrnr.dll
+0x70590000 - 0x705a0000 	C:\windows\system32\wshbth.dll
+0x49ad0000 - 0x49b16000 	C:\windows\System32\fwpuclnt.dll
+0x70580000 - 0x70588000 	C:\Windows\System32\rasadhlp.dll
+0x6d610000 - 0x6d619000 	D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin\management.dll
+0x4ab10000 - 0x4ac2d000 	D:\workbench\server\apache-tomcat-7.0.52\bin\tcnative-1.dll
+0x76f60000 - 0x76f66000 	C:\windows\SYSTEM32\PSAPI.DLL
+0x73d70000 - 0x73d89000 	C:\windows\SYSTEM32\CRYPTSP.dll
+0x73d40000 - 0x73d70000 	C:\windows\system32\rsaenh.dll
+0x72950000 - 0x7296e000 	C:\windows\SYSTEM32\bcrypt.dll
+0x6d870000 - 0x6d878000 	D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin\sunmscapi.dll
+0x766d0000 - 0x76858000 	C:\windows\SYSTEM32\CRYPT32.dll
+0x77170000 - 0x7717e000 	C:\windows\SYSTEM32\MSASN1.dll
+0x6d6c0000 - 0x6d6d3000 	D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin\net.dll
+0x74500000 - 0x74520000 	C:\windows\SYSTEM32\IPHLPAPI.DLL
+0x744f0000 - 0x744f8000 	C:\windows\SYSTEM32\WINNSI.DLL
+0x6d6e0000 - 0x6d6e9000 	D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin\nio.dll
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:60620 -Dcatalina.home=D:\workbench\server\apache-tomcat-7.0.52 -Dcatalina.base=D:\workbench\server\apache-tomcat-7.0.52 -Djava.endorsed.dirs=D:\workbench\server\apache-tomcat-7.0.52/common/endorsed -Djava.io.tmpdir=D:\workbench\server\apache-tomcat-7.0.52\temp -Djava.library.path=D:\workbench\sdk\jdk1.6.0_45_x86\bin;D:\workbench\server\apache-tomcat-7.0.52\bin -Dsun.io.useCanonCaches=false 
+java_command: org.apache.catalina.startup.Bootstrap start
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=D:\workbench\sdk\jdk1.6.0_45_x86
+PATH=D:\workbench\sdk\jdk1.6.0_45_x86\jre\bin;D:\work\Workspaces\jeesiteWork\thinkgem-jeesite-6c5ea82\doc\maven\maven3\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Common Files\NetSarang;D:\workbench\sdk\jdk1.6.0_45_x86\BIN;D:\workbench\db\oracle\product\11.2.0\client_1\bin;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Condusiv Technologies\ExpressCache\;C:\Program Files (x86)\Common Files\lenovo\easyplussdk\bin;C:\ProgramData\Lenovo\ReadyApps;D:\软件安装\工具类\TortoiseSVN\bin;D:\统一扫描控件\bin
+USERNAME=静辉
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 69 Stepping 1, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8 , 64 bit Build 9200 
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 69 stepping 1, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 8301880k(416008k free), swap 11594020k(1456848k free)
+
+vm_info: Java HotSpot(TM) Server VM (20.45-b01) for windows-x86 JRE (1.6.0_45-b06), built on Mar 26 2013 13:36:39 by "java_re" with MS VC++ 7.1 (VS2003)
+
+time: Wed Sep 02 20:35:11 2015
+elapsed time: 124 seconds
+

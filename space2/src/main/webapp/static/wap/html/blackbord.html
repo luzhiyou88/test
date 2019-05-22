@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta name="Keywords" content="第二教室" />
+    <meta name="Description" content="第二教室" />
+    <meta name="author" content="yun.lu" />
+    <meta http-equiv="Expires" CONTENT="-1" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache" />
+    <meta http-equiv="Pragma" CONTENT="no-cache" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<title>第二教室</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="../js/jquery-2.1.1.min.js"></script>
+	<script src="../js/canvas2image.js"></script>
+	<script src="../js/base64.js"></script>
+</head>
+<body>
+	<header class="clearfix user-mes">
+		<img src="../img/temporary/photo_h.png" class="head-port" alt="">
+		<span class="user-txt mr55">班级：刑法班</span>
+		<span class="user-txt">姓名：孙悦</span>
+		<em class="hand-checked"></em>
+		<a href="#" class="sign-btn" id="exit-btn-y"><em class="ico-sign"></em><span>退出课程</span></a>
+		<span class="head-ico">
+			<em class="return-ico ico-u" id="return"></em>
+		</span>
+		<span class="notic head-ico mr50">
+			<em class="notice-ico ico-u"></em>
+			<span class="ico-txt">消息</span>
+		</span>
+	</header>
+	<section class="cont-box">
+		<article class="left-bord" id="j-cont-y">
+			<div class="write-box content">
+				<canvas id="thecanvas" width="840" height="375">你的浏览器不支持画布技术，请使用谷歌浏览器/火狐浏览器或最新的IE9/10/11。</canvas>
+			</div>
+			<div class="tea-box content hide">
+				<p class="title-tea">物权法第一讲 讲义</p>
+				<p class="tea-con">
+					一、占有的概念（★） 1．占有的概念。占有，即人对于物管领控制的事实。
+					注意四个方面：①占有虽为权利的外衣，但占有为事实，而非权利。
+					②占有是一种财产利益。有权占有与无权占有均受保护，仅保护程度不同。
+					③占有的客体为物。物的部分亦可成立占有。对权利的占有属于准占有。
+					④民法承认观念占有（间接占有、继承占有、通过占有辅助人的占有），虽无事实上对物的管领控制，但认可占有的成立。
+					法律关系，指某人对于某物是否存在占有关系，可以依据法律关系予以认定。
+					须注意：若有法律关系可以作为认定占有的依据，则不再考虑空间关系与时间关系（依据法律关系之认定的优先性）。
+					须关注以下四种情形：①依辅助占有关系而成立占有。例如，对商场成列的货物，商场雇佣的售货员为占有辅助人，商场才是占有人。
+					②间接占有。例如，甲将电脑出租（出借、既存）于乙，乙为直接占有人，甲为间接占有人。③买卖（赠与）合同中的现实交付。
+					例如，甲将出卖的货物现实交付给乙，甲的占有丧失，乙成为占有人。④抛弃占有。例如，甲将就手机扔到垃圾堆，甲对手机的占有丧失。
+					若乙拾得该手机，乙原始取得手机的直接占有。时间关系，指人和物的结合在时间上具有相当的持续性。
+					如果人与物的结合，仅有瞬间或者暂时的结合关系，不得认为对于物有事实上的管领力。
+					例如：①在饭店使用餐具，在图书馆取阅杂志，均不成立占有。②从图书馆将书借回家中阅读，将餐具自饭店偷回，分别成立有权占有和无权占有。
+					③管领力仅一时不能行使，占有不因此丧失。如旅客checkout之际，发现笔记本电脑遗忘于宾馆房间，
+					旅客对电脑的占有尚未丧失（这和登上飞机的情形不同！）。家畜走失，可预期归来，家畜非遗失物。占有的土地被洪水浸没数日，
+					对土地的占有并未丧失。
+				</p>
+			</div>
+			<div class="notes-box posr content hide">
+				<div class="left-note">
+					<button class="history-btn">历史笔记4</button>
+					<button class="history-btn">历史笔记3</button>
+					<button class="history-btn">历史笔记2</button>
+					<button class="history-btn">历史笔记1</button>
+				</div>
+				<div class="right-note">
+					<textarea class="note-text"></textarea>
+					<button class="btn-blue fl ml20">新建</button>
+					<button class="btn-gray">取消</button>
+					<button class="btn-blue">保存</button>
+				</div>
+			</div>
+			<div class="ques-box content hide">
+				<ul class="quesition-tab">
+					<li class="ques-tab-item on">客观题</li>
+					<li class="ques-tab-item">主观题</li>
+				</ul>
+				<div class="question-list">
+					<p class="quesition-name">1,下列关于法律关系的表述，那一项是错误的?()</p>
+					<p class="quesition-answer"><input type="checkbox"><span>A.法律关系是根据法律规范建立的一种合作关系</span></p>
+					<p class="quesition-answer"><input type="checkbox"><span>B.法律关系是社会生活中存在的事实关系</span></p>
+					<p class="quesition-answer"><input type="checkbox"><span>C.法律关系是体现意志性的特种社会关系</span></p>
+					<p class="quesition-answer"><input type="checkbox"><span>D.法律关系是特定法律主体之间的权利义务</span></p>
+					<div class="posr" id="pop-note">
+						<button class="small-btn-note hide"  id="note-pop-btn">笔记</button>
+						
+					</div>
+					<div class="answer-mes hide">
+						<p class="fs24"><span class="text-dark-gray">正确答案：</span><span class="text-blue">D</span></p>
+						<p>答案解析：A.事实关系没有严格的合法形式。法律关系不同于法律规范调整或保护的社会关系本身。B.法律关系是特定法律主体之间的权利义务是体现意志性法律关系不同于法律规范调整或保护的。C.法律关系不同于法律规范调整或保护的权利义务是体现意志性法律关系不同于法律规范调整。D.法律关系不同于法律规范调整或保护的社会关系本身是体现意志性法律关系不同于法律</p>
+					</div>
+					<p class="quesition-name">2,下列哪一行为成立犯罪未遂？()</p>
+					<p class="quesition-answer"><input type="checkbox"><span>A.以贩卖为目的，在网上订购毒品，付款后尚未取得毒品即被查获</span></p>
+					<p class="quesition-answer"><input type="checkbox"><span>B.国家工作人员非法收受他人给予的现金支票后，未到银行提取现金即被查获</span></p>
+					<p class="quesition-answer"><input type="checkbox"><span>C.为谋取不正当利益，将价值5万元的财物送给国家工作人员，但第二天被退回</span></p>
+					<p class="quesition-answer"><input type="checkbox"><span>D.发送诈骗短信，受骗人上当后汇出5万元，但因误操作汇到无关第三人的账户</span></p>
+					<div class="posr"  id="pop-note">
+						<button class="small-btn-note hide" id="note-pop-btn">笔记</button>
+					</div>
+					<div class="answer-mes hide">
+						<p class="fs24"><span class="text-dark-gray">正确答案：</span><span class="text-blue">D</span></p>
+						<p>答案解析：A.事实关系没有严格的合法形式。法律关系不同于法律规范调整或保护的社会关系本身。B.法律关系是特定法律主体之间的权利义务是体现意志性法律关系不同于法律规范调整或保护的。C.法律关系不同于法律规范调整或保护的权利义务是体现意志性法律关系不同于法律规范调整。D.法律关系不同于法律规范调整或保护的社会关系本身是体现意志性法律关系不同于法律</p>
+					</div>
+				</div>
+				<div class="question-list hide">
+					<p class="quesition-name">1.下列关于法律关系的表述，那一项是错误的？（）</p>
+ 					<p class="tac">
+ 						<button type="button" class="btn-middle">录入</button>
+ 						<button type="button" class="btn-middle">笔迹</button>
+ 					</p>
+ 					<p class="quesition-name">2.下列哪一犯罪属抽象危险犯？（）</p>
+ 					<p class="tac">
+ 						<button type="button" class="btn-middle">录入</button>
+ 						<button type="button" class="btn-middle">笔迹</button>
+ 					</p>
+ 					<p class="quesition-name">３.下列哪一行为成立犯罪未遂？（）</p>
+ 					<p class="tac">
+ 						<button type="button" class="btn-middle">录入</button>
+ 						<button type="button" class="btn-middle">笔迹</button>
+ 					</p>
+ 					<p class="quesition-name">4.下列哪一选项成立自首？（）</p>
+ 					<p class="tac">
+ 						<button type="button" class="btn-middle">录入</button>
+ 						<button type="button" class="btn-middle">笔迹</button>
+ 					</p>
+ 					<p class="quesition-name">5.行政机关公开的信息应当准确，是下列哪一项行政法原则的要求？（）</p>
+ 					<p class="tac">
+ 						<button type="button" class="btn-middle">录入</button>
+ 						<button type="button" class="btn-middle">笔迹</button>
+ 					</p>
+				</div>
+				<span class="time" id="j-time-y">10:00</span>
+				<button class="btn-submit-test" id="j-submit-test">提交试卷</button>
+				<table class="score-box hide">
+					<thead>
+						<th class="w40"></th>
+						<th></th>
+						<th></th>
+					</thead>
+					<tbody>
+						<tr class="h30">
+							<td colspan="3" class="score-all">平均分：85 排名：12</td>
+						</tr>
+						<tr class="h30">
+							<td colspan="2" class="score-all">总分：100</td>
+							<td class="score-all pl5">得分：<em class="text-blue">80</em></td>
+						</tr>
+						<tr class="tab-tit h30">
+							<td class="text-white">序号</td>
+							<td>我的答案</td>
+							<td  class="text-white">正确答案</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>D</td>
+							<td class="text-blue">D</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>B</td>
+							<td class="text-blue">B</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td class="wrong">C</td>
+							<td class="text-blue">D</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="video-con content hide">视频</div>
+			<div class="ope-stu">
+				<a href="javascript:;" class="ope-btn">
+					<em class="ope-ico hand-ico"></em>
+					<span class="txt">举手</span>
+				</a>
+				<a href="javascript:;" class="ope-btn">
+					<em class="ope-ico tape-ico"></em>
+					<span class="txt">纸条</span>
+				</a>
+				<input id="savepngbtn" type="button" style="display:none;" value="保存PNG图片"> 
+				<input id="convertpngbtn" type="button" style="display:none;" value="转换成PNG图片">
+				<input id="savebmpbtn" type="button" style="display:none;" value="保存BMP图片">
+				<input id="convertbmpbtn" type="button" style="display:none;" value="转换成BMP图片">
+				<input id="convertjpegbtn" type="button" style="display:none;" value="保存JPEG图片">
+				<a href="javascript:;" class="ope-btn" id="savejpegbtn">
+					<em class="ope-ico screen-ico"></em>
+					<span class="txt">截屏</span>
+				</a>
+			</div>
+			<!-- 纸条弹出 -->
+			<div class="pop-scrip">
+				<textarea class="text-box"></textarea>
+				<div class="btn-box">
+					<button class="cancel-btn gray">取消</button>
+					<button class="save-btn blue">保存</button>
+				</div>
+			</div>
+			<!-- 是否截屏提示 -->
+			<div class="pop-confirm-cut">
+				<p class="text-blue">是否将截屏保存到笔记</p>
+				<div class="btn-box">
+					<button class="cancel-btn gray">否</button>
+					<button class="save-btn blue">是</button>
+				</div>
+			</div>
+		</article>
+		<!-- <div class="chat-box">
+			<div class="chat-list">
+				<p class="chat-time">12:45</p>
+				<div class="left-chat">
+					<img src="../img/temporary/address-po1.jpg" class="chat-photo">
+					<div class="chat-mes">eeererer</div>
+				</div>
+				<div class="right-chat clearfix">
+					<img src="../img/temporary/address-po1.jpg" class="chat-photo">
+					<div class="chat-mes">wewee</div>
+				</div>
+				<div class="right-chat clearfix">
+					<img src="../img/temporary/address-po1.jpg" class="chat-photo">
+					<div class="chat-mes">wewee</div>
+				</div>
+				<div class="right-chat clearfix">
+					<img src="../img/temporary/address-po1.jpg" class="chat-photo">
+					<div class="chat-mes">wewee</div>
+				</div>
+				<div class="right-chat clearfix">
+					<img src="../img/temporary/address-po1.jpg" class="chat-photo">
+					<div class="chat-mes">wewee</div>
+				</div>
+			</div>
+			<div class="send-box">
+				<em class="chat-ico yy-ico"></em>
+				<em class="chat-ico bq-ico"></em>
+				<em class="chat-ico send-ico"></em>
+				<div class="send-ipt-box">
+					<input type="text" />
+					<span class="txt">
+						<span>|</span>
+						<span>老师</span>
+						<span>助教</span>
+						<span class="text-blue">全部</span>
+					</span>
+				</div>
+			</div>
+		</div> -->
+	</section>
+	<aside class="class-box">
+		<div class="video-box">
+			<img src="../img/temporary/video.jpg" alt="">
+			<a href="javascript:;" id="j-video-btn" class="video-btn"></a>
+			<p class="video-bot">视频</p>
+		</div>
+		<ul class="clearfix nav-box">
+			<li class="item blue on">
+				<em class="ico black-ico"></em>
+				<span>黑板</span>
+			</li>
+			<li class="item orange">
+				<em class="ico tea-ico"></em>
+				<span>资料</span>
+			</li>
+			<li class="item purple">
+				<em class="ico notes-ico"></em>
+				<span>笔记</span>
+			</li>
+			<li class="item lavender">
+				<em class="ico quesition-ico"></em>
+				<span>测试</span>
+			</li>
+		</ul>
+	</aside>
+	<script type="text/javascript">
+  var bMouseIsDown = false;
+  
+  var oCanvas = document.getElementById("thecanvas");
+  var oCtx = oCanvas.getContext("2d");
+
+
+  var iWidth = oCanvas.width;
+  var iHeight = oCanvas.height;
+
+  oCtx.fillStyle = "rgb(37,73,50)";
+  oCtx.fillRect(0,0,iWidth,iHeight);
+
+/*   oCtx.beginPath();
+  oCtx.strokeStyle = "rgb(255,0,255)";
+  oCtx.strokeWidth = "4px";
+
+  oCanvas.onmousedown = function(e) { 
+    bMouseIsDown = true;
+    iLastX = e.clientX - oCanvas.offsetLeft + document.body.scrollLeft;
+    iLastY = e.clientY - oCanvas.offsetTop + jQuery(window).scrollTop();
+  }
+  oCanvas.onmouseup = function() {
+    bMouseIsDown = false;
+    iLastX = -1;
+    iLastY = -1;
+  }
+  oCanvas.onmousemove = function(e) {
+    if (bMouseIsDown) {
+      var iX = e.clientX - oCanvas.offsetLeft + document.body.scrollLeft;
+      var iY = e.clientY - oCanvas.offsetTop + jQuery(window).scrollTop();
+      oCtx.moveTo(iLastX, iLastY);
+      oCtx.lineTo(iX, iY); 
+      oCtx.stroke();
+      iLastX = iX;
+      iLastY = iY;
+    }
+  }
+ */
+  function showDownloadText() {
+    document.getElementById("buttoncontainer").style.display = "none";
+    document.getElementById("textdownload").style.display = "block";
+  }
+
+  function hideDownloadText() {
+    document.getElementById("buttoncontainer").style.display = "block";
+    document.getElementById("textdownload").style.display = "none";
+  }
+
+  function convertCanvas(strType) {
+    if (strType == "PNG")
+      var oImg = Canvas2Image.saveAsPNG(oCanvas, true);
+    if (strType == "BMP")
+      var oImg = Canvas2Image.saveAsBMP(oCanvas, true);
+    if (strType == "JPEG")
+      var oImg = Canvas2Image.saveAsJPEG(oCanvas, true);
+
+    if (!oImg) {
+      alert("Sorry, this browser is not capable of saving " + strType + " files!");
+      return false;
+    }
+
+    oImg.id = "canvasimage";
+
+    oImg.style.border = oCanvas.style.border;
+    document.body.replaceChild(oImg, oCanvas);
+
+    showDownloadText();
+  }
+
+  function saveCanvas(pCanvas, strType) {
+    var bRes = false;
+    if (strType == "PNG")
+      bRes = Canvas2Image.saveAsPNG(oCanvas);
+    if (strType == "BMP")
+      bRes = Canvas2Image.saveAsBMP(oCanvas);
+    if (strType == "JPEG")
+      bRes = Canvas2Image.saveAsJPEG(oCanvas);
+
+    if (!bRes) {
+      alert("Sorry, this browser is not capable of saving " + strType + " files!");
+      return false;
+    }
+  }
+
+  document.getElementById("savepngbtn").onclick = function() {
+    saveCanvas(oCanvas, "PNG");
+  }
+  document.getElementById("savebmpbtn").onclick = function() {
+    saveCanvas(oCanvas, "BMP");
+  }
+  document.getElementById("savejpegbtn").onclick = function() {
+    saveCanvas(oCanvas, "JPEG");
+  }
+
+  document.getElementById("convertpngbtn").onclick = function() {
+    convertCanvas("PNG");
+  }
+  document.getElementById("convertbmpbtn").onclick = function() {
+    convertCanvas("BMP");
+  }
+  document.getElementById("convertjpegbtn").onclick = function() {
+    convertCanvas("JPEG");
+  }
+
+  document.getElementById("resetbtn").onclick = function() {
+    var oImg = document.getElementById("canvasimage");
+    document.body.replaceChild(oCanvas, oImg);
+
+    hideDownloadText();
+  }
+</script>
+	<script type="text/javascript">
+		$(function(){
+			$(".nav-box li").click(function(){
+				var _th = $(this);
+       			var index=$(".nav-box li").index(this);
+        		$(this).addClass("on").siblings().removeClass("on");
+        		$("#j-cont-y .content").eq(index).removeClass("hide").siblings(".content").addClass("hide");
+        		if(index != 0){
+        			$(".ope-stu").addClass('hide');
+        		}else{
+        			$(".ope-stu").removeClass('hide');
+        		}
+			});
+			$(".ope-stu .ope-btn").click(function(){
+				var _th=$(this)
+				var index=$(".ope-stu .ope-btn").index(this);
+				if(index==0){
+					$(this).parents().prev("header").find("em.hand-checked").css("display","block");
+				}
+				if(index==1){
+					$(this).parents().find(".pop-scrip").css("display","block");
+				}else{
+					$(this).parents().find(".pop-scrip").css("display","none");
+				}
+				
+			})
+			$(".pop-scrip button").click(function(){
+				$(".pop-scrip").css("display","none");
+			})
+			$("#j-video-btn").click(function(){
+				$("#j-cont-y .content").eq(4).removeClass("hide").siblings(".content").addClass("hide");
+			});
+			$(".quesition-tab li").click(function(){
+				var _th=$(this);
+				var index=$(".quesition-tab li").index(this);
+				$(this).addClass("on").siblings(".ques-tab-item").removeClass("on");
+				$(".question-list").eq(index).removeClass("hide").siblings(".question-list").addClass("hide");
+				$("#j-submit-test").click(function(){
+					$(".answer-mes").removeClass("hide");
+					$("#j-submit-test").prev("span").css("display","none");
+					$("#j-submit-test").addClass("hide");
+					$("#j-submit-test").parent().addClass("ques-box-ed");
+				})
+			})
+			$("#j-submit-test").click(function(){
+				$(".score-box").removeClass("hide");
+				$("#pop-note #note-pop-btn").removeClass("hide");
+			})
+			$("#note-pop-btn").click(function(){
+				$(this).parents("#pop-note").append('<div class="pop-scrip pop-small"><textarea class="text-box"></textarea><div class="btn-box"><button class="cancel-btn gray">取消</button><button class="save-btn blue">保存</button></div></div>');
+				$(".pop-scrip button").click(function(){
+					$(".pop-scrip").css("display","none");
+				})
+			})
+			$("#exit-btn-y").click(function(){
+				window.location.href="login.html";
+			})
+			$("#return").click(function(){
+				history.go(-1);
+			});
+		})
+	</script>
+</body>
+</html>

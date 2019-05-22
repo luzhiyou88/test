@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.section.dao.SpSectionDao">
+    
+	<sql id="spSectionColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.start_time AS "startTime",
+		a.end_time AS "endTime",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate", 
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+	</sql>
+	<sql id="spSectionColumnsForDict">
+		a.id AS "id",
+		a.name AS "name"
+	</sql>
+	
+	<sql id="spSectionJoins">
+	</sql>
+    
+	<select id="get" resultType="SpSection">
+		SELECT 
+			<include refid="spSectionColumns"/>
+		FROM sp_section a
+		<include refid="spSectionJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SpSection">
+		SELECT 
+			<include refid="spSectionColumns"/>
+		FROM sp_section a
+		<include refid="spSectionJoins"/>
+		<where>
+		
+		    <if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+		</where>
+		ORDER BY a.update_date DESC
+		<!-- <choose>
+		
+			 <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise> 
+		</choose> -->
+	</select>
+	
+	<select id="findPageList" resultType="SpSection">
+		SELECT 
+			<include refid="spSectionColumns"/>
+		FROM sp_section a
+		<include refid="spSectionJoins"/>
+		<where>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+		</where>
+		ORDER BY a.update_date DESC
+		<!-- <choose>
+		
+			 <when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise> 
+		</choose> -->
+	</select>
+	
+	<select id="findAllList" resultType="SpSection">
+		SELECT 
+			<include refid="spSectionColumns"/>
+		FROM sp_section a
+		<include refid="spSectionJoins"/>
+		<where>
+			a.del_flag = '0'
+			<if test="starttimeFrom != null and starttimeFrom != ''">
+				AND a.start_time <![CDATA[<= ]]> #{starttimeFrom}
+			</if>
+			<if test="endtimeTo != null and endtimeTo != ''">
+				AND a.end_time <![CDATA[>= ]]> #{endtimeTo}
+			</if>
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	<!-- 获取借此下拉框绑定值 -->
+	<select id="getAllListForDict" resultType="SpSection">
+		SELECT 
+			<include refid="spSectionColumnsForDict"/>
+		FROM sp_section a
+		<where>
+			a.del_flag = '0'
+		</where>
+		order by start_time,end_time
+	</select>
+	<!-- 获取日期下剩余的节次 -->
+	<select id="getRemainSectionByDate" resultType="SpSection">
+		SELECT 
+			distinct a.id,a.name
+		FROM sp_section a
+		WHERE a.id not in (
+			SELECT lesson.section_id
+			FROM sp_lesson lesson
+			WHERE lesson.lesson_date = #{lessonDate} and lesson.del_flag='0'
+		)
+		<if test="hhmmss != null and hhmmss != ''">
+			and a.end_time <![CDATA[> ]]> #{hhmmss}
+		</if>
+		and a.del_flag = '0'
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_section(
+			id,
+			name,
+			start_time,
+			end_time,
+			remarks,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			del_flag
+		) VALUES (
+			#{id},
+			#{name},
+			#{startTime},
+			#{endTime},
+			#{remarks},
+			#{createDate},
+			#{createBy},
+			#{updateDate},
+			#{updateBy},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_section SET 	
+			name = #{name},
+			start_time = #{startTime},
+			end_time = #{endTime},
+			remarks = #{remarks},
+			update_date = #{updateDate},
+			update_by = #{updateBy}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_section SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<!-- 根据节次ID查询课程表是否有关联的课程 -->
+	<select id="selectLessonBySectionId" parameterType="String" resultType="int">
+	   select count(*) from sp_lesson where del_flag = '0' and section_id = #{sectionId} 
+	</select>
+	
+	<!-- 查询节次有无重复 -->
+	<select id="selectSectionByTime" parameterType="map" resultType="int">
+	   
+     select count(*) from sp_section where del_flag = '0' and  id != #{id} and 
+     ((str_to_date(CONCAT('2016-09-03',#{startTime},':00'),'%Y-%m-%d %H:%i:%s') <![CDATA[< ]]> str_to_date(CONCAT('2016-09-03',end_time,':00'),'%Y-%m-%d %H:%i:%s') 
+     and str_to_date(CONCAT('2016-09-03',start_time,':00'),'%Y-%m-%d %H:%i:%s') <![CDATA[< ]]> str_to_date(CONCAT('2016-09-03',#{startTime},':00'),'%Y-%m-%d %H:%i:%s')) or
+     (str_to_date(CONCAT('2016-09-03',#{endTime},':00'),'%Y-%m-%d %H:%i:%s') <![CDATA[< ]]> str_to_date(CONCAT('2016-09-03',end_time,':00'),'%Y-%m-%d %H:%i:%s') 
+      and str_to_date(CONCAT('2016-09-03',start_time,':00'),'%Y-%m-%d %H:%i:%s') <![CDATA[< ]]> str_to_date(CONCAT('2016-09-03',#{endTime},':00'),'%Y-%m-%d %H:%i:%s')) or
+       (str_to_date(CONCAT('2016-09-03',end_time,':00'),'%Y-%m-%d %H:%i:%s') <![CDATA[<= ]]> str_to_date(CONCAT('2016-09-03',#{endTime},':00'),'%Y-%m-%d %H:%i:%s')  
+    and str_to_date(CONCAT('2016-09-03',#{startTime},':00'),'%Y-%m-%d %H:%i:%s') <![CDATA[<= ]]> str_to_date(CONCAT('2016-09-03',start_time,':00'),'%Y-%m-%d %H:%i:%s')))
+     
+     <!-- and str_to_date(CONCAT('2016-09-03',#{startTime},':00'),'%Y-%m-%d %H:%i:%s') <![CDATA[=> ]]> str_to_date(CONCAT('2016-09-03',start_time,':00'),'%Y-%m-%d %H:%i:%s')) or -->
+    <!-- (str_to_date(CONCAT('2016-09-03',#{endTime},':00'),'%Y-%m-%d %H:%i:%s') <![CDATA[<= ]]> str_to_date(CONCAT('2016-09-03',end_time,':00'),'%Y-%m-%d %H:%i:%s') 
+    and str_to_date(CONCAT('2016-09-03',#{endTime},':00'),'%Y-%m-%d %H:%i:%s') <![CDATA[=> ]]> str_to_date(CONCAT('2016-09-03',start_time,':00'),'%Y-%m-%d %H:%i:%s')) or -->
+    <!-- (str_to_date(CONCAT('2016-09-03',#{endTime},':00'),'%Y-%m-%d %H:%i:%s') <![CDATA[=> ]]> str_to_date(CONCAT('2016-09-03',end_time,':00'),'%Y-%m-%d %H:%i:%s')  
+    and str_to_date(CONCAT('2016-09-03',#{startTime},':00'),'%Y-%m-%d %H:%i:%s') <![CDATA[<= ]]> str_to_date(CONCAT('2016-09-03',start_time,':00'),'%Y-%m-%d %H:%i:%s'))) -->
+	</select>
+</mapper>

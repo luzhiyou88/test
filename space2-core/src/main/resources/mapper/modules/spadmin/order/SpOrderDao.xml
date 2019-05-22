@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.order.dao.SpOrderDao">
+    
+	<sql id="spOrderColumns">
+		a.id AS "id",
+		a.order_no AS "orderNo",
+		a.user_id AS "userId",
+		a.space_id AS "spaceId",
+		a.order_type AS "orderType",
+		a.auxiliary_id AS "auxiliaryId",
+		a.pay_type AS "payType",
+		a.order_state AS "orderState",
+		a.order_price AS "orderPrice",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="spOrderJoins">
+	</sql>
+	<sql id="spOrderJoin">
+	 left join sp_user u on u.id = a.user_id
+	</sql>
+    
+	<select id="get" resultType="SpOrder">
+		SELECT 
+			<include refid="spOrderColumns"/>
+		FROM sp_order a
+		<include refid="spOrderJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findListByOrderNo" resultType="SpOrder">
+		SELECT 
+			<include refid="spOrderColumns"/>
+		FROM sp_order a
+		<include refid="spOrderJoins"/>
+		WHERE order_no = #{orderNo}
+	</select>
+	
+	
+	
+	<select id="findPageList" parameterType="map"  resultType="SpOrder">
+		SELECT 
+			<include refid="spOrderColumns"/>
+		FROM sp_order a
+		<include refid="spOrderJoin"/>
+		<where>
+		    a.del_flag = '0'
+		    <if test="orderNo != null and orderNo != ''">
+				AND a.order_no LIKE concat('%',#{orderNo},'%')
+			</if>
+			<if test="userId != null and userId != ''">
+				AND a.user_id LIKE concat('%',#{userId},'%')
+			</if>
+			<if test="orderType != null and orderType != ''">
+				AND a.order_type = #{orderType}
+			</if>
+			<if test="auxiliaryId != null and auxiliaryId != ''">
+				AND a.auxiliary_id LIKE concat('%',#{auxiliaryId},'%')
+			</if>
+			<if test="payType != null and payType != ''">
+				AND a.pay_type = #{payType}
+			</if>
+			<if test="orderState != null and orderState != ''">
+				AND a.order_state = #{orderState}
+			</if>
+			<if test="createDate != null and createDate != ''">
+				AND DATE_FORMAT(a.create_date,"%Y-%m-%e") = DATE_FORMAT(#{createDate},"%Y-%m-%e")
+			</if>
+			<if test="userName != null and userName != ''">
+				AND u.name LIKE concat('%',#{userName},'%')
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	
+	<select id="findList" parameterType="map"  resultType="SpOrder">
+		SELECT 
+			<include refid="spOrderColumns"/>
+		FROM sp_order a
+		<include refid="spOrderJoins"/>
+		<where>
+			<if test="userId != null and userId != ''">
+				AND a.user_id LIKE 
+					<if test="dbName == 'oracle'">'%'||#{userId}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{userId}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{userId},'%')</if>
+			</if>
+			<if test="orderType != null and orderType != ''">
+				AND a.order_type = #{orderType}
+			</if>
+			<if test="auxiliaryId != null and auxiliaryId != ''">
+				AND a.auxiliary_id LIKE 
+					<if test="dbName == 'oracle'">'%'||#{auxiliaryId}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{auxiliaryId}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{auxiliaryId},'%')</if>
+			</if>
+			<if test="payType != null and payType != ''">
+				AND a.pay_type = #{payType}
+			</if>
+			<if test="orderState != null and orderState != ''">
+				AND a.order_state = #{orderState}
+			</if>
+			<if test="createDate != null and createDate != ''">
+				AND a.create_date = #{createDate}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpOrder">
+		SELECT 
+			<include refid="spOrderColumns"/>
+		FROM sp_order a
+		<include refid="spOrderJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_order(
+			id,
+			order_no,
+			user_id,
+			space_id,
+			order_type,
+			auxiliary_id,
+			pay_type,
+			order_state,
+			order_price,
+			remarks,
+			create_date,
+			del_flag
+		) VALUES (
+			#{id},
+			#{orderNo},
+			#{userId},
+			#{spaceId},
+			#{orderType},
+			#{auxiliaryId},
+			#{payType},
+			#{orderState},
+			#{orderPrice},
+			#{remarks},
+			#{createDate},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_order SET 	
+			order_no = #{orderNo},
+			user_id = #{userId},
+			space_id = #{spaceId},
+			order_type = #{orderType},
+			auxiliary_id = #{auxiliaryId},
+			pay_type = #{payType},
+			order_state = #{orderState},
+			order_price = #{orderPrice},
+			remarks = #{remarks}
+		WHERE id = #{id}
+	</update>
+	
+	
+	<update id="updateByOrderNo">
+		UPDATE sp_order SET 	
+			order_state = #{orderState}
+		WHERE order_no = #{orderNo}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_order SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

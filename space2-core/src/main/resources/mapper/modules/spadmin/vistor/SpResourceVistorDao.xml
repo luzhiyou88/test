@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.vistor.dao.SpResourceVistorDao">
+    
+	<sql id="spResourceVistorColumns">
+		a.id AS "id",
+		a.source_id AS "sourceId",
+		a.source_type AS "sourceType",
+		a.score_avg AS "scoreAvg",
+		a.click_num AS "clickNum",
+		a.praise AS "praise",
+		a.download_num AS "downloadNum",
+		a.create_date AS "createDate"
+	</sql>
+	
+	<sql id="spResourceVistorJoins">
+	</sql>
+    
+	<select id="get" resultType="SpResourceVistor">
+		SELECT 
+			<include refid="spResourceVistorColumns"/>
+		FROM sp_resource_vistor a
+		<include refid="spResourceVistorJoins"/>
+		WHERE a.source_id = #{sourceId}
+	</select>
+	
+	<select id="findList" resultType="SpResourceVistor">
+		SELECT 
+			<include refid="spResourceVistorColumns"/>
+		FROM sp_resource_vistor a
+		<include refid="spResourceVistorJoins"/>
+		<where>
+			
+			<if test="sourceId != null and sourceId != ''">
+				AND a.source_id = #{sourceId}
+			</if>
+			<if test="sourceType != null and sourceType != ''">
+				AND a.source_type = #{sourceType}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpResourceVistor">
+		SELECT 
+			<include refid="spResourceVistorColumns"/>
+		FROM sp_resource_vistor a
+		<include refid="spResourceVistorJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_resource_vistor(
+			id,
+			source_id,
+			source_type,
+			score_avg,
+			click_num,
+			praise,
+			download_num,
+			create_date
+		) VALUES (
+			#{id},
+			#{sourceId},
+			#{sourceType},
+			#{scoreAvg},
+			#{clickNum},
+			#{praise},
+			#{downloadNum},
+			#{createDate}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_resource_vistor SET 	
+			source_id = #{sourceId},
+			source_type = #{sourceType},
+			score_avg = #{scoreAvg},
+			click_num = #{clickNum},
+			praise = #{praise},
+			download_num = #{downloadNum}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM sp_resource_vistor
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

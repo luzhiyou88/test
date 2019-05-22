@@ -1,0 +1,35 @@
+2016-05-16 18:40:53,372 ERROR [com.csmy.my.center.filter.SystemInitListener] - <********************************************>
+2016-05-16 18:40:53,403 ERROR [com.csmy.my.center.filter.SystemInitListener] - <........后台管理平台开始启动...........>
+2016-05-16 18:40:53,403 ERROR [com.csmy.my.center.filter.SystemInitListener] - <********************************************>
+2016-05-16 18:40:53,403 ERROR [com.csmy.my.center.filter.SystemInitListener] - <开始加载数据库中所有公用数据到缓存中...>
+2016-05-16 18:40:53,420 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeNameList】，SQL语句为→     select distinct t.field_code as code_name from sys_code t where 1=1  >
+2016-05-16 18:41:09,753 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='GOOD_TAG'  >
+2016-05-16 18:41:10,347 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='STATE'  >
+2016-05-16 18:41:10,939 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='EDITMODE'  >
+2016-05-16 18:41:11,455 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='USERTYPE'  >
+2016-05-16 18:41:12,017 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ENABLED'  >
+2016-05-16 18:41:12,580 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_STATE'  >
+2016-05-16 18:41:13,002 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='TIME_TYPE'  >
+2016-05-16 18:41:13,314 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='SENDER_TYPE'  >
+2016-05-16 18:41:13,642 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_CSTATE'  >
+2016-05-16 18:41:14,079 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='PAYSATE'  >
+2016-05-16 18:41:14,531 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='CULEVEL'  >
+2016-05-16 18:41:15,016 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='CUSTATE'  >
+2016-05-16 18:41:15,484 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_TYPE'  >
+2016-05-16 18:41:15,891 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ROLE_TYPE'  >
+2016-05-16 18:41:16,282 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='LEAFTYPE'  >
+2016-05-16 18:41:16,657 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='EXPAND'  >
+2016-05-16 18:41:17,000 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='REMARK_TEXT'  >
+2016-05-16 18:41:17,220 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='DATE_FILTER'  >
+2016-05-16 18:41:17,344 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getParamCodeList】，SQL语句为→     select * from sys_param t where 1=1  >
+2016-05-16 18:41:17,438 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getSystemRole】，SQL语句为→     select * from (            select     t1.role_code,    t1.role_name,    t1.role_type,    t1.role_order,    t1.role_desc     from sys_role t1 where 1=1                          order by t1.role_order asc       ) tt where 1=1  >
+2016-05-16 18:41:17,594 ERROR [com.csmy.my.center.filter.SystemInitListener] - <加载数据库中所有公用数据到缓存中结束...>
+2016-05-16 18:41:17,594 ERROR [com.csmy.my.center.filter.SystemInitListener] - <************************************************************************>
+2016-05-16 18:41:17,594 ERROR [com.csmy.my.center.filter.SystemInitListener] - <后台管理平台启动成功[2016-05-16 18:41:17]>
+2016-05-16 18:41:17,594 ERROR [com.csmy.my.center.filter.SystemInitListener] - <启动总耗时: 0分 24秒>
+2016-05-16 18:41:17,594 ERROR [com.csmy.my.center.filter.SystemInitListener] - <************************************************************************>
+2016-05-16 18:42:16,811 ERROR [com.csmy.my.center.util.servlet.wap.WUserLoginServlet] - <会员返回重新登录....>
+2016-05-16 18:42:32,024 ERROR [com.csmy.my.center.util.servlet.wap.WUserLoginServlet] - <会员已登录，进入会员主页....>
+2016-05-16 18:44:43,770 ERROR [com.csmy.my.center.util.servlet.wap.WUserLoginServlet] - <会员返回重新登录....>
+2016-05-16 19:02:37,584 ERROR [com.csmy.my.center.util.servlet.wap.WUserLoginServlet] - <会员返回重新登录....>
+2016-05-16 19:02:52,094 ERROR [com.csmy.my.center.util.servlet.wap.WUserLoginServlet] - <帐户[wangzhihai]登陆失败:帐号或密码输入错误,请重新输入>

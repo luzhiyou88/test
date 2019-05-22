@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.feedback.dao.SpFeedbackDao">
+    
+	<sql id="spFeedbackColumns">
+		a.id AS "id",
+		a.user_id AS "userId",
+		a.content AS "content",
+		a.create_date AS "createDate",
+		a.del_flag AS "delFlag",
+		u2.name AS "userName",
+		u2.mobile AS "mobile",
+		u2.login_name  AS "loginName"
+	</sql>
+	
+	<sql id="spFeedbackJoins">
+		LEFT JOIN sp_user u2 ON u2.id = a.user_id
+	</sql>
+    
+	<select id="get" resultType="SpFeedback">
+		SELECT 
+			<include refid="spFeedbackColumns"/>
+		FROM sp_feedback a
+		<include refid="spFeedbackJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" parameterType="map" resultType="SpFeedback">
+		SELECT 
+			<include refid="spFeedbackColumns"/>
+		FROM sp_feedback a
+		<include refid="spFeedbackJoins"/>
+		<where>
+			a.del_flag = #{delFlag}
+			<if test="userId != null  and userId != ''">
+				AND a.user_id = #{userId}
+			</if>
+			<if test="createDate != null and createDate != ''">
+				AND DATE_FORMAT(a.create_date,"%Y-%m-%e") = DATE_FORMAT(#{createDate},"%Y-%m-%e")
+			</if>
+			<if test="loginName != null and loginName != ''">
+			    AND u2.login_name LIKE concat('%',#{loginName},'%') 
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpFeedback">
+		SELECT 
+			<include refid="spFeedbackColumns"/>
+		FROM sp_feedback a
+		<include refid="spFeedbackJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_feedback(
+			id,
+			user_id,
+			content,
+			create_date,
+			del_flag
+		) VALUES (
+			#{id},
+			#{userId},
+			#{content},
+			#{createDate},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_feedback SET 	
+			user_id = #{user.id},
+			content = #{content}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_feedback SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

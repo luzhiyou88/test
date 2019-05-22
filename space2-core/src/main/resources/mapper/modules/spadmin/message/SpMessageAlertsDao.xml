@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.message.dao.SpMessageAlertsDao">
+    
+	<sql id="spMessageAlertsColumns">
+		a.id AS "id",
+		a.title AS "title",
+		a.content AS "content",
+		a.operater_name AS "operaterName",
+		a.message_type AS "messageType",
+		a.create_date AS "createDate"
+	</sql>
+	
+	<sql id="spMessageAlertsJoins">
+	</sql>
+    
+	<select id="get" resultType="SpMessageAlerts">
+		SELECT 
+			<include refid="spMessageAlertsColumns"/>
+		FROM sp_message_alerts a
+		<include refid="spMessageAlertsJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" parameterType="map" resultType="SpMessageAlerts">
+		SELECT 
+			<include refid="spMessageAlertsColumns"/>
+		FROM sp_message_alerts a
+		<include refid="spMessageAlertsJoins"/>
+		<where>
+			<if test="title != null and title != ''">
+				AND a.title LIKE concat('%',#{title},'%')
+			</if>
+			<if test="operaterName != null and operaterName != ''">
+				AND a.operater_name LIKE concat('%',#{operaterName},'%') 
+			</if>
+		</where>
+		ORDER BY a.create_date desc
+	</select>
+	
+	<select id="findAllList" resultType="SpMessageAlerts">
+		SELECT 
+			<include refid="spMessageAlertsColumns"/>
+		FROM sp_message_alerts a
+		<include refid="spMessageAlertsJoins"/>
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_message_alerts(
+			id,
+			title,
+			content,
+			operater_name,
+			message_type,
+			create_date
+		) VALUES (
+			#{id},
+			#{title},
+			#{content},
+			#{operaterName},
+			#{messageType},
+			#{createDate}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_message_alerts SET 	
+			title = #{title},
+			content = #{content},
+			operater_name = #{operaterName},
+			message_type = #{messageType}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM sp_message_alerts
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

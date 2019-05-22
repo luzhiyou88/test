@@ -1,0 +1,1073 @@
+2016-05-12 09:33:58,444 ERROR [com.csmy.my.center.filter.SystemInitListener] - <********************************************>
+2016-05-12 09:33:58,679 ERROR [com.csmy.my.center.filter.SystemInitListener] - <........后台管理平台开始启动...........>
+2016-05-12 09:33:58,679 ERROR [com.csmy.my.center.filter.SystemInitListener] - <********************************************>
+2016-05-12 09:33:58,679 ERROR [com.csmy.my.center.filter.SystemInitListener] - <开始加载数据库中所有公用数据到缓存中...>
+2016-05-12 09:33:58,695 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeNameList】，SQL语句为→     select distinct t.field_code as code_name from sys_code t where 1=1  >
+2016-05-12 09:34:05,432 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='GOOD_TAG'  >
+2016-05-12 09:34:05,659 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='STATE'  >
+2016-05-12 09:34:05,962 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='EDITMODE'  >
+2016-05-12 09:34:06,503 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='USERTYPE'  >
+2016-05-12 09:34:07,130 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ENABLED'  >
+2016-05-12 09:34:07,252 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_STATE'  >
+2016-05-12 09:34:07,455 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='TIME_TYPE'  >
+2016-05-12 09:34:07,629 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='SENDER_TYPE'  >
+2016-05-12 09:34:07,779 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_CSTATE'  >
+2016-05-12 09:34:07,885 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='PAYSATE'  >
+2016-05-12 09:34:08,078 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='CULEVEL'  >
+2016-05-12 09:34:08,314 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='CUSTATE'  >
+2016-05-12 09:34:08,613 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_TYPE'  >
+2016-05-12 09:34:08,926 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ROLE_TYPE'  >
+2016-05-12 09:34:09,232 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='LEAFTYPE'  >
+2016-05-12 09:34:09,554 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='EXPAND'  >
+2016-05-12 09:34:09,862 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='REMARK_TEXT'  >
+2016-05-12 09:34:10,156 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='DATE_FILTER'  >
+2016-05-12 09:34:10,471 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getParamCodeList】，SQL语句为→     select * from sys_param t where 1=1  >
+2016-05-12 09:34:10,793 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getSystemRole】，SQL语句为→     select * from (            select     t1.role_code,    t1.role_name,    t1.role_type,    t1.role_order,    t1.role_desc     from sys_role t1 where 1=1                          order by t1.role_order asc       ) tt where 1=1  >
+2016-05-12 09:34:11,078 ERROR [com.csmy.my.center.filter.SystemInitListener] - <加载数据库中所有公用数据到缓存中结束...>
+2016-05-12 09:34:11,078 ERROR [com.csmy.my.center.filter.SystemInitListener] - <************************************************************************>
+2016-05-12 09:34:11,078 ERROR [com.csmy.my.center.filter.SystemInitListener] - <后台管理平台启动成功[2016-05-12 09:34:11]>
+2016-05-12 09:34:11,079 ERROR [com.csmy.my.center.filter.SystemInitListener] - <启动总耗时: 0分 12秒>
+2016-05-12 09:34:11,079 ERROR [com.csmy.my.center.filter.SystemInitListener] - <************************************************************************>
+2016-05-12 09:39:03,524 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <会员返回重新登录....>
+2016-05-12 09:46:16,708 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <会员返回重新登录....>
+2016-05-12 10:14:13,510 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:login!userLogin.ct>
+2016-05-12 10:14:13,510 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/login!userLogin.ct>
+2016-05-12 10:14:13,510 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:14:13,510 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:14:13,510 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/login!userLogin.ct>
+2016-05-12 10:14:13,511 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:14:13,511 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:14:13,511 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:14:13,511 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:14:13,623 ERROR [com.csmy.my.center.dao.UserInfoDao] - <执行【sqlname=admin.getUserByAcount】，SQL语句为→      select * from user_info t where 1=1      and              t.account='admin'                 and              t.password='nbgYr0DpdB8='                   >
+2016-05-12 10:14:13,718 ERROR [com.csmy.my.center.dao.UserInfoDao] - <执行【sqlname=admin.getUserExtendInfoById】，SQL语句为→      select * from user_exp_info t where 1=1      and              t.user_id='38521035'              >
+2016-05-12 10:14:14,660 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:index!getMainLeftTree.ct>
+2016-05-12 10:14:14,660 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/index!getMainLeftTree.ct>
+2016-05-12 10:14:14,660 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:14:14,661 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:14:14,661 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/index!getMainLeftTree.ct>
+2016-05-12 10:14:14,661 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:14:14,661 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:14:14,661 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:14:14,661 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:14:14,699 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getAllRolePermits】，SQL语句为→         select *     from sys_module m    where m. module_code in          (select distinct t. module_id from sys_role_fun t where t.role_id in ('57414897'))          order by m.module_order asc     >
+2016-05-12 10:14:17,887 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!goodInfoInit.ct>
+2016-05-12 10:14:17,887 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!goodInfoInit.ct>
+2016-05-12 10:14:17,887 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:14:17,887 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:14:17,887 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!goodInfoInit.ct>
+2016-05-12 10:14:17,888 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:14:17,888 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:14:17,888 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:14:17,888 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:14:18,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodTree.ct>
+2016-05-12 10:14:18,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodTree.ct>
+2016-05-12 10:14:18,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:14:18,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:14:18,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodTree.ct>
+2016-05-12 10:14:18,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:14:18,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:14:18,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:14:18,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:14:18,057 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:14:18,061 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 10:14:18,061 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 10:14:18,061 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:14:18,061 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:14:18,061 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 10:14:18,061 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:14:18,061 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:14:18,061 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:14:18,061 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:14:18,064 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:14:18,257 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 10:14:18,347 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:14:21,870 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!editGoodInfo.ct>
+2016-05-12 10:14:21,870 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!editGoodInfo.ct>
+2016-05-12 10:14:21,870 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:14:21,870 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:14:21,870 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!editGoodInfo.ct>
+2016-05-12 10:14:21,870 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:14:21,870 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:14:21,871 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:14:21,871 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:14:21,872 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:14:21,950 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:14:22,026 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1      and     t.good_id = '84544065'                                  order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:14:22,109 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:14:22,179 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:14:22,253 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:14:22,325 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:14:56,429 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:ugood!saveGood.ct>
+2016-05-12 10:14:56,429 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/ugood!saveGood.ct>
+2016-05-12 10:14:56,429 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:14:56,429 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:14:56,429 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/ugood!saveGood.ct>
+2016-05-12 10:14:56,429 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:14:56,429 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:14:56,429 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:14:56,429 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:14:57,625 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodInfo】，SQL语句为→    update wxb_good t   set                  t.good_name = '商品1'         ,              t.customer_id = 'pinweikeji'        ,              t.type_id = '03'            ,              t.good_pic1 = '376e439ff1304fd991abe3e724cd4001.jpg'        ,              t.good_pic2 = 'aecc2161b86345ebb6a41c75b3ff33cc.jpg'        ,              t.promote_desc = '哈哈<img src="http://120.25.255.67:9090/5aae8fcb2a12462a8d54c104daac0ee7.jpg" alt="" /><img src="http://120.25.255.67:9090/5de5470fa9874e70b6cc41469fee9b63.jpg" alt="" /><img src="http://120.25.255.67:9090/6a8067ee888c437d8fcb5f097b84bf8e.jpg" alt="" /><img src="http://120.25.255.67:9090/b5570ad216c74202b922575058394add.jpg" alt="" /><img src="http://120.25.255.67:9090/7bc0951b58ee479aa6d6c00b3aa59e2f.jpg" alt="" />, 哈哈a<strong><span style="color:#E53333;">dfasdfadsf<img src="http://120.25.255.67:9090/a3545e604b844587b7516cc199ee4190.jpg" alt="" height="600" width="600" /></span></strong>'        ,              t.sku_title = '10斤|11斤|20斤|50斤|'        ,              t.sku_cost = '100|101|200|300|'        ,              t.sku_price = '100|101|200|300|'        ,              t.sku_pmoney = '0|0|0|0|'        ,              t.copy_ids = '32,30'                ,       t.spc_id = '29'            ,       t.good_value = null            ,       t.courier_money = null                ,       t.zon_id = null                    ,              t.copy_desc = null            ,              t.forward_link = null        ,               t.tags = '1, 2, 3, 4'            ,               t.sell_num = '100'        ,               t.isgiven = '0'        ,               t.sms_check = '0'        ,               t.order_no = '1'                  where t.good_id = '84544065'    >
+2016-05-12 10:14:57,817 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:14:57,992 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '10斤'         ,              t.sku_cost = '100'        ,              t.sku_price = '100'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '0'                  where t.sku_id = '31254079'  >
+2016-05-12 10:14:58,204 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '11斤'         ,              t.sku_cost = '101'        ,              t.sku_price = '101'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '1'                  where t.sku_id = '19252378'  >
+2016-05-12 10:14:58,472 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '20斤'         ,              t.sku_cost = '200'        ,              t.sku_price = '200'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '2'                  where t.sku_id = '97446767'  >
+2016-05-12 10:14:58,827 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '50斤'         ,              t.sku_cost = '300'        ,              t.sku_price = '300'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '3'                  where t.sku_id = '40191810'  >
+2016-05-12 10:14:59,412 ERROR [com.csmy.my.center.dao.AuditingDao] - <执行【sqlname=audit.editAuditState】，SQL语句为→    update wxb_auditing  set               auditing_mark_state = 0       where auxiliary_id = '84544065' and  auditing_type='1'   >
+2016-05-12 10:14:59,931 ERROR [com.csmy.my.center.dao.AuditingDao] - <执行【sqlname=audit.addAuditInfo】，SQL语句为→     insert into wxb_auditing   (   submit_user_id,   submit_user_name,   submit_create_time,   auditing_type,   submit_mark,   auxiliary_id,   auditing_user_id,   auditing_user_name,   auditing_time,   auditing_state,   auditing_mark,   auditing_mark_state   )values(    '38521035',   'admin',   '2016-05-12 10:14:59',   '1',   '',   '84544065',   '',   '',   null,   '1',   '',   '1'   );  >
+2016-05-12 10:15:01,612 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 10:15:01,613 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 10:15:01,613 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:15:01,613 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:15:01,613 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 10:15:01,613 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:15:01,613 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:15:01,613 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:15:01,614 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:15:01,616 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                                     order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:15:02,534 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                                     order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 10:15:03,190 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:15:08,094 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!editGoodInfo.ct>
+2016-05-12 10:15:08,094 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!editGoodInfo.ct>
+2016-05-12 10:15:08,094 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:15:08,094 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:15:08,094 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!editGoodInfo.ct>
+2016-05-12 10:15:08,094 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:15:08,094 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:15:08,094 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:15:08,094 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:15:08,107 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:15:08,178 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:15:08,255 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1      and     t.good_id = '84544065'                                  order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:15:08,337 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:15:08,407 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:15:08,481 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:15:08,559 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:20:25,309 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!goodInfoInit.ct>
+2016-05-12 10:20:25,310 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!goodInfoInit.ct>
+2016-05-12 10:20:25,310 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:20:25,310 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:20:25,310 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!goodInfoInit.ct>
+2016-05-12 10:20:25,310 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:20:25,310 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:20:25,310 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:20:25,310 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:20:25,388 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodTree.ct>
+2016-05-12 10:20:25,388 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodTree.ct>
+2016-05-12 10:20:25,388 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:20:25,388 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:20:25,388 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodTree.ct>
+2016-05-12 10:20:25,388 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:20:25,388 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:20:25,388 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:20:25,388 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:20:25,390 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:20:25,424 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 10:20:25,424 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 10:20:25,425 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:20:25,425 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:20:25,425 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 10:20:25,425 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:20:25,425 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:20:25,425 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:20:25,425 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:20:25,427 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:20:25,514 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 10:20:25,595 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:20:30,323 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!editGoodInfo.ct>
+2016-05-12 10:20:30,323 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!editGoodInfo.ct>
+2016-05-12 10:20:30,323 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:20:30,323 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:20:30,323 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!editGoodInfo.ct>
+2016-05-12 10:20:30,323 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:20:30,323 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:20:30,324 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:20:30,324 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:20:30,325 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:20:30,399 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:20:30,475 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1      and     t.good_id = '84544065'                                  order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:20:30,560 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:20:30,629 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:20:30,700 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:20:30,769 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:20:51,138 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:ugood!saveGood.ct>
+2016-05-12 10:20:51,138 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/ugood!saveGood.ct>
+2016-05-12 10:20:51,138 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:20:51,138 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:20:51,138 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/ugood!saveGood.ct>
+2016-05-12 10:20:51,138 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:20:51,138 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:20:51,139 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:20:51,139 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:20:51,144 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodInfo】，SQL语句为→    update wxb_good t   set                  t.good_name = '商品1'         ,              t.customer_id = 'pinweikeji'        ,              t.type_id = '03'                    ,              t.promote_desc = '哈哈<img src="http://120.25.255.67:9090/5aae8fcb2a12462a8d54c104daac0ee7.jpg" alt="" /><img src="http://120.25.255.67:9090/5de5470fa9874e70b6cc41469fee9b63.jpg" alt="" /><img src="http://120.25.255.67:9090/6a8067ee888c437d8fcb5f097b84bf8e.jpg" alt="" /><img src="http://120.25.255.67:9090/b5570ad216c74202b922575058394add.jpg" alt="" /><img src="http://120.25.255.67:9090/7bc0951b58ee479aa6d6c00b3aa59e2f.jpg" alt="" />, 哈哈a<strong><span style="color:#E53333;">dfasdfadsf<img src="http://120.25.255.67:9090/a3545e604b844587b7516cc199ee4190.jpg" alt="" height="600" width="600" /></span></strong>'        ,              t.sku_title = '10斤|11斤|20斤|50斤|'        ,              t.sku_cost = '100|101|200|300|'        ,              t.sku_price = '100|101|200|300|'        ,              t.sku_pmoney = '0|0|0|0|'                    ,       t.spc_id = '29'            ,       t.good_value = null            ,       t.courier_money = null                ,       t.zon_id = null                    ,              t.copy_desc = null            ,              t.forward_link = null        ,               t.tags = '1, 2, 3, 4'            ,               t.sell_num = '100'        ,               t.isgiven = '0'        ,               t.sms_check = '0'        ,               t.order_no = '1'                  where t.good_id = '84544065'    >
+2016-05-12 10:20:51,244 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:20:51,318 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '10斤'         ,              t.sku_cost = '100'        ,              t.sku_price = '100'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '0'                  where t.sku_id = '31254079'  >
+2016-05-12 10:20:51,394 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '11斤'         ,              t.sku_cost = '101'        ,              t.sku_price = '101'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '1'                  where t.sku_id = '19252378'  >
+2016-05-12 10:20:51,466 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '20斤'         ,              t.sku_cost = '200'        ,              t.sku_price = '200'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '2'                  where t.sku_id = '97446767'  >
+2016-05-12 10:20:51,544 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '50斤'         ,              t.sku_cost = '300'        ,              t.sku_price = '300'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '3'                  where t.sku_id = '40191810'  >
+2016-05-12 10:20:51,620 ERROR [com.csmy.my.center.dao.AuditingDao] - <执行【sqlname=audit.editAuditState】，SQL语句为→    update wxb_auditing  set               auditing_mark_state = 0       where auxiliary_id = '84544065' and  auditing_type='1'   >
+2016-05-12 10:20:51,692 ERROR [com.csmy.my.center.dao.AuditingDao] - <执行【sqlname=audit.addAuditInfo】，SQL语句为→     insert into wxb_auditing   (   submit_user_id,   submit_user_name,   submit_create_time,   auditing_type,   submit_mark,   auxiliary_id,   auditing_user_id,   auditing_user_name,   auditing_time,   auditing_state,   auditing_mark,   auditing_mark_state   )values(    '38521035',   'admin',   '2016-05-12 10:20:51',   '1',   '',   '84544065',   '',   '',   null,   '1',   '',   '1'   );  >
+2016-05-12 10:20:53,379 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 10:20:53,380 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 10:20:53,380 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:20:53,380 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:20:53,380 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 10:20:53,381 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:20:53,381 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:20:53,381 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:20:53,381 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:20:53,384 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                                     order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:20:53,503 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                                     order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 10:20:53,581 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:21:26,795 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!editGoodInfo.ct>
+2016-05-12 10:21:26,795 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!editGoodInfo.ct>
+2016-05-12 10:21:26,795 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:21:26,795 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:21:26,795 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!editGoodInfo.ct>
+2016-05-12 10:21:26,795 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:21:26,795 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:21:26,795 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:21:26,795 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:21:26,798 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:21:26,877 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:21:26,954 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1      and     t.good_id = '84544065'                                  order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:21:27,036 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:21:27,107 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:21:27,177 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:21:27,247 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:22:04,315 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:ugood!saveGood.ct>
+2016-05-12 10:22:04,315 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/ugood!saveGood.ct>
+2016-05-12 10:22:04,315 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:22:04,315 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:22:04,315 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/ugood!saveGood.ct>
+2016-05-12 10:22:04,315 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:22:04,315 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:22:04,315 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:22:04,315 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:22:04,321 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodInfo】，SQL语句为→    update wxb_good t   set                  t.good_name = '商品1'         ,              t.customer_id = 'pinweikeji'        ,              t.type_id = '03'                    ,              t.promote_desc = '哈哈<img src="http://120.25.255.67:9090/5aae8fcb2a12462a8d54c104daac0ee7.jpg" alt="" /><img src="http://120.25.255.67:9090/5de5470fa9874e70b6cc41469fee9b63.jpg" alt="" /><img src="http://120.25.255.67:9090/6a8067ee888c437d8fcb5f097b84bf8e.jpg" alt="" /><img src="http://120.25.255.67:9090/b5570ad216c74202b922575058394add.jpg" alt="" /><img src="http://120.25.255.67:9090/7bc0951b58ee479aa6d6c00b3aa59e2f.jpg" alt="" />, 哈哈a<strong><span style="color:#E53333;">dfasdfadsf<img src="http://120.25.255.67:9090/a3545e604b844587b7516cc199ee4190.jpg" alt="" height="600" width="600" /></span></strong>'        ,              t.sku_title = '10斤|11斤|20斤|50斤|'        ,              t.sku_cost = '100|101|200|300|'        ,              t.sku_price = '100|101|200|300|'        ,              t.sku_pmoney = '0|0|0|0|'                    ,       t.spc_id = '29'            ,       t.good_value = null            ,       t.courier_money = null                ,       t.zon_id = null                    ,              t.copy_desc = null            ,              t.forward_link = null        ,               t.tags = '1, 2, 3, 4'            ,               t.sell_num = '100'        ,               t.isgiven = '0'        ,               t.sms_check = '0'        ,               t.order_no = '1'                  where t.good_id = '84544065'    >
+2016-05-12 10:22:04,430 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:22:04,515 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '10斤'         ,              t.sku_cost = '100'        ,              t.sku_price = '100'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '0'                  where t.sku_id = '31254079'  >
+2016-05-12 10:22:04,600 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '11斤'         ,              t.sku_cost = '101'        ,              t.sku_price = '101'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '1'                  where t.sku_id = '19252378'  >
+2016-05-12 10:22:04,677 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '20斤'         ,              t.sku_cost = '200'        ,              t.sku_price = '200'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '2'                  where t.sku_id = '97446767'  >
+2016-05-12 10:22:04,749 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '50斤'         ,              t.sku_cost = '300'        ,              t.sku_price = '300'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '3'                  where t.sku_id = '40191810'  >
+2016-05-12 10:22:04,822 ERROR [com.csmy.my.center.dao.AuditingDao] - <执行【sqlname=audit.editAuditState】，SQL语句为→    update wxb_auditing  set               auditing_mark_state = 0       where auxiliary_id = '84544065' and  auditing_type='1'   >
+2016-05-12 10:22:04,891 ERROR [com.csmy.my.center.dao.AuditingDao] - <执行【sqlname=audit.addAuditInfo】，SQL语句为→     insert into wxb_auditing   (   submit_user_id,   submit_user_name,   submit_create_time,   auditing_type,   submit_mark,   auxiliary_id,   auditing_user_id,   auditing_user_name,   auditing_time,   auditing_state,   auditing_mark,   auditing_mark_state   )values(    '38521035',   'admin',   '2016-05-12 10:22:04',   '1',   '',   '84544065',   '',   '',   null,   '1',   '',   '1'   );  >
+2016-05-12 10:22:06,123 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 10:22:06,124 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 10:22:06,124 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:22:06,124 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:22:06,124 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 10:22:06,124 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:22:06,124 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:22:06,124 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:22:06,124 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:22:06,126 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                                     order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:22:06,254 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                                     order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 10:22:06,330 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:22:08,433 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!editGoodInfo.ct>
+2016-05-12 10:22:08,433 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!editGoodInfo.ct>
+2016-05-12 10:22:08,433 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:22:08,433 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:22:08,433 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!editGoodInfo.ct>
+2016-05-12 10:22:08,433 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:22:08,433 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:22:08,433 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:22:08,434 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:22:08,436 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:22:08,509 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:22:08,592 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1      and     t.good_id = '84544065'                                  order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:22:08,670 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:22:08,742 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:22:08,816 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:22:08,906 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:25:47,597 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:audit!getAuditingList.ct>
+2016-05-12 10:25:47,597 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/audit!getAuditingList.ct>
+2016-05-12 10:25:47,597 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:25:47,597 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:25:47,597 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/audit!getAuditingList.ct>
+2016-05-12 10:25:47,597 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:25:47,598 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:25:47,598 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:25:47,598 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:25:47,629 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditList】，SQL语句为→     select * from wxb_auditing  a       where  1=1                                      order  by  a.auditing_id  desc  >
+2016-05-12 10:25:47,724 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditListCount】，SQL语句为→     select count(1) as ECT  from wxb_auditing  a       where  1=1                                          order  by  a.auditing_id  desc  >
+2016-05-12 10:25:55,108 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:audit!getAuditingInfo.ct>
+2016-05-12 10:25:55,109 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/audit!getAuditingInfo.ct>
+2016-05-12 10:25:55,109 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:25:55,109 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:25:55,109 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/audit!getAuditingInfo.ct>
+2016-05-12 10:25:55,109 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:25:55,109 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:25:55,109 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:25:55,109 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:25:55,112 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getGoodAuditInfo】，SQL语句为→     select * from wxb_auditing  a       where    a.auditing_state =1   and a.auditing_mark_state =1  and  a.auditing_id ='180'  >
+2016-05-12 10:25:55,182 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:25:55,259 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:25:55,337 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1      and     t.good_id = '84544065'                                  order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:25:55,419 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:25:55,500 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:25:55,570 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:25:55,641 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:57:48,232 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:index!getMainLeftTree.ct>
+2016-05-12 10:57:48,272 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/index!getMainLeftTree.ct>
+2016-05-12 10:57:48,272 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:57:48,272 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:57:48,272 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/index!getMainLeftTree.ct>
+2016-05-12 10:57:48,272 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:57:48,272 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:57:48,272 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:57:48,272 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:57:48,591 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getAllRolePermits】，SQL语句为→         select *     from sys_module m    where m. module_code in          (select distinct t. module_id from sys_role_fun t where t.role_id in ('57414897'))          order by m.module_order asc     >
+2016-05-12 10:57:56,228 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:audit!getAuditingList.ct>
+2016-05-12 10:57:56,228 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/audit!getAuditingList.ct>
+2016-05-12 10:57:56,228 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:57:56,228 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:57:56,228 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/audit!getAuditingList.ct>
+2016-05-12 10:57:56,228 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:57:56,228 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:57:56,228 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:57:56,228 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:57:56,298 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditList】，SQL语句为→     select * from wxb_auditing  a       where  1=1                                      order  by  a.auditing_id  desc  >
+2016-05-12 10:57:57,039 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditListCount】，SQL语句为→     select count(1) as ECT  from wxb_auditing  a       where  1=1                                          order  by  a.auditing_id  desc  >
+2016-05-12 10:58:09,852 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:audit!getAuditingInfo.ct>
+2016-05-12 10:58:09,852 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/audit!getAuditingInfo.ct>
+2016-05-12 10:58:09,852 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:58:09,852 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:58:09,852 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/audit!getAuditingInfo.ct>
+2016-05-12 10:58:09,852 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:58:09,852 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:58:09,852 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:58:09,852 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:58:09,898 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getGoodAuditInfo】，SQL语句为→     select * from wxb_auditing  a       where    a.auditing_state =1   and a.auditing_mark_state =1  and  a.auditing_id ='180'  >
+2016-05-12 10:58:10,286 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:58:10,395 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:58:10,503 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1      and     t.good_id = '84544065'                                  order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:58:10,705 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:58:10,938 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:58:11,082 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:58:11,550 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:59:01,242 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:index!getMainLeftTree.ct>
+2016-05-12 10:59:01,242 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/index!getMainLeftTree.ct>
+2016-05-12 10:59:01,242 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:59:01,242 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:59:01,242 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/index!getMainLeftTree.ct>
+2016-05-12 10:59:01,242 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:59:01,242 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:59:01,242 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:59:01,242 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:59:01,292 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getAllRolePermits】，SQL语句为→         select *     from sys_module m    where m. module_code in          (select distinct t. module_id from sys_role_fun t where t.role_id in ('57414897'))          order by m.module_order asc     >
+2016-05-12 10:59:05,289 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:audit!getAuditingList.ct>
+2016-05-12 10:59:05,289 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/audit!getAuditingList.ct>
+2016-05-12 10:59:05,289 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:59:05,289 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:59:05,289 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/audit!getAuditingList.ct>
+2016-05-12 10:59:05,289 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:59:05,289 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:59:05,290 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:59:05,290 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:59:05,305 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditList】，SQL语句为→     select * from wxb_auditing  a       where  1=1                                      order  by  a.auditing_id  desc  >
+2016-05-12 10:59:05,951 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditListCount】，SQL语句为→     select count(1) as ECT  from wxb_auditing  a       where  1=1                                          order  by  a.auditing_id  desc  >
+2016-05-12 10:59:09,306 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:audit!getAuditingInfo.ct>
+2016-05-12 10:59:09,306 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/audit!getAuditingInfo.ct>
+2016-05-12 10:59:09,306 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:59:09,306 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:59:09,306 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/audit!getAuditingInfo.ct>
+2016-05-12 10:59:09,306 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:59:09,306 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:59:09,307 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:59:09,307 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:59:09,308 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getGoodAuditInfo】，SQL语句为→     select * from wxb_auditing  a       where    a.auditing_state =1   and a.auditing_mark_state =1  and  a.auditing_id ='180'  >
+2016-05-12 10:59:09,924 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:59:10,548 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:59:11,180 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1      and     t.good_id = '84544065'                                  order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:59:11,776 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:59:12,392 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:59:13,071 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:59:13,751 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:59:37,255 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:index!getMainLeftTree.ct>
+2016-05-12 10:59:37,255 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/index!getMainLeftTree.ct>
+2016-05-12 10:59:37,255 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:59:37,255 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:59:37,256 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/index!getMainLeftTree.ct>
+2016-05-12 10:59:37,256 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:59:37,256 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:59:37,256 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:59:37,256 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:59:37,259 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getAllRolePermits】，SQL语句为→         select *     from sys_module m    where m. module_code in          (select distinct t. module_id from sys_role_fun t where t.role_id in ('57414897'))          order by m.module_order asc     >
+2016-05-12 10:59:41,636 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:audit!getAuditingList.ct>
+2016-05-12 10:59:41,636 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/audit!getAuditingList.ct>
+2016-05-12 10:59:41,636 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:59:41,636 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:59:41,636 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/audit!getAuditingList.ct>
+2016-05-12 10:59:41,637 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:59:41,637 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:59:41,637 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:59:41,637 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:59:41,655 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditList】，SQL语句为→     select * from wxb_auditing  a       where  1=1                                      order  by  a.auditing_id  desc  >
+2016-05-12 10:59:42,302 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditListCount】，SQL语句为→     select count(1) as ECT  from wxb_auditing  a       where  1=1                                          order  by  a.auditing_id  desc  >
+2016-05-12 10:59:44,820 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:audit!getAuditingInfo.ct>
+2016-05-12 10:59:44,820 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/audit!getAuditingInfo.ct>
+2016-05-12 10:59:44,820 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 10:59:44,820 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 10:59:44,820 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/audit!getAuditingInfo.ct>
+2016-05-12 10:59:44,820 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 10:59:44,821 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 10:59:44,821 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 10:59:44,821 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 10:59:44,851 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getGoodAuditInfo】，SQL语句为→     select * from wxb_auditing  a       where    a.auditing_state =1   and a.auditing_mark_state =1  and  a.auditing_id ='180'  >
+2016-05-12 10:59:46,712 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:59:47,116 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 10:59:47,504 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1      and     t.good_id = '84544065'                                  order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 10:59:47,947 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 10:59:48,371 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:59:48,927 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 10:59:49,644 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 11:00:46,693 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:audit!getSubmitAuditingList.ct>
+2016-05-12 11:00:46,694 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/audit!getSubmitAuditingList.ct>
+2016-05-12 11:00:46,694 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 11:00:46,694 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 11:00:46,694 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/audit!getSubmitAuditingList.ct>
+2016-05-12 11:00:46,694 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 11:00:46,694 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 11:00:46,694 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 11:00:46,695 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 11:00:46,715 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditList】，SQL语句为→     select * from wxb_auditing  a       where  1=1                               and              a.submit_user_id='38521035'                  order  by  a.auditing_id  desc  >
+2016-05-12 11:00:47,511 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditListCount】，SQL语句为→     select count(1) as ECT  from wxb_auditing  a       where  1=1                                   and              a.submit_user_id='38521035'                  order  by  a.auditing_id  desc  >
+2016-05-12 11:00:52,865 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:audit!getAuditingList.ct>
+2016-05-12 11:00:52,865 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/audit!getAuditingList.ct>
+2016-05-12 11:00:52,865 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 11:00:52,865 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 11:00:52,865 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/audit!getAuditingList.ct>
+2016-05-12 11:00:52,865 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 11:00:52,865 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 11:00:52,865 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 11:00:52,865 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 11:00:52,867 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditList】，SQL语句为→     select * from wxb_auditing  a       where  1=1                                      order  by  a.auditing_id  desc  >
+2016-05-12 11:00:53,576 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditListCount】，SQL语句为→     select count(1) as ECT  from wxb_auditing  a       where  1=1                                          order  by  a.auditing_id  desc  >
+2016-05-12 11:00:54,642 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:audit!getAuditingList.ct>
+2016-05-12 11:00:54,643 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/audit!getAuditingList.ct>
+2016-05-12 11:00:54,643 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 11:00:54,643 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 11:00:54,643 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/audit!getAuditingList.ct>
+2016-05-12 11:00:54,643 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 11:00:54,644 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 11:00:54,644 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 11:00:54,644 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 11:00:54,652 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditList】，SQL语句为→     select * from wxb_auditing  a       where  1=1                                      order  by  a.auditing_id  desc  >
+2016-05-12 11:00:55,233 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=audit.getAuditListCount】，SQL语句为→     select count(1) as ECT  from wxb_auditing  a       where  1=1                                          order  by  a.auditing_id  desc  >
+2016-05-12 11:01:01,448 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!goodInfoInit.ct>
+2016-05-12 11:01:01,448 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!goodInfoInit.ct>
+2016-05-12 11:01:01,448 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 11:01:01,449 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 11:01:01,449 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!goodInfoInit.ct>
+2016-05-12 11:01:01,449 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 11:01:01,449 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 11:01:01,449 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 11:01:01,449 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 11:01:01,564 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodTree.ct>
+2016-05-12 11:01:01,564 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodTree.ct>
+2016-05-12 11:01:01,564 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 11:01:01,564 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 11:01:01,564 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodTree.ct>
+2016-05-12 11:01:01,564 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 11:01:01,565 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 11:01:01,565 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 11:01:01,565 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 11:01:01,567 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 11:01:01,608 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 11:01:01,608 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 11:01:01,608 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 11:01:01,608 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 11:01:01,608 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 11:01:01,608 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 11:01:01,608 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 11:01:01,608 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 11:01:01,608 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 11:01:01,610 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 11:01:02,243 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 11:01:02,517 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 11:01:10,548 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:user!getCustomerList.ct>
+2016-05-12 11:01:10,548 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/user!getCustomerList.ct>
+2016-05-12 11:01:10,548 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 11:01:10,548 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 11:01:10,548 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/user!getCustomerList.ct>
+2016-05-12 11:01:10,548 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 11:01:10,548 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 11:01:10,548 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 11:01:10,548 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 11:01:10,625 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1            and     t.customer_type = '1'           order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 11:01:11,211 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfoCount】，SQL语句为→    select count(*) as cnt from (          select t.* from wxb_customer t where 1=1            and     t.customer_type = '1'           order by t.createtime desc       ) tt where 1=1  >
+2016-05-12 11:06:45,679 ERROR [com.csmy.my.center.filter.SystemInitListener] - <********************************************>
+2016-05-12 11:06:45,680 ERROR [com.csmy.my.center.filter.SystemInitListener] - <........后台管理平台开始启动...........>
+2016-05-12 11:06:45,680 ERROR [com.csmy.my.center.filter.SystemInitListener] - <********************************************>
+2016-05-12 11:06:45,680 ERROR [com.csmy.my.center.filter.SystemInitListener] - <开始加载数据库中所有公用数据到缓存中...>
+2016-05-12 11:06:45,689 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeNameList】，SQL语句为→     select distinct t.field_code as code_name from sys_code t where 1=1  >
+2016-05-12 11:06:51,979 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='GOOD_TAG'  >
+2016-05-12 11:06:52,265 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='STATE'  >
+2016-05-12 11:06:52,557 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='EDITMODE'  >
+2016-05-12 11:06:52,883 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='USERTYPE'  >
+2016-05-12 11:06:53,486 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ENABLED'  >
+2016-05-12 11:06:53,650 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_STATE'  >
+2016-05-12 11:06:53,910 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='TIME_TYPE'  >
+2016-05-12 11:06:54,164 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='SENDER_TYPE'  >
+2016-05-12 11:06:54,366 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_CSTATE'  >
+2016-05-12 11:06:54,574 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='PAYSATE'  >
+2016-05-12 11:06:54,820 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='CULEVEL'  >
+2016-05-12 11:06:55,106 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='CUSTATE'  >
+2016-05-12 11:06:55,433 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_TYPE'  >
+2016-05-12 11:06:55,596 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ROLE_TYPE'  >
+2016-05-12 11:06:55,983 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='LEAFTYPE'  >
+2016-05-12 11:06:56,112 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='EXPAND'  >
+2016-05-12 11:06:56,217 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='REMARK_TEXT'  >
+2016-05-12 11:06:56,326 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='DATE_FILTER'  >
+2016-05-12 11:06:56,411 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getParamCodeList】，SQL语句为→     select * from sys_param t where 1=1  >
+2016-05-12 11:06:56,504 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getSystemRole】，SQL语句为→     select * from (            select     t1.role_code,    t1.role_name,    t1.role_type,    t1.role_order,    t1.role_desc     from sys_role t1 where 1=1                          order by t1.role_order asc       ) tt where 1=1  >
+2016-05-12 11:06:56,590 ERROR [com.csmy.my.center.filter.SystemInitListener] - <加载数据库中所有公用数据到缓存中结束...>
+2016-05-12 11:06:56,590 ERROR [com.csmy.my.center.filter.SystemInitListener] - <************************************************************************>
+2016-05-12 11:06:56,591 ERROR [com.csmy.my.center.filter.SystemInitListener] - <后台管理平台启动成功[2016-05-12 11:06:56]>
+2016-05-12 11:06:56,591 ERROR [com.csmy.my.center.filter.SystemInitListener] - <启动总耗时: 0分 10秒>
+2016-05-12 11:06:56,591 ERROR [com.csmy.my.center.filter.SystemInitListener] - <************************************************************************>
+2016-05-12 11:13:22,784 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <会员返回重新登录....>
+2016-05-12 11:14:17,438 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <会员返回重新登录....>
+2016-05-12 11:14:39,287 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <帐户[zhangwenfang]登陆失败:帐号或密码输入错误,请重新输入>
+2016-05-12 11:14:43,916 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <帐户[zhangwenfang]登陆失败:帐号或密码输入错误,请重新输入>
+2016-05-12 11:14:50,523 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <帐户[zhangwenfang]登陆失败:帐号或密码输入错误,请重新输入>
+2016-05-12 11:15:00,231 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <帐户[zhangwenfang]登陆失败:帐号或密码输入错误,请重新输入>
+2016-05-12 11:16:52,252 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <会员返回重新登录....>
+2016-05-12 11:55:18,529 ERROR [com.csmy.my.center.filter.SystemInitListener] - <********************************************>
+2016-05-12 11:55:18,530 ERROR [com.csmy.my.center.filter.SystemInitListener] - <........后台管理平台开始启动...........>
+2016-05-12 11:55:18,530 ERROR [com.csmy.my.center.filter.SystemInitListener] - <********************************************>
+2016-05-12 11:55:18,530 ERROR [com.csmy.my.center.filter.SystemInitListener] - <开始加载数据库中所有公用数据到缓存中...>
+2016-05-12 11:55:18,542 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeNameList】，SQL语句为→     select distinct t.field_code as code_name from sys_code t where 1=1  >
+2016-05-12 11:55:20,844 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='GOOD_TAG'  >
+2016-05-12 11:55:20,920 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='STATE'  >
+2016-05-12 11:55:20,986 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='EDITMODE'  >
+2016-05-12 11:55:21,058 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='USERTYPE'  >
+2016-05-12 11:55:21,126 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ENABLED'  >
+2016-05-12 11:55:21,196 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_STATE'  >
+2016-05-12 11:55:21,267 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='TIME_TYPE'  >
+2016-05-12 11:55:21,331 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='SENDER_TYPE'  >
+2016-05-12 11:55:21,404 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_CSTATE'  >
+2016-05-12 11:55:21,473 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='PAYSATE'  >
+2016-05-12 11:55:21,544 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='CULEVEL'  >
+2016-05-12 11:55:21,614 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='CUSTATE'  >
+2016-05-12 11:55:21,749 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_TYPE'  >
+2016-05-12 11:55:21,818 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ROLE_TYPE'  >
+2016-05-12 11:55:21,887 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='LEAFTYPE'  >
+2016-05-12 11:55:21,954 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='EXPAND'  >
+2016-05-12 11:55:22,015 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='REMARK_TEXT'  >
+2016-05-12 11:55:22,081 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='DATE_FILTER'  >
+2016-05-12 11:55:22,151 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getParamCodeList】，SQL语句为→     select * from sys_param t where 1=1  >
+2016-05-12 11:55:22,236 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getSystemRole】，SQL语句为→     select * from (            select     t1.role_code,    t1.role_name,    t1.role_type,    t1.role_order,    t1.role_desc     from sys_role t1 where 1=1                          order by t1.role_order asc       ) tt where 1=1  >
+2016-05-12 11:55:22,344 ERROR [com.csmy.my.center.filter.SystemInitListener] - <加载数据库中所有公用数据到缓存中结束...>
+2016-05-12 11:55:22,344 ERROR [com.csmy.my.center.filter.SystemInitListener] - <************************************************************************>
+2016-05-12 11:55:22,345 ERROR [com.csmy.my.center.filter.SystemInitListener] - <后台管理平台启动成功[2016-05-12 11:55:22]>
+2016-05-12 11:55:22,345 ERROR [com.csmy.my.center.filter.SystemInitListener] - <启动总耗时: 0分 3秒>
+2016-05-12 11:55:22,345 ERROR [com.csmy.my.center.filter.SystemInitListener] - <************************************************************************>
+2016-05-12 11:55:29,679 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <会员返回重新登录....>
+2016-05-12 12:03:57,953 ERROR [com.csmy.my.center.filter.SystemInitListener] - <********************************************>
+2016-05-12 12:03:57,953 ERROR [com.csmy.my.center.filter.SystemInitListener] - <........后台管理平台开始启动...........>
+2016-05-12 12:03:57,954 ERROR [com.csmy.my.center.filter.SystemInitListener] - <********************************************>
+2016-05-12 12:03:57,954 ERROR [com.csmy.my.center.filter.SystemInitListener] - <开始加载数据库中所有公用数据到缓存中...>
+2016-05-12 12:03:57,963 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeNameList】，SQL语句为→     select distinct t.field_code as code_name from sys_code t where 1=1  >
+2016-05-12 12:03:59,904 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='GOOD_TAG'  >
+2016-05-12 12:03:59,977 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='STATE'  >
+2016-05-12 12:04:00,045 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='EDITMODE'  >
+2016-05-12 12:04:00,124 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='USERTYPE'  >
+2016-05-12 12:04:00,187 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ENABLED'  >
+2016-05-12 12:04:00,255 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_STATE'  >
+2016-05-12 12:04:00,328 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='TIME_TYPE'  >
+2016-05-12 12:04:00,400 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='SENDER_TYPE'  >
+2016-05-12 12:04:00,467 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_CSTATE'  >
+2016-05-12 12:04:00,534 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='PAYSATE'  >
+2016-05-12 12:04:00,599 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='CULEVEL'  >
+2016-05-12 12:04:00,667 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='CUSTATE'  >
+2016-05-12 12:04:00,735 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ORDER_TYPE'  >
+2016-05-12 12:04:00,800 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='ROLE_TYPE'  >
+2016-05-12 12:04:00,869 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='LEAFTYPE'  >
+2016-05-12 12:04:00,935 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='EXPAND'  >
+2016-05-12 12:04:01,001 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='REMARK_TEXT'  >
+2016-05-12 12:04:01,067 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getCodeValueList】，SQL语句为→     select * from sys_code t where t.field_code='DATE_FILTER'  >
+2016-05-12 12:04:01,142 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=admin.getParamCodeList】，SQL语句为→     select * from sys_param t where 1=1  >
+2016-05-12 12:04:01,227 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getSystemRole】，SQL语句为→     select * from (            select     t1.role_code,    t1.role_name,    t1.role_type,    t1.role_order,    t1.role_desc     from sys_role t1 where 1=1                          order by t1.role_order asc       ) tt where 1=1  >
+2016-05-12 12:04:01,321 ERROR [com.csmy.my.center.filter.SystemInitListener] - <加载数据库中所有公用数据到缓存中结束...>
+2016-05-12 12:04:01,321 ERROR [com.csmy.my.center.filter.SystemInitListener] - <************************************************************************>
+2016-05-12 12:04:01,322 ERROR [com.csmy.my.center.filter.SystemInitListener] - <后台管理平台启动成功[2016-05-12 12:04:01]>
+2016-05-12 12:04:01,322 ERROR [com.csmy.my.center.filter.SystemInitListener] - <启动总耗时: 0分 3秒>
+2016-05-12 12:04:01,322 ERROR [com.csmy.my.center.filter.SystemInitListener] - <************************************************************************>
+2016-05-12 12:04:07,494 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <会员返回重新登录....>
+2016-05-12 12:10:11,921 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <会员返回重新登录....>
+2016-05-12 12:10:28,653 ERROR [com.csmy.my.center.util.servlet.UserLoginServlet] - <会员返回重新登录....>
+2016-05-12 13:25:05,423 ERROR [com.csmy.my.center.util.servlet.wap.WUserLoginServlet] - <会员已登录，进入会员主页....>
+2016-05-12 13:25:21,710 ERROR [com.csmy.my.center.util.servlet.wap.WUserLoginServlet] - <会员返回重新登录....>
+2016-05-12 13:26:02,735 ERROR [com.csmy.my.center.dao.DaoImpl] - <执行【sqlname=address.getDefault】，SQL语句为→                  SELECT             id,             user_id AS userId,             name,             tel,             province,             city,             area,             address,             state         FROM wxb_address              WHERE user_id = ? AND state = 1     >
+2016-05-12 13:26:29,084 ERROR [com.csmy.my.center.util.servlet.wap.WUserLoginServlet] - <会员返回重新登录....>
+2016-05-12 13:26:58,197 ERROR [com.csmy.my.center.dao.DaoImpl] - <执行【sqlname=address.getDefault】，SQL语句为→                  SELECT             id,             user_id AS userId,             name,             tel,             province,             city,             area,             address,             state         FROM wxb_address              WHERE user_id = ? AND state = 1     >
+2016-05-12 13:30:21,696 ERROR [com.csmy.my.center.util.servlet.wap.WUserLoginServlet] - <会员返回重新登录....>
+2016-05-12 13:34:38,483 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:login!userLogin.ct>
+2016-05-12 13:34:38,483 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/login!userLogin.ct>
+2016-05-12 13:34:38,483 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 13:34:38,483 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 13:34:38,483 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/login!userLogin.ct>
+2016-05-12 13:34:38,483 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 13:34:38,483 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 13:34:38,484 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 13:34:38,484 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 13:34:39,825 ERROR [com.csmy.my.center.dao.UserInfoDao] - <执行【sqlname=admin.getUserByAcount】，SQL语句为→      select * from user_info t where 1=1      and              t.account='admin'                 and              t.password='nbgYr0DpdB8='                   >
+2016-05-12 13:34:39,895 ERROR [com.csmy.my.center.dao.UserInfoDao] - <执行【sqlname=admin.getUserExtendInfoById】，SQL语句为→      select * from user_exp_info t where 1=1      and              t.user_id='38521035'              >
+2016-05-12 13:34:41,902 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:index!getMainLeftTree.ct>
+2016-05-12 13:34:42,054 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/index!getMainLeftTree.ct>
+2016-05-12 13:34:42,054 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 13:34:42,054 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 13:34:42,054 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/index!getMainLeftTree.ct>
+2016-05-12 13:34:42,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 13:34:42,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 13:34:42,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 13:34:42,055 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 13:34:42,354 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getAllRolePermits】，SQL语句为→         select *     from sys_module m    where m. module_code in          (select distinct t. module_id from sys_role_fun t where t.role_id in ('57414897'))          order by m.module_order asc     >
+2016-05-12 13:34:48,286 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:order!getOrderCountList.ct>
+2016-05-12 13:34:48,286 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/order!getOrderCountList.ct>
+2016-05-12 13:34:48,286 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 13:34:48,286 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 13:34:48,286 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/order!getOrderCountList.ct>
+2016-05-12 13:34:48,286 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 13:34:48,286 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 13:34:48,286 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 13:34:48,286 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 13:34:48,567 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=order.getOrderCountList】，SQL语句为→     select * from (      select t.*,         t1.order_time,         t1.buy_num,         t1.good_id,         t1.state,         t1.oid,         t1.user_id as member_id,         t2. good_name,         t3. customer_name,         t3. login_name,         t4. account,         t4. name as user_name,         t1.user_id,         (select t3. channel_name            from wxb_channel t3           where t3. channel_id = t1.channel_id) as channel_name,         (select t5. own_money            from wxb_user_money t5           where t5.order_id = t1.order_id and t5.user_id = t1.user_id) as sku_pmoney       from wxb_order_count t,          wxb_order       t1,          wxb_good        t2,          wxb_customer    t3,          wxb_memeber     t4    where t. order_id = t1. order_id      and t1. good_id = t2. good_id      and t2. customer_id = t3. customer_id      and t1. user_id = t4. memeber_id   and          t.state_id = '1'      and          t1.state in (7)                    order by t1.user_id asc, t1.order_time desc       ) tt where 1=1  >
+2016-05-12 13:34:48,714 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=order.getOrderCountListCount】，SQL语句为→    select count(*) as cnt from (      select t.*,         t1.order_time,         t1.buy_num,         t1.good_id,         t1.state,         t1.oid,         t1.user_id as member_id,         t2. good_name,         t3. customer_name,         t3. login_name,         t4. account,         t4. name as user_name,         t1.user_id,         (select t3. channel_name            from wxb_channel t3           where t3. channel_id = t1.channel_id) as channel_name,         (select t5. own_money            from wxb_user_money t5           where t5.order_id = t1.order_id and t5.user_id = t1.user_id) as sku_pmoney       from wxb_order_count t,          wxb_order       t1,          wxb_good        t2,          wxb_customer    t3,          wxb_memeber     t4    where t. order_id = t1. order_id      and t1. good_id = t2. good_id      and t2. customer_id = t3. customer_id      and t1. user_id = t4. memeber_id   and          t.state_id = '1'      and          t1.state in (7)                    order by t1.user_id asc, t1.order_time desc       ) tt where 1=1  >
+2016-05-12 13:34:52,708 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:order!operOrderInfo.ct>
+2016-05-12 13:34:52,708 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/order!operOrderInfo.ct>
+2016-05-12 13:34:52,708 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 13:34:52,709 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 13:34:52,709 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/order!operOrderInfo.ct>
+2016-05-12 13:34:52,709 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:XMLHttpRequest>
+2016-05-12 13:34:52,709 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 13:34:52,709 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 13:34:52,709 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 13:34:52,728 ERROR [com.csmy.my.center.dao.ResourceInfoDao] - <执行【sqlname=order.getOrderCountList】，SQL语句为→     select * from (      select t.*,         t1.order_time,         t1.buy_num,         t1.good_id,         t1.state,         t1.oid,         t1.user_id as member_id,         t2. good_name,         t3. customer_name,         t3. login_name,         t4. account,         t4. name as user_name,         t1.user_id,         (select t3. channel_name            from wxb_channel t3           where t3. channel_id = t1.channel_id) as channel_name,         (select t5. own_money            from wxb_user_money t5           where t5.order_id = t1.order_id and t5.user_id = t1.user_id) as sku_pmoney       from wxb_order_count t,          wxb_order       t1,          wxb_good        t2,          wxb_customer    t3,          wxb_memeber     t4    where t. order_id = t1. order_id      and t1. good_id = t2. good_id      and t2. customer_id = t3. customer_id      and t1. user_id = t4. memeber_id         and          t.ocid in ('31323576')                 order by t1.user_id asc, t1.order_time desc       ) tt where 1=1  >
+2016-05-12 13:34:52,821 ERROR [com.csmy.my.center.dao.ResourceInfoDao] - <执行【sqlname=order.getOrderMoneyCount】，SQL语句为→    select count(*) cnt from wxb_user_money t, wxb_order_count t1     where t. ocid = t1. ocid and t1. order_id = '160512132928620005'  >
+2016-05-12 13:34:52,896 ERROR [com.csmy.my.center.dao.ResourceInfoDao] - <执行【sqlname=order.updatePMoney】，SQL语句为→        update wxb_user_money t   set  oc_state= 2, t.ocid = '31323576'          where  t.order_id = '160512132928620005' and t.user_id ='a77d74c6943c485d8603389f35fdc29f'  >
+2016-05-12 13:34:52,966 ERROR [com.csmy.my.center.dao.ResourceInfoDao] - <执行【sqlname=order.getMemeberPerformanceCount】，SQL语句为→      select count(1) as cnt from wxb_memeber_performance t       where t.state=1 and  t.user_id = 'a77d74c6943c485d8603389f35fdc29f'  >
+2016-05-12 13:34:53,035 ERROR [com.csmy.my.center.dao.ResourceInfoDao] - <执行【sqlname=order.addMemberPerformance】，SQL语句为→       insert into wxb_memeber_performance(user_id,performance_money,downline_money,deductible_money,state)        values('a77d74c6943c485d8603389f35fdc29f','100.0','0','0','1')  >
+2016-05-12 13:37:22,494 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:order!operOrderInfo.ct>
+2016-05-12 13:37:22,495 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/order!operOrderInfo.ct>
+2016-05-12 13:37:22,495 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 13:37:22,496 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 13:37:22,496 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/order!operOrderInfo.ct>
+2016-05-12 13:37:22,496 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:XMLHttpRequest>
+2016-05-12 13:37:22,496 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 13:37:22,496 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 13:37:22,496 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 13:37:22,499 ERROR [com.csmy.my.center.dao.ResourceInfoDao] - <执行【sqlname=order.getOrderCountList】，SQL语句为→     select * from (      select t.*,         t1.order_time,         t1.buy_num,         t1.good_id,         t1.state,         t1.oid,         t1.user_id as member_id,         t2. good_name,         t3. customer_name,         t3. login_name,         t4. account,         t4. name as user_name,         t1.user_id,         (select t3. channel_name            from wxb_channel t3           where t3. channel_id = t1.channel_id) as channel_name,         (select t5. own_money            from wxb_user_money t5           where t5.order_id = t1.order_id and t5.user_id = t1.user_id) as sku_pmoney       from wxb_order_count t,          wxb_order       t1,          wxb_good        t2,          wxb_customer    t3,          wxb_memeber     t4    where t. order_id = t1. order_id      and t1. good_id = t2. good_id      and t2. customer_id = t3. customer_id      and t1. user_id = t4. memeber_id         and          t.ocid in ('31323576')                 order by t1.user_id asc, t1.order_time desc       ) tt where 1=1  >
+2016-05-12 13:37:23,529 ERROR [com.csmy.my.center.dao.ResourceInfoDao] - <执行【sqlname=order.getOrderMoneyCount】，SQL语句为→    select count(*) cnt from wxb_user_money t, wxb_order_count t1     where t. ocid = t1. ocid and t1. order_id = '160512132928620005'  >
+2016-05-12 13:37:24,422 ERROR [com.csmy.my.center.dao.ResourceInfoDao] - <执行【sqlname=order.updatePMoney】，SQL语句为→        update wxb_user_money t   set  oc_state= 2, t.ocid = '31323576'          where  t.order_id = '160512132928620005' and t.user_id ='a77d74c6943c485d8603389f35fdc29f'  >
+2016-05-12 13:37:25,106 ERROR [com.csmy.my.center.dao.ResourceInfoDao] - <执行【sqlname=order.getMemeberPerformanceCount】，SQL语句为→      select count(1) as cnt from wxb_memeber_performance t       where t.state=1 and  t.user_id = 'a77d74c6943c485d8603389f35fdc29f'  >
+2016-05-12 13:37:25,908 ERROR [com.csmy.my.center.dao.ResourceInfoDao] - <执行【sqlname=order.addMemberPerformance】，SQL语句为→       insert into wxb_memeber_performance(user_id,performance_money,downline_money,deductible_money,state)        values('a77d74c6943c485d8603389f35fdc29f','100.0','0','0','1')  >
+2016-05-12 13:39:58,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:index!getMainLeftTree.ct>
+2016-05-12 13:39:58,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/index!getMainLeftTree.ct>
+2016-05-12 13:39:58,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 13:39:58,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 13:39:58,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/index!getMainLeftTree.ct>
+2016-05-12 13:39:58,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 13:39:58,091 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 13:39:58,091 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 13:39:58,092 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 13:39:58,110 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getAllRolePermits】，SQL语句为→         select *     from sys_module m    where m. module_code in          (select distinct t. module_id from sys_role_fun t where t.role_id in ('57414897'))          order by m.module_order asc     >
+2016-05-12 14:46:20,378 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!goodInfoInit.ct>
+2016-05-12 14:46:20,409 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!goodInfoInit.ct>
+2016-05-12 14:46:20,409 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:46:20,409 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:46:20,409 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!goodInfoInit.ct>
+2016-05-12 14:46:20,409 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:46:20,409 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:46:20,409 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:46:20,409 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:46:27,457 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 14:46:27,457 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 14:46:27,457 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:46:27,457 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:46:27,605 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 14:46:27,622 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:46:27,622 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:46:27,622 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:46:27,622 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:46:27,623 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodTree.ct>
+2016-05-12 14:46:27,623 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodTree.ct>
+2016-05-12 14:46:27,623 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:46:27,631 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:46:27,631 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodTree.ct>
+2016-05-12 14:46:27,632 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:46:27,632 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:46:27,632 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:46:27,632 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:46:27,724 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:46:27,733 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 14:46:28,449 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 14:46:28,620 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 14:46:44,279 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!editGoodInfo.ct>
+2016-05-12 14:46:44,280 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!editGoodInfo.ct>
+2016-05-12 14:46:44,280 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:46:44,280 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:46:44,280 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!editGoodInfo.ct>
+2016-05-12 14:46:44,280 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:46:44,280 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:46:44,280 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:46:44,280 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:46:44,314 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:46:45,249 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 14:46:46,089 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1      and     t.good_id = '84544065'                                  order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 14:46:47,235 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:46:47,332 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:46:47,574 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:46:47,640 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:47:53,325 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:ugood!saveGood.ct>
+2016-05-12 14:47:53,325 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/ugood!saveGood.ct>
+2016-05-12 14:47:53,325 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:47:53,325 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:47:53,325 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/ugood!saveGood.ct>
+2016-05-12 14:47:53,325 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:47:53,326 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:47:53,326 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:47:53,326 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:47:55,068 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodInfo】，SQL语句为→    update wxb_good t   set                  t.good_name = '商品1'         ,              t.customer_id = 'pinweikeji'        ,              t.type_id = '03'                    ,              t.promote_desc = '哈哈<img src="http://120.25.255.67:9090/5aae8fcb2a12462a8d54c104daac0ee7.jpg" alt="" /><img src="http://120.25.255.67:9090/5de5470fa9874e70b6cc41469fee9b63.jpg" alt="" /><img src="http://120.25.255.67:9090/6a8067ee888c437d8fcb5f097b84bf8e.jpg" alt="" /><img src="http://120.25.255.67:9090/b5570ad216c74202b922575058394add.jpg" alt="" /><img src="http://120.25.255.67:9090/7bc0951b58ee479aa6d6c00b3aa59e2f.jpg" alt="" />, 哈哈a<strong><span style="color:#E53333;">dfasdfadsf<img src="http://120.25.255.67:9090/a3545e604b844587b7516cc199ee4190.jpg" alt="" height="600" width="600" /></span></strong>'        ,              t.sku_title = '10斤|11斤|20斤|50斤|'        ,              t.sku_cost = '100|101|200|300|'        ,              t.sku_price = '100|101|200|300|'        ,              t.sku_pmoney = '0|0|0|0|'        ,              t.copy_ids = '32,30'                ,       t.spc_id = '29'            ,       t.good_value = null            ,       t.courier_money = null                ,       t.zon_id = null                    ,              t.copy_desc = null            ,              t.forward_link = null        ,               t.tags = '1, 2, 3, 4'            ,               t.sell_num = '100'        ,               t.isgiven = '0'        ,               t.sms_check = '0'        ,               t.order_no = '1'                  where t.good_id = '84544065'    >
+2016-05-12 14:47:55,340 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '84544065'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:47:55,865 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '10斤'         ,              t.sku_cost = '100'        ,              t.sku_price = '100'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '0'                  where t.sku_id = '31254079'  >
+2016-05-12 14:47:56,039 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '11斤'         ,              t.sku_cost = '101'        ,              t.sku_price = '101'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '1'                  where t.sku_id = '19252378'  >
+2016-05-12 14:47:56,113 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '20斤'         ,              t.sku_cost = '200'        ,              t.sku_price = '200'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '2'                  where t.sku_id = '97446767'  >
+2016-05-12 14:47:56,211 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '50斤'         ,              t.sku_cost = '300'        ,              t.sku_price = '300'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '84544065'        ,               t.order_no = '3'                  where t.sku_id = '40191810'  >
+2016-05-12 14:47:56,286 ERROR [com.csmy.my.center.dao.AuditingDao] - <执行【sqlname=audit.editAuditState】，SQL语句为→    update wxb_auditing  set               auditing_mark_state = 0       where auxiliary_id = '84544065' and  auditing_type='1'   >
+2016-05-12 14:47:56,348 ERROR [com.csmy.my.center.dao.AuditingDao] - <执行【sqlname=audit.addAuditInfo】，SQL语句为→     insert into wxb_auditing   (   submit_user_id,   submit_user_name,   submit_create_time,   auditing_type,   submit_mark,   auxiliary_id,   auditing_user_id,   auditing_user_name,   auditing_time,   auditing_state,   auditing_mark,   auditing_mark_state   )values(    '38521035',   'admin',   '2016-05-12 14:47:56',   '1',   '',   '84544065',   '',   '',   null,   '1',   '',   '1'   );  >
+2016-05-12 14:47:58,484 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 14:48:00,245 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 14:48:00,245 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:48:00,245 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:48:00,245 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 14:48:00,245 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:48:00,245 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:48:00,245 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:48:00,246 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:48:00,247 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                                     order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 14:48:00,384 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                                     order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 14:48:00,826 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 14:48:12,808 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!addGoodInfo.ct>
+2016-05-12 14:48:12,808 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!addGoodInfo.ct>
+2016-05-12 14:48:12,808 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:48:12,808 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:48:12,808 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!addGoodInfo.ct>
+2016-05-12 14:48:12,808 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:48:12,808 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:48:12,808 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:48:12,808 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:48:12,828 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:48:12,960 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'      and     t.customer_type = '0'           order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 14:48:13,028 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:48:13,896 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:48:14,463 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:48:17,980 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!goodInfoInit.ct>
+2016-05-12 14:48:17,980 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!goodInfoInit.ct>
+2016-05-12 14:48:17,980 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:48:17,980 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:48:17,980 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!goodInfoInit.ct>
+2016-05-12 14:48:17,980 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:48:17,980 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:48:17,980 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:48:18,010 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:48:19,284 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodTree.ct>
+2016-05-12 14:48:19,284 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodTree.ct>
+2016-05-12 14:48:19,284 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:48:19,284 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:48:19,284 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodTree.ct>
+2016-05-12 14:48:19,284 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:48:19,284 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:48:19,284 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:48:19,284 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:48:19,301 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:48:19,405 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 14:48:19,405 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 14:48:19,405 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:48:19,406 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:48:19,406 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 14:48:19,406 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:48:19,406 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:48:19,406 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:48:19,406 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:48:19,940 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 14:48:20,051 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 14:48:20,188 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 14:48:22,731 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!editGoodInfo.ct>
+2016-05-12 14:48:22,732 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!editGoodInfo.ct>
+2016-05-12 14:48:22,732 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:48:22,732 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:48:22,732 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!editGoodInfo.ct>
+2016-05-12 14:48:22,732 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:48:22,732 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:48:22,732 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:48:22,732 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:48:22,735 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:48:22,832 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 14:48:22,918 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1      and     t.good_id = '72041625'                                  order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 14:48:23,041 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '72041625'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:48:23,492 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:48:23,589 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:48:23,653 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:48:30,750 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:ugood!saveGood.ct>
+2016-05-12 14:48:30,751 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/ugood!saveGood.ct>
+2016-05-12 14:48:30,751 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:48:30,751 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:48:30,751 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/ugood!saveGood.ct>
+2016-05-12 14:48:30,751 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:48:30,751 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:48:30,751 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:48:30,751 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:48:30,808 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodInfo】，SQL语句为→    update wxb_good t   set                  t.good_name = 'test'         ,              t.customer_id = 'pinweikeji'        ,              t.type_id = '02'                    ,              t.promote_desc = 'e站添加商品测试'        ,              t.sku_title = '1|'        ,              t.sku_cost = '1|'        ,              t.sku_price = '1|'        ,              t.sku_pmoney = '0|'        ,              t.copy_ids = '34'            ,       t.spc_id = null                    ,       t.good_value = '100'        ,       t.courier_money = null                ,       t.zon_id = null                    ,              t.copy_desc = null            ,              t.forward_link = null        ,               t.tags = '1'            ,               t.sell_num = '700'        ,               t.isgiven = '0'        ,               t.sms_check = '0'        ,               t.order_no = '1'                  where t.good_id = '72041625'    >
+2016-05-12 14:48:30,895 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '72041625'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:48:31,094 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.editGoodSkuInfo】，SQL语句为→    update wxb_good_sku t   set                  t.sku_name = '1'         ,              t.sku_cost = '1'        ,              t.sku_price = '1'        ,              t.sku_pmoney = '0'        ,              t.service_money = '0'        ,              t.good_id = '72041625'        ,               t.order_no = '0'                  where t.sku_id = '71024322'  >
+2016-05-12 14:48:31,168 ERROR [com.csmy.my.center.dao.AuditingDao] - <执行【sqlname=audit.editAuditState】，SQL语句为→    update wxb_auditing  set               auditing_mark_state = 0       where auxiliary_id = '72041625' and  auditing_type='1'   >
+2016-05-12 14:48:31,526 ERROR [com.csmy.my.center.dao.AuditingDao] - <执行【sqlname=audit.addAuditInfo】，SQL语句为→     insert into wxb_auditing   (   submit_user_id,   submit_user_name,   submit_create_time,   auditing_type,   submit_mark,   auxiliary_id,   auditing_user_id,   auditing_user_name,   auditing_time,   auditing_state,   auditing_mark,   auditing_mark_state   )values(    '38521035',   'admin',   '2016-05-12 14:48:31',   '1',   '',   '72041625',   '',   '',   null,   '1',   '',   '1'   );  >
+2016-05-12 14:48:32,825 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 14:48:33,074 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 14:48:33,074 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:48:33,074 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:48:33,074 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 14:48:33,074 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:48:33,074 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:48:33,074 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:48:33,074 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:48:33,178 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                                     order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 14:48:33,304 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                                     order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 14:48:33,385 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 14:48:35,661 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!addGoodInfo.ct>
+2016-05-12 14:48:35,661 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!addGoodInfo.ct>
+2016-05-12 14:48:35,662 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:48:35,662 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:48:35,662 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!addGoodInfo.ct>
+2016-05-12 14:48:35,662 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:48:35,662 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:48:35,662 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:48:35,662 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:48:35,696 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:48:35,772 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'      and     t.customer_type = '0'           order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 14:48:36,009 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:48:36,074 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:48:36,139 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:50:48,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:index!getMainLeftTree.ct>
+2016-05-12 14:50:48,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/index!getMainLeftTree.ct>
+2016-05-12 14:50:48,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:50:48,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:50:48,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/index!getMainLeftTree.ct>
+2016-05-12 14:50:48,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:50:48,078 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:50:48,079 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:50:48,079 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:50:48,160 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getAllRolePermits】，SQL语句为→         select *     from sys_module m    where m. module_code in          (select distinct t. module_id from sys_role_fun t where t.role_id in ('57414897'))          order by m.module_order asc     >
+2016-05-12 14:51:11,154 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!goodInfoInit.ct>
+2016-05-12 14:51:11,154 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!goodInfoInit.ct>
+2016-05-12 14:51:11,154 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:51:11,154 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:51:11,154 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!goodInfoInit.ct>
+2016-05-12 14:51:11,154 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:51:11,154 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:51:11,154 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:51:11,154 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:51:11,634 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodTree.ct>
+2016-05-12 14:51:11,635 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodTree.ct>
+2016-05-12 14:51:11,635 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:51:11,635 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:51:11,635 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodTree.ct>
+2016-05-12 14:51:11,635 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:51:11,635 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:51:11,635 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:51:11,635 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:51:11,637 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 14:51:11,638 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 14:51:11,638 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:51:11,638 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:51:11,638 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:51:11,638 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 14:51:11,638 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:51:11,638 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:51:11,638 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:51:11,638 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:51:11,663 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 14:51:11,804 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 14:51:11,870 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 14:51:13,891 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!addGoodInfo.ct>
+2016-05-12 14:51:13,891 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!addGoodInfo.ct>
+2016-05-12 14:51:13,891 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:51:13,891 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:51:13,891 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!addGoodInfo.ct>
+2016-05-12 14:51:13,891 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:51:13,891 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:51:13,891 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:51:13,891 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:51:13,895 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:51:13,957 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'      and     t.customer_type = '0'           order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 14:51:14,024 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:51:14,083 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:51:14,177 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:52:13,236 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:ugood!saveGood.ct>
+2016-05-12 14:52:13,236 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/ugood!saveGood.ct>
+2016-05-12 14:52:13,236 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:52:13,236 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:52:13,236 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/ugood!saveGood.ct>
+2016-05-12 14:52:13,236 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:52:13,236 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:52:13,236 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:52:13,236 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:52:18,962 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.addGoodInfo】，SQL语句为→     insert into wxb_good   (   good_id,   good_name,   customer_id,   type_id,   good_pic,   good_pic1,   good_pic2,   promote_desc,   sku_title,   sku_cost,   sku_price,   sku_pmoney,   copy_ids,   spc_id,   zon_id,   copy_desc,   forward_link,   tags,   state,   create_time,   sell_num,   isgiven,   good_value,   sms_check,   courier_money,   order_no,    sale_type,    parent_id  )values(   '19492773',   'test1',   'pinweikeji',   '01',   'fc3aa749cfef4ff8b5a3a48b1202ee86.jpg',   '',   '',   'wwwwww',   '100g|',   '20|',   '100|',   '0|',   '',   '',   '',   '',   '',   '1',   '0',   '2016-05-12 14:52:18',   '11',   null,   '',   '0',   null,   '1',   '0',   ''   );  >
+2016-05-12 14:52:19,039 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.deleteGoodSkuByGoodID】，SQL语句为→    delete from wxb_good_sku where good_id in('19492773')  >
+2016-05-12 14:52:19,367 ERROR [com.csmy.my.center.dao.GoodInfoDao] - <执行【sqlname=good.addGoodSkuInfo】，SQL语句为→     insert into wxb_good_sku   (   sku_id,   sku_name,   sku_cost,   sku_price,   sku_pmoney,   service_money,   good_id,   order_no  )values(   '69278014',   '100g',   '20',   '100',   '0',   '0',   '19492773',   '0'   );  >
+2016-05-12 14:52:19,533 ERROR [com.csmy.my.center.dao.AuditingDao] - <执行【sqlname=audit.editAuditState】，SQL语句为→    update wxb_auditing  set               auditing_mark_state = 0       where auxiliary_id = '19492773' and  auditing_type='1'   >
+2016-05-12 14:52:19,597 ERROR [com.csmy.my.center.dao.AuditingDao] - <执行【sqlname=audit.addAuditInfo】，SQL语句为→     insert into wxb_auditing   (   submit_user_id,   submit_user_name,   submit_create_time,   auditing_type,   submit_mark,   auxiliary_id,   auditing_user_id,   auditing_user_name,   auditing_time,   auditing_state,   auditing_mark,   auditing_mark_state   )values(    '38521035',   'admin',   '2016-05-12 14:52:19',   '1',   '',   '19492773',   '',   '',   null,   '1',   '',   '1'   );  >
+2016-05-12 14:52:20,657 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 14:52:20,745 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 14:52:20,745 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:52:20,745 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:52:20,745 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 14:52:20,745 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:52:20,745 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:52:20,746 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:52:20,746 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:52:20,761 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                                     order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 14:52:21,118 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                                     order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 14:52:21,363 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 14:52:24,524 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!editGoodInfo.ct>
+2016-05-12 14:52:24,859 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!editGoodInfo.ct>
+2016-05-12 14:52:24,859 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:52:24,859 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:52:24,859 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!editGoodInfo.ct>
+2016-05-12 14:52:24,859 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:52:24,859 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:52:24,859 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:52:24,859 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:52:24,861 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:52:25,042 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 14:52:25,106 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1      and     t.good_id = '19492773'                                  order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 14:52:25,182 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodSkuInfo】，SQL语句为→     select * from (        select * from wxb_good_sku t where 1=1   and     t.good_id = '19492773'              order by t.good_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:52:25,242 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getWXCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=0 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:52:25,302 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getSPCCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=1 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:52:25,365 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getZoneCopyInfo】，SQL语句为→       select * from wxb_good_copy t where t.type_id=2 order by convert(t.copy_title USING gbk) COLLATE gbk_chinese_ci asc  >
+2016-05-12 14:52:33,857 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!goodInfoInit.ct>
+2016-05-12 14:52:33,857 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!goodInfoInit.ct>
+2016-05-12 14:52:33,857 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:52:33,857 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:52:33,857 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!goodInfoInit.ct>
+2016-05-12 14:52:33,857 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:52:33,857 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:52:33,857 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:52:33,857 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:52:34,714 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodTree.ct>
+2016-05-12 14:52:34,714 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodTree.ct>
+2016-05-12 14:52:34,714 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:52:34,714 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:52:34,714 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodTree.ct>
+2016-05-12 14:52:34,714 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:52:34,714 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:52:34,714 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:52:34,714 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:52:34,734 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 14:52:34,743 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 14:52:34,743 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 14:52:34,743 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 14:52:34,743 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 14:52:34,743 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 14:52:34,743 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 14:52:34,744 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 14:52:34,744 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 14:52:34,744 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 14:52:34,765 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 14:52:34,908 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 14:52:34,979 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 15:02:05,025 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:index!getMainLeftTree.ct>
+2016-05-12 15:02:05,025 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/index!getMainLeftTree.ct>
+2016-05-12 15:02:05,043 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 15:02:05,043 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 15:02:05,043 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/index!getMainLeftTree.ct>
+2016-05-12 15:02:05,043 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 15:02:05,043 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 15:02:05,043 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 15:02:05,043 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 15:02:05,047 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getAllRolePermits】，SQL语句为→         select *     from sys_module m    where m. module_code in          (select distinct t. module_id from sys_role_fun t where t.role_id in ('57414897'))          order by m.module_order asc     >
+2016-05-12 15:02:08,870 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!goodInfoInit.ct>
+2016-05-12 15:02:08,871 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!goodInfoInit.ct>
+2016-05-12 15:02:08,871 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 15:02:08,871 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 15:02:08,871 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!goodInfoInit.ct>
+2016-05-12 15:02:08,871 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 15:02:08,871 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 15:02:08,871 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 15:02:08,871 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 15:02:09,027 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodTree.ct>
+2016-05-12 15:02:09,027 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodTree.ct>
+2016-05-12 15:02:09,027 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 15:02:09,027 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 15:02:09,027 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodTree.ct>
+2016-05-12 15:02:09,027 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 15:02:09,027 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 15:02:09,027 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 15:02:09,027 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 15:02:09,050 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodTypeInfo】，SQL语句为→     select * from (     select t. type_id,         t. type_name,         t. type_tag,         t. parent_id,         t. alisa_code,         (select t1.type_name from wxb_good_type t1 where t1.type_id = t.parent_id) as parent_name,         t. order_no    from wxb_good_type t   where 1 = 1              order by t.type_id,t.order_no asc       ) tt where 1=1  >
+2016-05-12 15:02:09,073 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:good!getGoodInfo.ct>
+2016-05-12 15:02:09,073 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/good!getGoodInfo.ct>
+2016-05-12 15:02:09,073 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 15:02:09,073 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 15:02:09,073 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/good!getGoodInfo.ct>
+2016-05-12 15:02:09,073 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 15:02:09,073 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 15:02:09,073 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 15:02:09,073 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 15:02:09,092 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfo】，SQL语句为→     select * from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1          >
+2016-05-12 15:02:09,186 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=good.getGoodInfoCount】，SQL语句为→    select count(*) as cnt from (                    select t.*,t1.customer_name,t1.customer_type from wxb_good t LEFT JOIN wxb_customer t1 on t.customer_id=t1.customer_id where 1=1                  and     t.state = '1'                      order by t.toped_time,create_time desc             ) tt where 1=1    >
+2016-05-12 15:02:09,268 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=resource.getCustomerInfo】，SQL语句为→     select * from (         select t.* from wxb_customer t where 1=1         and     t.state = '1'              order by t.createtime desc       ) tt where 1=1   >
+2016-05-12 15:30:55,964 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:index!getMainLeftTree.ct>
+2016-05-12 15:30:55,994 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/index!getMainLeftTree.ct>
+2016-05-12 15:30:55,995 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 15:30:55,995 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 15:30:55,995 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/index!getMainLeftTree.ct>
+2016-05-12 15:30:55,995 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 15:30:55,995 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 15:30:55,995 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 15:30:55,995 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 15:30:56,148 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getAllRolePermits】，SQL语句为→         select *     from sys_module m    where m. module_code in          (select distinct t. module_id from sys_role_fun t where t.role_id in ('57414897'))          order by m.module_order asc     >
+2016-05-12 15:33:11,294 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:wap_alipay!wrapper.ct>
+2016-05-12 15:33:11,294 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/wap_alipay!wrapper.ct>
+2016-05-12 15:33:11,294 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 15:33:11,294 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 15:33:11,294 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/wap_alipay!wrapper.ct>
+2016-05-12 15:33:11,294 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 15:33:11,294 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 15:33:11,294 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 15:33:11,294 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 15:33:12,158 ERROR [com.csmy.my.center.util.servlet.wap.WUserLoginServlet] - <会员返回重新登录....>
+2016-05-12 15:33:35,718 ERROR [com.csmy.my.center.dao.DaoImpl] - <执行【sqlname=address.getDefault】，SQL语句为→                  SELECT             id,             user_id AS userId,             name,             tel,             province,             city,             area,             address,             state         FROM wxb_address              WHERE user_id = ? AND state = 1     >
+2016-05-12 15:33:41,270 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:wap_alipay!wrapper.ct>
+2016-05-12 15:33:41,271 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/wap_alipay!wrapper.ct>
+2016-05-12 15:33:41,271 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 15:33:41,271 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 15:33:41,271 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/wap_alipay!wrapper.ct>
+2016-05-12 15:33:41,271 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 15:33:41,280 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 15:33:41,281 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 15:33:41,281 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 15:33:43,369 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:wap_alipay!submit.ct>
+2016-05-12 15:33:43,369 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/wap_alipay!submit.ct>
+2016-05-12 15:33:43,369 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 15:33:43,369 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 15:33:43,369 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/wap_alipay!submit.ct>
+2016-05-12 15:33:43,369 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 15:33:43,369 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 15:33:43,369 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 15:33:43,369 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 15:33:43,420 ERROR [com.csmy.my.center.dao.DaoImpl] - <执行【sqlname=order.getOrderById】，SQL语句为→   SELECT    t.*,    t2.good_name,    t2.customer_id,    t3.sku_name,    t3.sku_cost,    t3.sku_price,    t3.sku_pmoney,    t3.service_money,    t4.customer_name,    t4.wxh,    t4.QQ,    t4.login_name,    t5.name                              AS user_name,    t5.email,    t5.account,    t5.qq_num,    t5.phone,    (SELECT m.user_name     FROM user_info m     WHERE m.user_id = t.operator)       AS op_name,    (SELECT t1.channel_name     FROM wxb_channel t1     WHERE t.channel_id = t1.channel_id) AS channel_name   FROM wxb_order t LEFT JOIN wxb_good t2 ON t.good_id = t2.good_id    LEFT JOIN wxb_good_sku t3 ON t.sku_id = t3.sku_id    LEFT JOIN wxb_customer t4 ON t2.customer_id = t4.customer_id    LEFT JOIN wxb_memeber t5 ON t.user_id = t5.memeber_id   WHERE t.order_id = ?  >
+2016-05-12 15:35:25,769 ERROR [com.csmy.my.center.dao.DaoImpl] - <执行【sqlname=address.getDefault】，SQL语句为→                  SELECT             id,             user_id AS userId,             name,             tel,             province,             city,             area,             address,             state         FROM wxb_address              WHERE user_id = ? AND state = 1     >
+2016-05-12 15:48:00,046 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <temp路径:index!getMainLeftTree.ct>
+2016-05-12 15:48:00,065 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <正在访问URL:http://localhost:80/wxbsite/index!getMainLeftTree.ct>
+2016-05-12 15:48:00,065 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <应用路径:/wxbsite>
+2016-05-12 15:48:00,065 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <基础路径:http://localhost:80/wxbsite>
+2016-05-12 15:48:00,065 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前路径:/index!getMainLeftTree.ct>
+2016-05-12 15:48:00,065 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求方式:null>
+2016-05-12 15:48:00,065 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前请求功能:null>
+2016-05-12 15:48:00,065 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前资源标识:null>
+2016-05-12 15:48:00,066 ERROR [com.csmy.my.center.filter.AuthorizationInterceptor] - <当前按钮标识:null>
+2016-05-12 15:48:00,069 ERROR [com.csmy.my.center.dao.IReaderImpl] - <执行【sqlname=role.getAllRolePermits】，SQL语句为→         select *     from sys_module m    where m. module_code in          (select distinct t. module_id from sys_role_fun t where t.role_id in ('57414897'))          order by m.module_order asc     >

@@ -1,0 +1,3 @@
+【2016-04-05 13:58:42】执行了更新语句为：【 update wxb_order t set  t.pay_result='1' where t.order_id=''】 状态为【1】
+【2016-04-05 14:03:02】执行了更新语句为：【 update wxb_order t set  t.pay_result='1' where t.order_id='guyib9k8'】 状态为【1】
+【2016-04-05 14:08:43】执行了更新语句为：【 update wxb_order t set  t.pay_result='1' where t.order_id='guyib9k8'】 状态为【1】

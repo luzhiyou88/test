@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.education.classroom.core.modules.spadmin.answer.dao.SpAnswerDao">
+
+	<sql id="spAnswerColumns">
+		a.id AS "id",
+		a.user_id AS "useId",
+		a.examination_id AS
+		"examinationId",
+		a.problem_type AS "problemType",
+		a.problem_id AS
+		"problemId",
+		a.answer_content AS "answerContent",
+		a.answer_type AS
+		"answerType",
+		a.note AS "note",
+		a.answer_score AS "answerScore",
+		a.answer_path AS "answerPath"
+
+	</sql>
+	<sql id="spAnswerColumns2">
+	    p.id AS "id",
+		p.examination_id AS "examinationId",
+		p.problem_type AS "problemType",
+		p.stem AS "stem",
+		p.number AS "number",
+		p.text_type AS "textType",
+		p.option_a AS "optionA",
+		p.option_a_path AS "optionAPath",
+		p.option_b AS "optionB",
+		p.option_b_path AS "optionBPath",
+		p.option_c AS "optionC",
+		p.option_c_path AS "optionCPath",
+		p.option_d AS "optionD",
+		p.option_d_path AS "optionDPath",
+		p.answer AS "answer",
+		p.analysis AS "analysis",
+		p.ismaterial AS "ismaterial",
+		p.material_id AS "materialId",
+		p.problem_score AS "problemScore",
+		p.stem_path AS "stemPath",
+		p.remarks AS "remarks",
+		p.create_date AS "createDate",
+		p.create_by AS "createBy",
+		p.update_date AS "updateDate",
+		p.update_by AS "updateBy",
+		p.del_flag AS "delFlag",
+		a.user_id AS "useId",
+		a.answer_content AS "answerContent",
+		a.answer_type AS
+		"answerType",
+		a.note AS "note",
+		a.answer_score AS "answerScore",
+		a.answer_path AS "answerPath"
+
+	</sql>
+	<sql id="spAnswerJoins">
+
+	</sql>
+
+	<select id="get" resultType="SpAnswer">
+		SELECT
+		<include refid="spAnswerColumns" />
+		FROM sp_answer a
+		<include refid="spAnswerJoins" />
+		WHERE a.id = #{id}
+	</select>
+
+	<select id="findList" resultType="SpAnswer">
+		SELECT
+		<include refid="spAnswerColumns" />
+		FROM sp_answer a
+		<include refid="spAnswerJoins" />
+		<where>
+			<if test="userId != null and userId != ''">
+				AND a.user_id = #{userId}
+			</if>
+			<if test="examinationId != null and examinationId != ''">
+				AND a.examination_id = #{examinationId}
+			</if>
+			<if test="problemId != null and problemId != ''">
+				AND a.problem_id = #{problemId}
+			</if>
+			<if test="answerType != null and answerType != ''">
+				AND a.answer_type = #{answerType}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.problem_id
+			</otherwise>
+		</choose>
+	</select>
+	<select id="findPageList" resultType="SpProblems">
+		SELECT
+		<include refid="spAnswerColumns2" />
+		FROM sp_answer a LEFT JOIN sp_problems p
+		ON a.problem_id=p.id
+		<include refid="spAnswerJoins" />
+		<where>
+			<if test="userId != null and userId != ''">
+				AND a.user_id = #{userId}
+			</if>
+			<if test="answerType != null and answerType != ''">
+				AND a.answer_type = #{answerType}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.problem_id
+			</otherwise>
+		</choose>
+	</select>
+
+
+
+	<insert id="insert">
+		INSERT INTO sp_answer(
+		id,
+		user_id,
+		examination_id,
+		problem_type,
+		problem_id,
+		answer_content,
+		answer_type,
+		note,
+		answer_score,
+		answer_path
+		) VALUES (
+		#{id},
+		#{userId},
+		#{examinationId},
+		#{problemType},
+		#{problemId},
+		#{answerContent},
+		#{answerType},
+		#{note},
+		#{answerScore},
+		#{answerPath}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE sp_answer SET
+		user_id = #{userId},
+		examination_id = #{examinationId},
+		problem_type = #{problemType},
+		problem_id = #{problemId},
+		answer_content = #{answerContent},
+		answer_type = #{answerType},
+		note = #{note},
+		answer_score =
+		#{answerScore},
+		answer_path = #{answerPath}
+		WHERE id = #{id}
+	</update>
+
+	<update id="delete">
+		DELETE FROM sp_answer
+		WHERE id = #{id}
+	</update>
+
+</mapper>

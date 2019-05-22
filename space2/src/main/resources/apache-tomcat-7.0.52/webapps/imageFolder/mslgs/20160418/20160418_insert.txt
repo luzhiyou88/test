@@ -1,0 +1,1 @@
+【2016-04-18 09:13:55】执行了插入语句为：【insert into wxb_memeber(memeber_id,name,account,password,pay_account,qq_num,email,phone,recom_user,register_time,update_time,use_recom,level_code,visit_code)values('d0c6a53218d1473e87ff917fad304a32','','lvjianyun','RaFutWeh0ww=','','11111','11111@qq.cocm','18611713432','','2016-04-18 09:13:55','2016-04-18 09:13:55','1','swuekmjw','swuekmjw')】 状态为【0】

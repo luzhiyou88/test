@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.ordertran.dao.SpOrderTranDao">
+    
+	<sql id="spOrderTranColumns">
+		a.id AS "id",
+		a.tran_no AS "tranNo",
+		a.tran_date AS "tranDate",
+		a.order_no AS "orderNo",
+		a.order_type AS "orderType",
+		a.order_state AS "orderState",
+		a.pay_amount AS "payAmount",
+		a.gw_tran_no AS "gwTranNo",
+		a.gw_result AS "gwResult",
+		a.gw_date AS "gwDate",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy.id",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="spOrderTranJoins">
+	</sql>
+    
+	<select id="get" resultType="SpOrderTran">
+		SELECT 
+			<include refid="spOrderTranColumns"/>
+		FROM sp_order_tran a
+		<include refid="spOrderTranJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	
+	
+	<select id="findPageList" parameterType="map"  resultType="SpOrderTran">
+		SELECT 
+			<include refid="spOrderTranColumns"/>
+		FROM sp_order_tran a
+		<where>
+			<if test="tranNo != null and tranNo != ''">
+				AND a.tran_no LIKE concat('%',#{tranNo},'%')
+			</if>
+			<if test="tranDate != null and tranDate != ''">
+				AND DATE_FORMAT(a.tran_date,"%Y-%m-%e") = DATE_FORMAT(#{tranDate},"%Y-%m-%e")
+			</if>
+			<if test="orderNo != null and orderNo != ''">
+				AND a.order_no LIKE concat('%',#{orderNo},'%')
+			</if>
+			<if test="orderType != null and orderType != ''">
+				AND a.order_type = #{orderType}
+			</if>
+			<if test="orderState != null and orderState != ''">
+				AND a.order_state = #{orderState}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	
+	
+	<select id="findList" resultType="SpOrderTran">
+		SELECT 
+			<include refid="spOrderTranColumns"/>
+		FROM sp_order_tran a
+		<include refid="spOrderTranJoins"/>
+		<where>
+			<if test="tranNo != null and tranNo != ''">
+				AND a.tran_no LIKE 
+					<if test="dbName == 'oracle'">'%'||#{tranNo}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{tranNo}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{tranNo},'%')</if>
+			</if>
+			<if test="tranDate != null and tranDate != ''">
+				AND a.tran_date = #{tranDate}
+			</if>
+			<if test="orderNo != null and orderNo != ''">
+				AND a.order_no LIKE 
+					<if test="dbName == 'oracle'">'%'||#{orderNo}||'%'</if>
+					<if test="dbName == 'mssql'">'%'+#{orderNo}+'%'</if>
+					<if test="dbName == 'mysql'">concat('%',#{orderNo},'%')</if>
+			</if>
+			<if test="orderType != null and orderType != ''">
+				AND a.order_type = #{orderType}
+			</if>
+			<if test="orderState != null and orderState != ''">
+				AND a.order_state = #{orderState}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpOrderTran">
+		SELECT 
+			<include refid="spOrderTranColumns"/>
+		FROM sp_order_tran a
+		<include refid="spOrderTranJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_order_tran(
+			id,
+			tran_no,
+			tran_date,
+			order_no,
+			order_type,
+			order_state,
+			pay_amount,
+			gw_tran_no,
+			gw_result,
+			gw_date,
+			remarks,
+			create_date,
+			create_by
+		) VALUES (
+			#{id},
+			#{tranNo},
+			#{tranDate},
+			#{orderNo},
+			#{orderType},
+			#{orderState},
+			#{payAmount},
+			#{gwTranNo},
+			#{gwResult},
+			#{gwDate},
+			#{remarks},
+			#{createDate},
+			#{createBy}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_order_tran SET 	
+			tran_no = #{tranNo},
+			tran_date = #{tranDate},
+			order_no = #{orderNo},
+			order_type = #{orderType},
+			order_state = #{orderState},
+			pay_amount = #{payAmount},
+			gw_tran_no = #{gwTranNo},
+			gw_result = #{gwResult},
+			gw_date = #{gwDate},
+			remarks = #{remarks},
+			create_date = #{createDate},
+			create_by = #{createBy}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_order_tran SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

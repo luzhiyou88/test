@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.exam.dao.SpExaminationDao">
+    
+	<sql id="spExaminationColumns">
+		a.id AS "id",
+		a.lesson_id AS "lessonId",
+		a.examination_name AS "examinationName",
+		a.examination_total_score AS "examinationTotalScore",
+		a.examination_number AS "examinationNumber",
+		a.originators AS "originators",
+		a.timing AS "timing",
+		a.state AS "state",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag",
+		b.name AS "lessonName"
+	</sql>
+	<sql id="spExaminationColumns1">
+		a.id AS "id",
+		a.lesson_id AS "lessonId",
+		a.examination_name AS "examinationName",
+		a.examination_total_score AS "examinationTotalScore",
+		a.examination_number AS "examinationNumber",
+		a.originators AS "originators",
+		a.timing AS "timing",
+		a.state AS "state",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+	</sql>
+	
+	<sql id="spExaminationJoins">
+	 left join sp_lesson b on b.id=a.lesson_id
+	</sql>
+    
+	<select id="get" resultType="SpExamination">
+		SELECT 
+			<include refid="spExaminationColumns"/>
+		FROM sp_examination a
+		<include refid="spExaminationJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="selSpExamination" resultType="SpExamination">
+	   select
+	   <include refid="spExaminationColumns1"/>
+		FROM sp_examination a
+		where a.del_flag = '0'
+	</select>
+	
+	<select id="findByLessonId" parameterType="map" resultType="SpExamination">
+		SELECT 
+			<include refid="spExaminationColumns1"/>
+		FROM sp_examination a
+		WHERE a.lesson_id = #{lessonId}
+			and a.del_flag = '0'
+	</select>
+	
+	<select id="findList" parameterType="map" resultType="SpExamination">
+		SELECT 
+			<include refid="spExaminationColumns"/>
+		FROM sp_examination a
+		<include refid="spExaminationJoins"/>
+		<where>
+		
+		     <if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			  <if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="lessonId != null and lessonId != ''">
+				AND a.lesson_id = #{lessonId}
+			</if>
+			<if test="examinationName != null and examinationName != ''">
+				AND a.examination_name  LIKE concat('%',#{examinationName},'%')
+			</if>
+			<if test="examinationTotalScore != null and examinationTotalScore != ''">
+				AND a.examination_total_score = #{examinationTotalScore}
+			</if>
+			<if test="examinationNumber != null and examinationNumber != ''">
+				AND a.examination_number = #{examinationNumber}
+			</if>
+			<if test="originators != null and originators != ''">
+				AND a.originators   LIKE concat('%',#{originators},'%')
+			</if>
+			<if test="timing != null and timing != ''">
+				AND a.timing = #{timing}
+			</if>
+			<if test="state != null and state != ''">
+				AND a.state = #{state}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpExamination">
+		SELECT 
+			<include refid="spExaminationColumns"/>
+		FROM sp_examination a
+		<include refid="spExaminationJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_examination(
+			id,
+			lesson_id,
+			examination_name,
+			examination_total_score,
+			examination_number,
+			originators,
+			timing,
+			state,
+			remarks,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			del_flag
+		) VALUES (
+			#{id},
+			#{lessonId},
+			#{examinationName},
+			#{examinationTotalScore},
+			#{examinationNumber},
+			#{originators},
+			#{timing},
+			#{state},
+			#{remarks},
+			#{createDate},
+			#{createBy},
+			#{updateDate},
+			#{updateBy},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_examination SET 	
+			lesson_id = #{lessonId},
+			examination_name = #{examinationName},
+			examination_total_score = #{examinationTotalScore},
+			examination_number = #{examinationNumber},
+			originators = #{originators},
+			timing = #{timing},
+			state = #{state},
+			remarks = #{remarks},
+			update_date = #{updateDate},
+			update_by = #{updateBy},
+			del_flag = #{delFlag}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_examination SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="deleteByLessonId">
+		UPDATE sp_examination SET 
+			del_flag = '1'
+		WHERE lesson_id = #{lessonId}
+	</update>
+	
+	<!-- 验证试卷名称唯一性 -->
+	<select id="checkExaminationName"  resultType="int">
+	   select count(*) from sp_examination where del_flag = '0' and examination_name = #{examinationName} and id != #{id}
+	</select>
+	
+	
+	<!-- 查看试卷是否关联试题 -->
+	<select id="checkProblem" parameterType="String" resultType="int">
+	  select count(*) from sp_problems where del_flag = '0' and examination_id = #{examId}
+	</select>
+	
+</mapper>

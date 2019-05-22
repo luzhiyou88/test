@@ -1,0 +1,2 @@
+127.0.0.1 - - [19/Mar/2016:14:52:56 +0800] "GET /wxbsite/wxb/images/favicon.gif HTTP/1.1" 200 2137
+192.168.1.107 - - [19/Mar/2016:16:01:13 +0800] "GET /wxbsite/wp HTTP/1.1" 200 4934

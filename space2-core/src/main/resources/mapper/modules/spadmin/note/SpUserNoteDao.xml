@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.note.dao.SpUserNoteDao">
+    
+	<sql id="spUserNoteColumns">
+		a.id AS "id",
+		a.user_id AS "userId",
+		a.lesson_id AS "lessonId",
+		a.title AS "title",
+		a.remarks AS "remarks",
+		a.create_time AS "createTime",
+		a.range_setting AS "rangeSetting",
+		a.img_path AS "imgPath"
+	</sql>
+	
+	<select id="get" resultType="SpUserNote">
+		SELECT 
+			<include refid="spUserNoteColumns"/>
+		FROM sp_user_note a
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="findList" resultType="SpUserNote">
+		SELECT 
+			<include refid="spUserNoteColumns"/>
+		FROM sp_user_note a
+		<where>
+			<if test="title != null and title != ''">
+				AND a.title LIKE concat('%',#{title},'%')
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findListByMap" resultType="SpUserNote">
+		SELECT 
+			<include refid="spUserNoteColumns"/>
+		FROM sp_user_note a
+		<where>
+			<if test="userId != null and userId != ''">
+				and a.user_id = #{userId}
+			</if>
+			<if test="lessonId != null and lessonId != ''">
+				and a.lesson_id = #{lessonId}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpUserNote">
+		SELECT 
+			<include refid="spUserNoteColumns"/>
+		FROM sp_user_note a
+		<where>
+			
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_user_note(
+			id,
+			user_id,
+			lesson_id,
+			title,
+			remarks,
+			create_time,
+			range_setting,
+			img_path
+		) VALUES (
+			#{id},
+			#{userId},
+			#{lessonId},
+			#{title},
+			#{remarks},
+			#{createTime},
+			#{rangeSetting},
+			#{imgPath}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_user_note SET 	
+			user_id = #{userId},
+			lesson_id = #{lessonId},
+			title = #{title},
+			remarks = #{remarks},
+			create_time = #{createTime},
+			range_setting = #{rangeSetting},
+			img_path = #{imgPath}
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		DELETE FROM sp_user_note
+		WHERE id = #{id}
+	</update>
+	
+</mapper>

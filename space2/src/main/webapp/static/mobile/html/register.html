@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta content="telephone=no,email=no" name="format-detection" />
+    <meta name="Keywords" content="第二教室" />
+    <meta name="Description" content="第二教室" />
+    <meta name="author" content="classroom2" />
+    <meta http-equiv="Expires" CONTENT="-1" />
+    <meta http-equiv="Cache-Control" CONTENT="no-cache" />
+    <meta http-equiv="Pragma" CONTENT="no-cache" />
+	<title>注册</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+</head>
+<body class="login-box">
+	<header class="login-head">
+		<span>注册</span>
+		<em class="left-ico return-ico"></em>
+	</header>
+	<article class="login-mes register-true-form">
+		<div class="input-box">
+			<span class="ipt-name">真实姓名</span>
+			<input type="text" placeholder="请输入真实姓名">
+		</div>
+		<div class="input-box">
+			<span class="ipt-name">学校</span>
+			<input type="text" placeholder="请选择学校">
+			<em class="more-select"></em>
+			<ul class="select-box-pop hide">
+				<li>清华大学</li>
+				<li>北京大学</li>
+				<li>中国人民大学</li>
+				<li>复旦大学</li>
+				<li>科技大学</li>
+			</ul>
+		</div>
+		<div class="input-box">
+			<span class="ipt-name">时间</span>
+			<input type="text" placeholder="2014">
+			<em class="more-select"></em>
+			<ul class="select-box-pop hide">
+				<li>2013</li>
+				<li>2014</li>
+				<li>2015</li>
+				<li>2016</li>
+			</ul>
+		</div>
+		<div class="input-box">
+			<span class="ipt-name">专业</span>
+			<input type="text" placeholder="请选择专业">
+			<em class="more-select"></em>
+			<ul class="select-box-pop hide">
+				<li>计算机网络技术</li>
+				<li>电子商务</li>
+				<li>机械自动化</li>
+				<li>物业管理</li>
+				<li>工商管理</li>
+			</ul>
+		</div>
+		<div class="input-box">
+			<span class="ipt-name">年级</span>
+			<input type="text" placeholder="请选择年级">
+			<em class="more-select"></em>
+			<ul class="select-box-pop hide">
+				<li>一年级</li>
+				<li>二年级</li>
+				<li>三年级</li>
+				<li>四年级</li>
+			</ul>
+		</div>
+		<div class="input-box mb30">
+			<span class="ipt-name">班级</span>
+			<input type="text" placeholder="请选择班级">
+			<em class="more-select"></em>
+			<ul class="select-box-pop hide">
+				<li>一班</li>
+				<li>二班</li>
+				<li>三班</li>
+				<li>四班</li>
+			</ul>
+		</div>
+		<button class="login-btn">注册</button>
+		<p class="tac fs12 mt5 text-white">点击上面“注册”按钮</p>
+		<p class="tac fs12 text-white"><em>即表示您同意</em><em class="text-blue">《第二教室使用条款和隐私政策》</em></p>
+	</article>
+	<script type="text/javascript">
+		$(".more-select").click(function(){
+			var _th=$(this);
+			var index=$(".input-box .more-select").index(this);
+			$(this).parent().children(".select-box-pop").removeClass("hide");
+			$(".select-box-pop").children("li").bind("click",function(){
+				var oLi = $(this).html();
+				$(this).parents(".input-box").children("input").val(oLi);
+				$(".select-box-pop").addClass("hide");
+			})
+		});
+		
+	</script>
+</body>
+</html>

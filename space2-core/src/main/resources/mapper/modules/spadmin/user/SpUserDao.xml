@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.user.dao.SpUserDao">
+    
+	<sql id="spUserColumns">
+		a.id AS "id",
+		a.name AS "name",
+		a.login_name AS "loginName",
+		a.user_pwd AS "userPwd",
+		a.thumb_img AS "thumbImg",
+		a.mobile AS "mobile",
+		a.email AS "email",
+		a.user_type AS "userType",
+		a.user_state AS "userState",
+		a.space_id AS "spaceId",
+		a.enter_year AS "enterYear",
+		a.specialty_id AS "specialtyId",
+		a.class_id AS "classId",
+		a.remarks AS "remarks",
+		a.create_date AS "createDate",
+		a.create_by AS "createBy",
+		a.update_date AS "updateDate",
+		a.update_by AS "updateBy",
+		a.del_flag AS "delFlag"
+		,s.id as "spSpecialty.id"
+		,s.name as "spSpecialty.name"
+		,c.id as "spClass.id"
+		,c.name as "spClass.name"
+		,sp.id as "spSpace.id"
+		,sp.name as "spSpace.name"
+	</sql>
+	
+	<sql id="spUserJoins">
+		LEFT JOIN sp_specialty s ON s.id = a.specialty_id 
+		LEFT JOIN sp_class c ON c.id = a.class_id 
+		LEFT JOIN sp_space sp ON sp.id = a.space_id 
+	</sql>
+    
+	<select id="get" resultType="SpUser">
+		SELECT 
+			<include refid="spUserColumns"/>
+		FROM sp_user a
+		<include refid="spUserJoins"/>
+		WHERE  a.id = #{id}
+	</select>
+	
+	<select id="checkMobile" resultType="SpUser">
+		SELECT 
+			<include refid="spUserColumns"/>
+		FROM sp_user a
+		<include refid="spUserJoins"/>
+		WHERE  a.mobile = #{mobile}
+	</select>
+	
+	
+	
+	<select id="getbySpUser" resultType="SpUser">
+		SELECT 
+			<include refid="spUserColumns"/>
+		FROM sp_user a
+		<include refid="spUserJoins"/>
+		WHERE  1=1
+		<if test="id != null and id != ''">
+			and a.id = #{id}
+		</if>
+		<if test="loginName != null and loginName != ''">
+			and a.login_name = #{loginName}
+		</if>
+	</select>
+	
+	<select id="findByLoginName" resultType="SpUser" parameterType="map">
+		SELECT 
+			<include refid="spUserColumns"/>
+		FROM sp_user a
+		<include refid="spUserJoins"/>
+		WHERE 1=1 
+		<if test="loginName != null and loginName != ''">
+			 and a.login_name = #{loginName} 
+		</if>
+		<if test="spaceId != null and spaceId != ''">
+			and a.space_id = #{spaceId}
+		</if>
+		<if test="delFlag != null and delFlag != ''">
+			and a.del_flag = #{delFlag}
+		</if>
+		<if test="mobile != null and mobile != ''">
+			and a.mobile = #{mobile}
+		</if>
+	</select>
+	
+	<select id="findList" resultType="SpUser">
+		SELECT 
+			<include refid="spUserColumns"/>
+		FROM sp_user a
+		<include refid="spUserJoins"/>
+		<where>
+			<if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="createBy != null and createBy != ''">
+				and a.create_by = #{createBy}
+			</if>
+			<if test="name != null and name != ''">
+				AND a.name LIKE concat('%',#{name},'%')
+			</if>
+			<if test="mobile != null and mobile != ''">
+				AND a.mobile LIKE concat('%',#{mobile},'%')
+			</if>
+			<if test="userType != null and userType != ''">
+				AND a.user_type = #{userType}
+			</if>
+			<if test="enterYear != null and enterYear != ''">
+				AND a.enter_year = #{enterYear}
+			</if>
+			<if test="specialtyId != null and specialtyId != ''">
+				AND a.specialty_id = #{specialtyId}
+			</if>
+			<if test="classId != null and classId != ''">
+				AND a.class_id = #{classId}
+			</if>
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id = #{spaceId}
+			</if>
+		</where>
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<select id="findAllList" resultType="SpUser">
+		SELECT 
+			<include refid="spUserColumns"/>
+		FROM sp_user a
+		<include refid="spUserJoins"/>
+		<where>
+			a.del_flag = '0'
+			<if test="ids != null and ids != ''">
+			and id in
+				<foreach collection="ids" item="id" open="(" close=")" separator=",">
+					#{id}
+				</foreach>
+			</if>
+		</where>		
+		<choose>
+			<when test="orderBy != null and orderBy != ''">
+				ORDER BY ${orderBy}
+			</when>
+			<otherwise>
+				ORDER BY a.update_date DESC
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_user(
+			id,
+			name,
+			login_name,
+			user_pwd,
+			thumb_img,
+			mobile,
+			email,
+			user_type,
+			user_state,
+			space_id,
+			enter_year,
+			specialty_id,
+			class_id,
+			remarks,
+			create_date,
+			create_by,
+			update_date,
+			update_by,
+			del_flag
+		) VALUES (
+			#{id},
+			#{name},
+			#{loginName},
+			#{userPwd},
+			#{thumbImg},
+			#{mobile},
+			#{email},
+			#{userType},
+			#{userState},
+			#{spaceId},
+			#{enterYear},
+			#{specialtyId},
+			#{classId},
+			#{remarks},
+			#{createDate},
+			#{createBy},
+			#{updateDate},
+			#{updateBy},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_user SET 	
+			<if test="name != null and name != ''">
+			name = #{name},
+			</if>
+			<if test="loginName != null and loginName != ''">
+			login_name = #{loginName},
+			</if>
+			<if test="userPwd != null and userPwd != ''">
+			user_pwd = #{userPwd},
+			</if>
+			<if test="thumbImg != null and thumbImg != ''">
+			thumb_img = #{thumbImg},
+			</if>
+			<if test="mobile != null and mobile != ''">
+			mobile = #{mobile},
+			</if>
+			<if test="email != null and email != ''">
+			email = #{email},
+			</if>
+			<if test="userType != null and userType != ''">
+			user_type = #{userType},
+			</if>
+			<if test="userState != null and userState != ''">
+			user_state = #{userState},
+			</if>
+			<if test="enterYear != null and enterYear != ''">
+			enter_year = #{enterYear},
+			</if>
+			<if test="specialtyId != null and specialtyId != ''">
+			specialty_id = #{specialtyId},
+			</if>
+			<if test="classId != null and classId != ''">
+			class_id = #{classId},
+			</if>
+			<if test="remarks != null and remarks != ''">
+			remarks = #{remarks},
+			</if>
+			<if test="updateBy != null and updateBy != ''">
+			update_by = #{updateBy},
+			</if>
+			update_date = now()
+		WHERE id = #{id}
+	</update>
+	
+	<update id="delete">
+		UPDATE sp_user 
+		SET del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	<update id="revert">
+		UPDATE sp_user 
+		SET del_flag = #{DEL_FLAG_NORMAL}
+		WHERE id = #{id}
+	</update>
+		
+	<update id="updatePassword">
+		UPDATE sp_user 
+		SET user_pwd = #{newPassword}
+		WHERE login_name = #{loginName}
+		and space_id = #{spaceId}
+	</update>
+	
+	<delete id="deleteSpUser">
+		delete from sp_user WHERE id = #{id}
+	</delete>
+	
+	<select id="hasUser" resultType="int">
+		SELECT count(0) FROM sp_user a WHERE a.mobile = #{mobile} and a.space_id=#{schoolId}
+	</select>
+	
+	<!-- 通过loginName和spaceId查询用户是否存在 -->
+	<select id="selectUser" resultType="int">
+	  select count(*) from sp_user where del_flag = '0' and login_name = #{loginName} and space_id = #{spaceId}
+	</select>
+</mapper>

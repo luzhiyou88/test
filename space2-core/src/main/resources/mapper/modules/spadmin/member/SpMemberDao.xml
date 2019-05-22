@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.classroom.core.modules.spadmin.member.dao.SpMemberDao">
+    
+	<sql id="spMemberColumns">
+		a.id AS "id",
+		a.user_id AS "userId",
+		a.space_id AS "spaceId",
+		a.start_time AS "startTime",
+		a.end_time AS "endTime",
+		a.state AS "state",
+		a.desc AS "desc",
+		a.create_date AS "createDate",
+		a.del_flag AS "delFlag",
+		u2.name AS "userName",
+		u2.login_name as "loginName",
+		s.name as "spaceName"
+	</sql>
+	
+	<sql id="spMemberJoins">
+		LEFT JOIN sp_user u2 ON u2.id = a.user_id
+		LEFT JOIN sp_space s ON s.id = a.space_id
+	</sql>
+    
+	<select id="get" resultType="SpMember">
+		SELECT 
+			<include refid="spMemberColumns"/>
+		FROM sp_member a
+		<include refid="spMemberJoins"/>
+		WHERE a.id = #{id}
+	</select>
+	
+	<select id="getByParams" resultType="SpInnerMember" parameterType="map">
+		SELECT 
+			<include refid="spMemberColumns"/>
+		FROM sp_member a
+		<include refid="spMemberJoins"/>
+		<where>
+		    <if test="delFlag != null and delFlag != ''">
+				AND a.del_flag = #{delFlag}
+			</if>
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id = #{spaceId}
+			</if>
+			<if test="userId != null and userId != ''">
+				AND a.user_id = #{userId}
+			</if>
+		</where>
+	</select>
+	
+	<select id="findList" resultType="SpMember">
+		SELECT 
+			<include refid="spMemberColumns"/>
+		FROM sp_member a
+		<include refid="spMemberJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+			<if test="spaceId != null and spaceId != ''">
+				AND a.space_id = #{spaceId}
+			</if>
+			<if test="startTime != null and startTime != ''">
+				AND a.start_time = #{startTime}
+			</if>
+			<if test="endTime != null and endTime != ''">
+				AND a.end_time = #{endTime}
+			</if>
+			<if test="userName != null and userName != ''">
+				AND u2.name like concat('%',#{userName},'%')
+			</if>
+			<if test="loginName != null and loginName != ''">
+				AND u2.login_name like concat('%',#{loginName},'%')
+			</if>
+			<if test="spaceName != null and spaceName != ''">
+				AND s.name like concat('%',#{spaceName},'%')
+			</if>
+			<if test="state != null and state != ''">
+				AND a.state like concat('%',#{state},'%')
+			</if>
+			<if test="beginUpdateDate != null and endUpdateDate != null and beginUpdateDate != '' and endUpdateDate != ''">
+				AND date_format(a.end_time,'%Y-%m-%d') BETWEEN #{beginUpdateDate} AND #{endUpdateDate}
+			</if>
+		</where>
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	
+	<select id="findListById" resultType="SpMember">
+		SELECT 
+			<include refid="spMemberColumns"/>
+		FROM sp_member a
+		where  a.del_flag = '0'
+		  And  id = #{id}
+	</select>
+	
+	
+	<select id="findListByUserId" resultType="SpMember">
+		SELECT 
+			a.id AS "id",
+			a.user_id AS "userId",
+			a.space_id AS "spaceId",
+			a.start_time AS "startTime",
+			a.end_time AS "endTime",
+			a.state AS "state",
+			a.desc AS "desc",
+			a.create_date AS "createDate",
+			a.del_flag AS "delFlag"
+		FROM sp_member a
+		where  a.del_flag = '0'
+		  And  user_id = #{userId}
+	</select>
+	
+	
+	<select id="findAllList" resultType="SpMember">
+		SELECT 
+			<include refid="spMemberColumns"/>
+		FROM sp_member a
+		<include refid="spMemberJoins"/>
+		<where>
+			a.del_flag = #{DEL_FLAG_NORMAL}
+		</where>		
+		<choose>
+			<when test="page !=null and page.orderBy != null and page.orderBy != ''">
+				ORDER BY ${page.orderBy}
+			</when>
+			<otherwise>
+			</otherwise>
+		</choose>
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO sp_member(
+			id,
+			user_id,
+			space_id,
+			start_time,
+			end_time,
+			state,
+			`desc`,
+			create_date,
+			del_flag
+		) VALUES (
+			#{id},
+			#{userId},
+			#{spaceId},
+			#{startTime},
+			#{endTime},
+			#{state},
+			#{desc},
+			#{createDate},
+			#{delFlag}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE sp_member SET 	
+			user_id = #{userId},
+			space_id = #{spaceId},
+			start_time = #{startTime},
+			end_time = #{endTime},
+			state = #{state},
+			`desc` = #{desc}
+		WHERE id = #{id}
+	</update>
+	
+	
+	
+	
+	<update id="delete">
+		UPDATE sp_member SET 
+			del_flag = #{DEL_FLAG_DELETE}
+		WHERE id = #{id}
+	</update>
+	
+	 <update id="updateSelectiveByUserId">
+	   UPDATE sp_member 
+	    <set>
+	      <if test="spaceId != null">
+	        space_id = #{spaceId},
+	      </if>
+	      <if test="startTime != null">
+	       start_time = #{startTime},
+	      </if>
+	       <if test="endTime != null">
+	       end_time = #{endTime},
+	      </if>
+	      <if test="state != null">
+	       state = #{state},
+	      </if>
+	      <if test="desc != null">
+	        desc = #{desc},
+	      </if>
+	    </set>
+	    where user_id = #{userId}
+  </update>
+	
+	<!-- 判断用户是否是会员 -->
+	<select id="selectMemUser" parameterType="map" resultType="int">
+	   select count(*) from sp_member where del_flag = '0' and user_id = #{userId} and end_time &gt;= #{date,jdbcType=TIMESTAMP} 
+	</select>	
+</mapper>

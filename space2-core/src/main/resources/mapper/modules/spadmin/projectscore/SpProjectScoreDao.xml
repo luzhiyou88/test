@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.education.classroom.core.modules.spadmin.projectscore.dao.SpProjectScoreDao">
+
+	<sql id="spProjectScoreColumns">
+		a.id AS "id",
+		a.user_id AS "userId",
+		a.project_id AS
+		"projectId",
+		a.score AS "score",
+		a.create_date AS "createDate"
+	</sql>
+	<sql id="spProjectScoreColumns2">
+		u.user_type AS "userType",
+		count(1) AS "joinNum",
+		MAX(score) AS "MaxScore",
+		cast(convert(AVG(score),decimal) as char(20)) AS "AvgScore"
+	</sql>
+	<sql id="spProjectScoreJoins">
+	</sql>
+
+	<select id="get" resultType="SpProjectScore">
+		SELECT
+		<include refid="spProjectScoreColumns" />
+		FROM sp_project_score a
+		<include refid="spProjectScoreJoins" />
+		where 1=1
+			<if test="id != null and id != ''">
+				and a.id = #{id}
+			</if>
+			<if test="userId != null and userId != ''">
+				and  a.user_id = #{userId}
+			</if>
+			<if test="projectId != null and projectId != ''">
+				and  a.project_id = #{projectId}
+			</if>
+		
+	</select>
+
+	<select id="findList" resultType="SpProjectScore">
+		SELECT
+		<include refid="spProjectScoreColumns" />
+		FROM sp_project_score a
+		<include refid="spProjectScoreJoins" />
+		<where>
+		</where>
+		ORDER BY a.create_date
+	</select>
+	<select id="findScore" resultType="Map">
+		SELECT
+		<include refid="spProjectScoreColumns2" />
+		FROM sp_project_score a LEFT JOIN sp_user u ON u.id=a.user_id
+		<where>
+			a.project_id =#{projectId}
+		</where>
+		group by u.user_type
+	</select>
+	<select id="findAllList" resultType="SpProjectScore">
+		SELECT
+		<include refid="spProjectScoreColumns" />
+		FROM sp_project_score a
+		<include refid="spProjectScoreJoins" />
+		ORDER BY a.create_date
+	</select>
+
+	<insert id="insert">
+		INSERT INTO sp_project_score(
+		id,
+		user_id,
+		project_id,
+		score,
+		create_date
+		) VALUES (
+		#{id},
+		#{userId},
+		#{projectId},
+		#{score},
+		#{createDate}
+		)
+	</insert>
+
+	<update id="update">
+		UPDATE sp_project_score SET
+		user_id = #{userId},
+		project_id = #{projectId},
+		score = #{score}
+		WHERE id = #{id}
+	</update>
+
+	<update id="delete">
+		DELETE FROM sp_project_score
+		WHERE id = #{id}
+	</update>
+
+</mapper>
