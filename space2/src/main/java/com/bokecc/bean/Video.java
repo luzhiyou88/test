@@ -114,7 +114,7 @@ public class Video {
 		this.status = status;
 	}
 	public String getDuration() {
-		return duration;
+		return duration;     
 	}
 	public void setDuration(String duration) {
 		this.duration = duration;
